@@ -2,60 +2,80 @@ import frappe
 from random import randint
 import jwt
 import datetime
+import json
 
-@frappe.whitelist(methods=["POST"], allow_guest=True)
-def signin(body={}):
+@frappe.whitelist( allow_guest=True )
+def login(usr, pwd):
     try:
-        user_email = body.get('user_email')
-        password = body.get('password')
+        login_manager = frappe.auth.LoginManager()
+        login_manager.authenticate(user=usr, pwd=pwd)
+        login_manager.post_login()
 
-        if not user_email or not password:
-            return {
-                "status": "failed",
-                "message": "Email and password are required."
-            }
+        user = frappe.get_doc('User', frappe.session.user)
+        
+        if user.api_key and user.api_secret:
+                user.api_secret = user.get_password('api_secret')
+        else:
+                api_generate = generate_keys(frappe.session.user)     
 
-        doc = frappe.get_doc('User', user_email)
-        if doc and doc.new_password == password:
-            token = generate_jwt_token(user_email, password)
-            return {
-                "status": "success",
-                "token": token
+
+        frappe.response["message"] = {
+                "success_key":1,
+                "message":"success",
+                "sid":frappe.session.sid,
+                "api_key":user.api_key if user.api_key else api_generate[1],
+                "api_secret": user.api_secret if user.api_secret else api_generate[0],
+                "username":user.username,
+                "email":user.email
+        }
+    except Exception as e:
+        frappe.clear_messages()
+        frappe.local.response["message"] = {
+            "success_key":0,
+            "message":"Incorrect username or password",
+            "error":e
+        }
+        
+        return 
+
+def generate_keys(user):
+    user_details = frappe.get_doc('User', user)
+    api_secret = frappe.generate_hash(length=15)
+    api_key = frappe.generate_hash(length=15)
+    user_details.api_key = api_key
+
+    user_details.api_secret = api_secret
+    user_details.save(ignore_permissions=True)
+
+    if frappe.request.method == "GET":
+        frappe.db.commit()
+    
+
+    return user_details.get_password("api_secret"), user_details.api_key
+       
+       
+       
+
+@frappe.whitelist(methods="POST",allow_guest=True)
+def change_password(body={}):
+    username = frappe.db.get_value("User",body.get("usr"), 'name')
+    if username:
+        user_doc = frappe.get_doc("User", body.get("usr"))
+        if frappe.local.login_manager.check_password(user_doc.name, body.get("old_pwd")):
+            user_doc.new_password = body.get("new_pwd")
+            user_doc.save()
+            frappe.db.commit()
+            frappe.local.response["message"] = {
+                "success_key": 1,
+                "message": "Password changed successfully"
             }
         else:
-            return {
-                "status": "failed",
-                "message": "Invalid email or password."
+            frappe.local.response["message"] = {
+                "success_key": 0,
+                "message": "Old password is incorrect"
             }
-
-    except frappe.DoesNotExistError:
-        return {
-            "status": "failed",
-            "message": "User does not exist."
+    else:
+        frappe.local.response["message"] = {
+            "success_key": 0,
+            "message": "User not found"
         }
-    except Exception as e:
-        return {
-            "status": "failed",
-            "message": str(e)
-        }
-
-def generate_jwt_token(user_email, password):
-    try:
-        payload = {
-            "email": user_email
-        }
-        secret_key = "Pardeep01"
-        token = jwt.encode(payload, secret_key, algorithm='HS256')
-
-        return token
-
-    except Exception as e:
-        frappe.log_error(message=str(e), title="JWT Token Generation Error")
-        raise e
-
-
-
-
-
-
-
