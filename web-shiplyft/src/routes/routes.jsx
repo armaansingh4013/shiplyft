@@ -1,14 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from '../pages/Home';
-import MainLayout from '../layout/MainLayout';
-import SignUp from '../features/SignUp';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "../screens/Home";
+import SignUp from "../features/SignUp";
 
 const AppRoutes = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="web-shiplyft">
     <Routes>
-    <Route path="/sign-up" element={ <SignUp />} />
-
-      <Route path="/" element={<MainLayout> <HomePage /></MainLayout>} />
+      <Route path="/sign-up" element={<SignUp />} />
+      <Route path="/" element={<HomePage />} />
     </Routes>
   </BrowserRouter>
 );
