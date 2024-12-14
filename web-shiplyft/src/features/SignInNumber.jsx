@@ -2,7 +2,7 @@ import signup from "../assets/signin.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { signInPhone } from "../modules";
 import { useState } from "react";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 const SignInNumber = () => {
 
     const [phone ,setPhone] = useState("");

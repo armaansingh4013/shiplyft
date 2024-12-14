@@ -4,6 +4,7 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import signup from "../assets/signin.png"
 import { Link } from 'react-router-dom';
 import { signUp } from '../modules';
+import { toast } from 'react-toastify';
 const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);

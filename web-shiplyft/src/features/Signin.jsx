@@ -1,14 +1,14 @@
 // import React from 'react'
 import { useState } from 'react'
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import signup from "../assets/signin.png"
 import { signIn } from '../modules';
 import { toast } from'react-toastify';
 const Signin = () => {
 
     const [showPassword, setShowPassword] = useState(false);
-
+const navigate = useNavigate();
     const togglePasswordVisibility = () => {
         setShowPassword((prev) => !prev);
     };
@@ -29,8 +29,9 @@ const Signin = () => {
             console.log(response);
             
           if (response) {
-            localStorage.setItem("crsf_token",response.token);
-            toast.success("Replacement request submitted successfully!");
+            localStorage.setItem("crsf_token",response.success_key);
+            toast.success("Sign successfully!");
+            navigate("/dashboard")
           } else {
             toast.error("There was an error processing the replacement request.");
           }
