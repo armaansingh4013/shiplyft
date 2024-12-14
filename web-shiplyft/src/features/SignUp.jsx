@@ -38,12 +38,12 @@ const SignUp = () => {
 
       const response = await signUp(formData.phone,formData.firstname,formData.email,formData.password,formData.confirm_password);
 
-      if (response.success_key==1) {
+      if (response.status=="success") {
         localStorage.setItem("crsf_token",response.sid);
         toast.success("Sign Up successfully!");
         navigate("/sign-in")
       } else {
-        toast.error("There was an error processing the replacement request.");
+        toast.error(response.message);
       }
     } catch (error) {
       toast.error("An error occurred while processing the replacement.");

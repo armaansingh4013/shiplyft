@@ -16,12 +16,12 @@ const SignInNumber = () => {
           const response = await signInPhone(phone);
             console.log(response);
             
-          if (response.success_key==1) {
+          if (response.status=="success") {
             toast.success("OTP sent successfully!");
             const encodedPhone = encodeURIComponent(btoa(phone))
             navigate(`/login-otp/${encodedPhone}`)
           } else {
-            toast.error("There was an error processing the OTP request.");
+            toast.error(response.message)
           }
         } catch (error) {
           toast.error("An error occurred while processing the otp.");
