@@ -60,17 +60,18 @@ const email = atob(decodeURIComponent(encodedEmail));
                                         <div className="flex shadow-xl flex-col overflow-hidden rounded-lg bg-white shadow-sm dark:bg-white-800 dark:text-white-100 p-8">
                                             {/* Header */}
 
-                                            <header className=" text-start mb-2">
-                                                <p className="mb-8 text-[var(--primary-color)] gap-2 text-2xl md:text-3xl font-bold">
-
-                                                    <span>LOGO </span>
-                                                </p>
-                                                <p className="text-4xl leading-10 md:text-5xl font-bold text-white-500 dark:text-white-400">
-                                                    Verify Code
-                                                </p>
-                                                <p className="text-gray-600">An uthentication code has ben sent to your email</p>
-                                            </header>
-                                            {/* END Header */}
+                      <header className=" text-start mb-2">
+                        <p className="mb-8 text-[var(--primary-color)] gap-2 text-2xl md:text-3xl font-bold">
+                          <span>LOGO </span>
+                        </p>
+                        <p className="text-4xl leading-10 md:text-5xl font-bold text-white-500 dark:text-white-400">
+                          Verify Code
+                        </p>
+                        <p className="text-gray-600">
+                          An uthentication code has ben sent to your email
+                        </p>
+                      </header>
+                      {/* END Header */}
 
                                             {/* Sign In Form */}
                                             <div className="grow w-full md:px-1 md:py-6">
@@ -97,56 +98,57 @@ const email = atob(decodeURIComponent(encodedEmail));
 
 
 
-                                                    <div>
-<div className="text-gray-400"><p>Didn't recieve a code ? <span className="text-[var(--primary-color)]">Resend</span></p></div>
-                                                        <div className='w-full flex mt-4 items-center justify-center'>
-                                                            <button
-                                                                type="submit"
-                                                                className="rounded-3xl order  bg-[var(--primary-color)] px-10 py-2  font-semibold leading-6 text-white hover:border-blue-600 hover:bg-blue-600 hover:text-white focus:ring focus:ring-blue-400/50 active:border-blue-700 active:bg-blue-700 dark:focus:ring-blue-400/90"
-                                                            >
-
-                                                                <span>Verify</span>
-                                                            </button>
-                                                        </div>
-                                                        
-                                
-                                                    </div>
-                                                </form>
-                                            </div>
-
-                                        </div>
-                                        {/* END Sign In Form */}
-
-
-                                    </section>
-                                    {/* END Sign In Section */}
-                                </div>
-                            </main>
-                            {/* END Page Content */}
-                        </div>
-                        {/* END Page Container */}
-                        {/* END Sign up Section */}
-                        {/* Side Image */}
-                        <div className="hidden w-[54%] py-6 lg:block">
-                            <div className="h-full w-full flex items-center justify-center">
-                                <img
-                                    src={signup}
-                                    className=" h-110 w-110 rounded-3xl object-cover"
-                                    alt="Sign up cover image"
-                                />
+                          <div>
+                            <div className="text-gray-400">
+                              <p>
+                                Didn't recieve a code ?{" "}
+                                <span className="text-[var(--primary-color)]">
+                                  Resend
+                                </span>
+                              </p>
                             </div>
-                        </div>
-                        {/* END Side Image */}
-
-                        <div className="absolute top-0 right-0 h-full w-[40%] bg-[var(--secondary-color)] -z-10"></div>
+                            <div className="w-full flex mt-4 items-center justify-center">
+                              <button
+                                type="submit"
+                                className="rounded-3xl order  bg-[var(--primary-color)] px-10 py-2  font-semibold leading-6 text-white hover:border-blue-600 hover:bg-blue-600 hover:text-white focus:ring focus:ring-blue-400/50 active:border-blue-700 active:bg-blue-700 dark:focus:ring-blue-400/90"
+                              >
+                                <span>Verify</span>
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     </div>
-                </main>
-                {/* END Page Content */}
+                    {/* END Sign In Form */}
+                  </section>
+                  {/* END Sign In Section */}
+                </div>
+              </main>
+              {/* END Page Content */}
             </div>
             {/* END Page Container */}
-            {/* END Pages: Sign Up: With Image Alternate */}
-        </>
-    );
-}
+            {/* END Sign up Section */}
+            {/* Side Image */}
+            <div className="hidden w-[54%] py-6 lg:block">
+              <div className="h-full w-full flex items-center justify-center">
+                <img
+                  src={signup}
+                  className=" h-110 w-110 rounded-3xl object-cover"
+                  alt="Sign up cover image"
+                />
+              </div>
+            </div>
+            {/* END Side Image */}
 
-export default ForgotPasswordCode
+            <div className="absolute top-0 right-0 h-full w-[40%] bg-[var(--secondary-color)] -z-10"></div>
+          </div>
+        </main>
+        {/* END Page Content */}
+      </div>
+      {/* END Page Container */}
+      {/* END Pages: Sign Up: With Image Alternate */}
+    </>
+  );
+};
+
+export default ForgotPasswordCode;
