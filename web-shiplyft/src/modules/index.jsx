@@ -25,7 +25,7 @@ export const signIn = async (email, password) => {
     console.log('====================================');
     console.log(response.data.message);
     console.log('====================================');
-    return response.message;
+    return response.data.message;
   } catch (error) {
     throw error;
   }
