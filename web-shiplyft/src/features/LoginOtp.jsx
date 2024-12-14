@@ -58,13 +58,13 @@ const LoginOtp = () => {
           const response = await signInPhoneOtp(final_otp,Phone);
             console.log(response);
             
-          if (response.success_key==1) {
+          if (response.status=="success") {
             localStorage.setItem("crsf_token",response.sid);
             toast.success("Logged In successfully!");
             const encodedPhone = encodeURIComponent(btoa(phone))
             navigate(`/dashboard`)
           } else {
-            toast.error("There was an error processing the request.");
+            toast.error(response.message);
           }
         } catch (error) {
           toast.error("An error occurred while processing the request.");
