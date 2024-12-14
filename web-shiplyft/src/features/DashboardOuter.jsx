@@ -1,7 +1,35 @@
-import react from "react";
-import { ReactComponent as homeIcon } from "../assets/svg/home.svg";
-import { HomeIcon, EyeSlashIcon } from "@heroicons/react/24/solid";
+import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+
+import {
+  HomeIcon,
+  MagnifyingGlassIcon as SearchIcon,
+  ArrowPathIcon as SyncIcon,
+  CubeIcon,
+  EyeSlashIcon,
+} from "@heroicons/react/24/solid";
+
 const DashboardOuter = () => {
+  const data = [
+    {
+      col1: "Data 1",
+      col2: "Data 2",
+      col3: "Data 3",
+      col4: "Data 4",
+      col5: "Data 5",
+      col6: "Data 6",
+      col7: "Data 7",
+    },
+    {
+      col1: "Row 2",
+      col2: "Row 2",
+      col3: "Row 2",
+      col4: "Row 2",
+      col5: "Row 2",
+      col6: "Row 2",
+      col7: "Row 2",
+    },
+  ];
   return (
     <>
       <div>
@@ -21,9 +49,6 @@ const DashboardOuter = () => {
                     class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
                   >
                     <HomeIcon className="w-5 h-5 text-white hover:text-[#DD675B] pr-1" />
-                    {/* <svg class="flex-shrink-0 w-5 h-5 mr-4 text-white" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                            </svg> */}
                     Home
                   </a>
 
@@ -31,19 +56,20 @@ const DashboardOuter = () => {
                     href="#"
                     class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
                   >
-                    {/* <svg class="flex-shrink-0 w-5 h-5 mr-4 text-white" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg> */}
                     Dashboard
                   </a>
+                  <Link
+                    to="/dashboard/order"
+                    href="#"
+                    class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
+                  >
+                    Orders
+                  </Link>
 
                   <a
                     href="#"
                     class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
                   >
-                    {/* <svg class="flex-shrink-0 w-5 h-5 mr-4 text-white" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg> */}
                     Returns
                   </a>
 
@@ -51,29 +77,16 @@ const DashboardOuter = () => {
                     href="#"
                     class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
                   >
-                    {/* <svg class="flex-shrink-0 w-5 h-5 mr-4 text-white" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg> */}
                     <div className="flex justify-between w-full">
                       <p>Weight Management</p>
                       <p className="text-sm leading-none">&#11167;</p>
                     </div>
-
-                    {/* <svg class="w-4 h-6 ml-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg> */}
                   </a>
-
-                  {/* <hr class="border-gray-700" /> */}
 
                   <a
                     href="#"
                     class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
                   >
-                    {/* <svg class="flex-shrink-0 w-5 h-5 mr-4 text-white" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                            </svg> */}
-
                     <div className="flex justify-between w-full">
                       <p>Tools</p>
                       <p className="text-sm leading-none">&#11167;</p>
@@ -84,10 +97,6 @@ const DashboardOuter = () => {
                     href="#"
                     class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
                   >
-                    {/* <svg class="flex-shrink-0 w-5 h-5 mr-4 text-white" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                            </svg> */}
-
                     <div className="flex justify-between w-full">
                       <p>Billing</p>
                       <p className="text-sm leading-none">&#11167;</p>
@@ -98,29 +107,16 @@ const DashboardOuter = () => {
                     href="#"
                     class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
                   >
-                    {/* <svg class="flex-shrink-0 w-5 h-5 mr-4 text-white" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg> */}
-
                     <div className="flex justify-between w-full">
                       <p>Setting</p>
                       <p className="text-sm leading-none">&#11167;</p>
                     </div>
-                    {/* <svg class="w-4 h-6 ml-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg> */}
                   </a>
                   <a
                     href="#"
                     class="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group"
                   >
-                    {/* <svg class="flex-shrink-0 w-5 h-5 mr-4 text-white" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                            </svg> */}
                     Customer Support
-                    {/* <svg class="w-4 h-6 ml-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg> */}
                   </a>
                 </nav>
               </div>
@@ -366,9 +362,63 @@ const DashboardOuter = () => {
           </div>
 
           <main>
-            {/* <div class="py-6">
-              <div class="px-4 mx-auto sm:px-6 md:px-8">
-                <h1 class="text-2xl font-bold text-gray-900">Settings</h1>
+            <div class="py-6">
+              <div class="px-4 mx-auto sm:px-6 md:px-8 flex flex-row justify-between ">
+                <div className="flex flex-row justify-start">
+                  <h1 class="text-2xl font-bold text-gray-900 mr-3">Orders</h1>
+                  <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl w-[140px] h-[37px] justify-center ">
+                    <select className="w-full  h-full rounded-md">
+                      <option value="New York">All</option>
+                      <option value="London">1 Months</option>
+                      <option value="Paris">3 Months</option>
+                      <option value="Tokyo">6</option>
+                      <option value="Mumbai">12 MOnths</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex items-center rounded-md border border-gray-300 p-2 w-full md:w-80">
+                  <SearchIcon className="w-4 h-4" />
+
+                  <input
+                    type="text"
+                    placeholder="Search for AWB, Order Id, Mobile Number"
+                    className="flex-1 outline-none text-sm placeholder-gray-500"
+                  />
+                </div>
+
+                <div className="flex flex-row justify-end">
+                  <div class=" relative p-1 text-gray-700 transition-all duration-200 bg-[#e0caeb] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
+                    <button
+                      type="button"
+                      class="p-1 text-[#af92d6] transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-bold"
+                    >
+                      + Add Order
+                    </button>
+                  </div>
+                  <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
+                    <button
+                      type="button"
+                      class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 flex flex-row"
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M4.75517 10.0589C5.82723 6.0579 9.93976 3.68353 13.9408 4.75559C15.2617 5.10955 16.4035 5.79374 17.3034 6.69528L19.2065 8.59835H16.0228C15.6085 8.59835 15.2728 8.93414 15.2728 9.34835C15.2728 9.76256 15.6085 10.0984 16.0228 10.0984H21.0154C21.2143 10.0984 21.4051 10.0193 21.5457 9.87864C21.6864 9.73797 21.7654 9.54717 21.7654 9.34824V4.35575C21.7654 3.94153 21.4296 3.60575 21.0154 3.60575C20.6011 3.60575 20.2654 3.94153 20.2654 4.35575V7.53591L18.3651 5.63561C17.2839 4.55253 15.9114 3.73071 14.329 3.3067C9.52779 2.02023 4.59276 4.86947 3.30628 9.67067C3.19908 10.0708 3.43651 10.482 3.83661 10.5892C4.23671 10.6964 4.64796 10.459 4.75517 10.0589ZM20.1626 13.4108C19.7625 13.3036 19.3513 13.5411 19.2441 13.9412C18.172 17.9422 14.0595 20.3165 10.0585 19.2445C8.73749 18.8905 7.5957 18.2063 6.69585 17.3048L4.79396 15.4017H7.97677C8.39099 15.4017 8.72677 15.0659 8.72677 14.6517C8.72677 14.2375 8.39099 13.9017 7.97677 13.9017L2.98413 13.9017C2.56992 13.9017 2.23413 14.2375 2.23413 14.6517V19.6443C2.23413 20.0585 2.56992 20.3943 2.98413 20.3943C3.39834 20.3943 3.73413 20.0585 3.73413 19.6443V16.4632L5.6342 18.3645C6.71539 19.4477 8.08772 20.2693 9.67024 20.6934C14.4714 21.9798 19.4065 19.1306 20.6929 14.3294C20.8001 13.9293 20.5627 13.5181 20.1626 13.4108Z"
+                          fill="#0F172A"
+                        />
+                      </svg>
+                      Sync Orders
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div class="px-4 mx-auto mt-8 sm:px-6 md:px-8">
@@ -379,54 +429,160 @@ const DashboardOuter = () => {
                         href="#"
                         class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
                       >
-                        {" "}
-                        Profile{" "}
+                       New
                       </a>
 
                       <a
                         href="#"
                         class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
                       >
-                        {" "}
-                        Password{" "}
+                        Ready to Ship
                       </a>
 
                       <a
                         href="#"
                         class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
                       >
-                        {" "}
-                        Team{" "}
+                        Pickups and Manifests
                       </a>
 
                       <a
                         href="#"
                         class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
                       >
-                        {" "}
-                        Notification{" "}
+                        In Transit
                       </a>
 
                       <a
                         href="#"
                         class="py-4 text-sm font-medium text-indigo-600 transition-all duration-200 border-b-2 border-indigo-600 whitespace-nowrap"
                       >
-                        {" "}
-                        Integrations{" "}
+                        Delivered
                       </a>
 
                       <a
                         href="#"
                         class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
                       >
-                        {" "}
-                        Licenses{" "}
+                        RTO
+                      </a>
+                      <a
+                        href="#"
+                        class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
+                      >
+                        All
                       </a>
                     </nav>
                   </div>
                 </div>
+                <div class="px-4 mx-auto sm:px-6 md:px-8 flex flex-row justify-between">
+                <div className="flex flex-row justify-start">
+                
+                  <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl w-[140px] h-[37px] justify-center ">
+                    <select className="w-full  h-full rounded-md">
+                      <option value="New York">Last 30 Days</option>
+                      <option value="London">1 Months</option>
+                      <option value="Paris">3 Months</option>
+                      <option value="Tokyo">6</option>
+                      <option value="Mumbai">12 MOnths</option>
+                    </select>
+                  </div>
+                  <div class=" relative p-1 text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
+                    <button
+                      type="button"
+                      class="p-1 transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-bold"
+                    >
+                      More Filters
+                    </button>
+                  </div>
+                </div>
 
-                <div class="mt-8 border border-indigo-300 rounded-lg bg-indigo-50">
+                <div className="flex flex-row justify-end">
+                  <div class=" relative p-1 text-gray-700 transition-all duration-200 bg-[#e0caeb] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
+                    <button
+                      type="button"
+                      class="p-1 text-[#af92d6] transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-bold"
+                    >
+                      + Add Order
+                    </button>
+                  </div>
+                  <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl w-[190px] h-[37px] justify-center ">
+                    <select className="w-full  h-full rounded-md">
+                      <option value="New York">Select Bulk Actions</option>
+                      <option value="London">1 Months</option>
+                      <option value="Paris">3 Months</option>
+                      <option value="Tokyo">6</option>
+                      <option value="Mumbai">12 MOnths</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+                <div className="p-6">
+                  {/* Table */}
+                  <table className="table-auto w-full border-collapse">
+                    {/* Header */}
+                    <thead className="p-4 m-4">
+                      <tr className="bg-white text-black shadow-lg rounded-xl">
+                        <th className="p-2 md:p-3 text-left border-b rounded-s-3xl">
+                          Column 1
+                        </th>
+                        <th className="p-2 md:p-3 text-left border-b">
+                          Column 2
+                        </th>
+                        <th className="p-2 md:p-3 text-left border-b">
+                          Column 3
+                        </th>
+                        <th className="p-2 md:p-3 text-left border-b">
+                          Column 4
+                        </th>
+                        <th className="p-2 md:p-3 text-left border-b">
+                          Column 5
+                        </th>
+                        <th className="p-2 md:p-3 text-left border-b">
+                          Column 6
+                        </th>
+                        <th className="p-2 md:p-3 text-left border-b rounded-e-3xl">
+                          Column 7
+                        </th>
+                      </tr>
+                    </thead>
+
+                    {/* Body */}
+                    <tbody>
+                      <div className="h-8"></div>
+                      {data.length > 0 ? (
+                        data.map((row, index) => (
+                          <tr
+                            key={index}
+                            className="text-black text-sm shadow-m transition even:bg-[var(--lightSecondary-color)] odd:bg-white"
+                          >
+                            <td className="p-2 md:p-3">{row.col1}</td>
+                            <td className="p-2 md:p-3">{row.col2}</td>
+                            <td className="p-2 md:p-3">{row.col3}</td>
+                            <td className="p-2 md:p-3">{row.col4}</td>
+                            <td className="p-2 md:p-3">{row.col5}</td>
+                            <td className="p-2 md:p-3">{row.col6}</td>
+                            <td className="p-2 md:p-3">{row.col7}</td>
+                          </tr>
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan="7" className="text-center p-10 h-96">
+                            <div className="flex flex-col items-center justify-center space-y-2">
+                              <CubeIcon className="w-12 h-12 text-gray-400" />
+                              <span className="text-gray-600 text-lg font-medium">
+                                No Data
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* <div class="mt-8 border border-indigo-300 rounded-lg bg-indigo-50">
                   <div class="px-4 py-5 sm:p-6">
                     <div class="md:flex md:items-center md:justify-between">
                       <img
@@ -460,9 +616,9 @@ const DashboardOuter = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
-                <div class="mt-8 sm:flex sm:items-center sm:justify-between">
+                {/* <div class="mt-8 sm:flex sm:items-center sm:justify-between">
                   <div>
                     <p class="text-base font-bold text-gray-900">
                       Connect Apps
@@ -504,9 +660,9 @@ const DashboardOuter = () => {
                       />
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
-            </div> */}
+            </div>
           </main>
         </div>
       </div>

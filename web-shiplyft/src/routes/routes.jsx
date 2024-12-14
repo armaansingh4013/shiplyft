@@ -7,7 +7,8 @@ import ForgotPasswordEmail from "../features/ForgotPasswordEmail";
 import ForgotPasswordCode from "../features/ForgotPasswordCode";
 import ResetPassword from "../features/ResetPassword";
 import LoginOtp from "../features/LoginOtp";
-import Dashboard from "../screens/Dashboard"
+import Dashboard from "../screens/Dashboard";
+import OrderPage from "../features/Order";
 
 
 const AppRoutes = () => (
@@ -22,6 +23,7 @@ const AppRoutes = () => (
       <Route path="/login-otp/:encodedPhone" element={<LoginOtp/>} />
       <Route path="/" element={<HomePage />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="dashboard/order" element={<OrderPage />} />
     </Routes>
   </BrowserRouter>
 );
