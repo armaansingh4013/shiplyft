@@ -1,7 +1,32 @@
+import { useState } from "react";
 import signup from "../assets/signin.png"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { resetEmailSend } from "../modules";
+import { toast } from "react-toastify";
 const ForgotPasswordEmail = () => {
-
+    const [email,setEmail] = useState("");
+    const navigate = useNavigate();
+    const email_sent= async (e) => {
+      e.preventDefault()
+      
+      try {
+        
+  
+        const response = await resetEmailSend(email);
+          console.log(response);
+          
+        if (response.success_key ==1) {
+          toast.success("OTP sent successfully!");
+          const encodedEmail = encodeURIComponent(btoa(email))
+          navigate(`/forgot-password-verify/${encodedEmail}`)
+        } else {
+          toast.error(response.message)
+        }
+      } catch (error) {
+        toast.error("An error occurred while processing the otp.");
+      }
+    
+    };   
 
 
     return (
@@ -45,7 +70,7 @@ const ForgotPasswordEmail = () => {
                                             {/* Sign In Form */}
                                             <div className="grow w-full md:px-1 md:py-6">
                                                 <form
-                                                    onSubmit={(e) => e.preventDefault()}
+                                                    onSubmit={email_sent}
                                                     className="space-y-3 text-xs"
                                                 >
                                                     <div className="space-y-1">
@@ -53,6 +78,8 @@ const ForgotPasswordEmail = () => {
                                                             Email
                                                         </label>
                                                         <input
+                                                        value={email}
+                                                        onChange={(e)=>{setEmail(e.target.value)}}
                                                             type="email"
                                                             id="email"
                                                             name="email"

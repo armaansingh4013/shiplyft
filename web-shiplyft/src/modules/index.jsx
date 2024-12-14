@@ -22,9 +22,6 @@ export const signIn = async (email, password) => {
       usr:email,
       pwd:password
     });
-    console.log('====================================');
-    console.log(response.data.message);
-    console.log('====================================');
     return response.data.message;
   } catch (error) {
     throw error;
@@ -36,9 +33,6 @@ export const signInPhone = async (phone) => {
       
       phone:phone
     });
-    console.log('====================================');
-    console.log(response);
-    console.log('====================================');
     return response.data.message;
   } catch (error) {
     throw error;
@@ -46,14 +40,51 @@ export const signInPhone = async (phone) => {
 };
 export const signInPhoneOtp = async (otp,phone) => {
   try {
-    const response = await axiosInstance.post(APIs.signinphone, {
+    const response = await axiosInstance.post(APIs.signinphoneotp, {
      
         otp:otp,
       phone:phone
     });
-    console.log('====================================');
-    console.log(response);
-    console.log('====================================');
+    return response.data.message;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const resetEmailSend = async (user) => {
+  try {
+    const response = await axiosInstance.post(APIs.resetemailsend, {
+     
+       "body":{
+        usr:user
+       }
+    });
+    return response.data.message;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const resetOtpCheck = async (user,otp) => {
+  try {
+    const response = await axiosInstance.post(APIs.resetotpcheck, {
+      "body":{usr:user,
+        otp:otp}
+    });
+    return response.data.message;
+  } catch (error) {
+    throw error;
+  }
+};
+export const resetPassword = async (otp,phone) => {
+  try {
+    const response = await axiosInstance.post(APIs.resetpassword, {
+     "body":{
+      usr:user,
+      otp:otp,
+      new_pwd:password
+     }
+    });
     return response.data.message;
   } catch (error) {
     throw error;

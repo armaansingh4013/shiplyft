@@ -85,17 +85,23 @@ def change_password_with_otp(body={}):
     if username:
         cached_otp = frappe.cache().get_value(f"otp:{body.get('usr')}")
         if cached_otp and cached_otp == body.get("otp"):
-            user_doc = frappe.get_doc("User", body.get("usr"))
-            user_doc.new_password = body.get("new_pwd")
-            user_doc.save()
-            frappe.db.commit()
-            
-            frappe.cache().delete_value(f"otp:{body.get('usr')}")
-            
-            frappe.local.response["message"] = {
+            if not body.get("new_pwd"):
+                 frappe.local.response["message"] = {
                 "success_key": 1,
-                "message": "Password changed successfully"
-            }
+                "message": "OTP Verified"
+                }
+            else:
+                user_doc = frappe.get_doc("User", body.get("usr"))
+                user_doc.new_password = body.get("new_pwd")
+                user_doc.save()
+                frappe.db.commit()
+                
+                frappe.cache().delete_value(f"otp:{body.get('usr')}")
+                
+                frappe.local.response["message"] = {
+                    "success_key": 1,
+                    "message": "Password changed successfully"
+                }
         else:
             frappe.local.response["message"] = {
                 "success_key": 0,
