@@ -58,8 +58,8 @@ const LoginOtp = () => {
           const response = await signInPhoneOtp(final_otp,Phone);
             console.log(response);
             
-          if (response) {
-            localStorage.setItem("crsf_token",response.token);
+          if (response.success_key==1) {
+            localStorage.setItem("crsf_token",response.sid);
             toast.success("Logged In successfully!");
             const encodedPhone = encodeURIComponent(btoa(phone))
             navigate(`/dashboard`)
