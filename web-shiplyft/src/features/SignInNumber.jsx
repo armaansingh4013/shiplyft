@@ -18,7 +18,7 @@ const SignInNumber = () => {
             
           if (response) {
             localStorage.setItem("crsf_token",response.token);
-            toast.success("Replacement request submitted successfully!");
+            toast.success("OTP sent successfully!");
             const encodedPhone = encodeURIComponent(btoa(phone))
             navigate(`/login-otp/${encodedPhone}`)
           } else {

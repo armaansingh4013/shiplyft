@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import signup from "../assets/signin.png"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signUp } from '../modules';
 import { toast } from 'react-toastify';
 const SignUp = () => {
@@ -28,6 +28,7 @@ const SignUp = () => {
   
   const sign_up = async (e) => {
     e.preventDefault()
+    const navigate = useNavigate();
     if(formData.check != "1"){
       toast.error("Please Read Policies")
     }
@@ -39,7 +40,8 @@ const SignUp = () => {
 
       if (response) {
         localStorage.setItem("crsf_token",response.token);
-        toast.success("Replacement request submitted successfully!");
+        toast.success("Sign Up successfully!");
+        navigate("/sign-in")
       } else {
         toast.error("There was an error processing the replacement request.");
       }
