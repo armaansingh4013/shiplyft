@@ -9,6 +9,7 @@ import ResetPassword from "../features/ResetPassword";
 import LoginOtp from "../features/LoginOtp";
 import Dashboard from "../screens/Dashboard"
 
+
 const AppRoutes = () => (
   <BrowserRouter basename="web-shiplyft">
     <Routes>
@@ -26,3 +27,5 @@ const AppRoutes = () => (
 );
 
 export default AppRoutes;
+
+
