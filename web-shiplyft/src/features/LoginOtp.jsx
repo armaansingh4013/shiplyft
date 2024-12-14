@@ -61,7 +61,6 @@ const LoginOtp = () => {
           if (response.status=="success") {
             localStorage.setItem("crsf_token",response.sid);
             toast.success("Logged In successfully!");
-            const encodedPhone = encodeURIComponent(btoa(phone))
             navigate(`/dashboard`)
           } else {
             toast.error(response.message);

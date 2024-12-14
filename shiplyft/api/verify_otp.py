@@ -14,7 +14,7 @@ def request_otp(phone):
     if not user_exists:
         return {"status": "failure", "message": "This phone number is not registered."}
 
-    otp = randint(1000, 9999)
+    otp = randint(100000, 999999)
     frappe.cache().set_value(phone, otp, expires_in_sec=300) 
     message = f"Your OTP is {otp}. Please use it to sign in."
     frappe.log(f"Mock SMS sent to {phone}: {message}")

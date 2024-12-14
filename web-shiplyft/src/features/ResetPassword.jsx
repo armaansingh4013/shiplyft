@@ -2,8 +2,9 @@
 import { useState } from 'react'
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import signup from "../assets/signin.png"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { resetPassword } from '../modules';
 const ResetPassword = () => {
 
   const [showPassword, setShowPassword] = useState(false);
@@ -15,7 +16,44 @@ const ResetPassword = () => {
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword((prev) => !prev);
   };
+
+  const [password,setPassword] = useState("");
+  const [confirmPassword,setConfirmPassword] = useState("");
+  const [searchParams] = useSearchParams();
+
+  // Retrieve and decode parameters
+  const email = searchParams.get("email")
+    ? atob(decodeURIComponent(searchParams.get("email")))
+    : null;
+
+  const otp = searchParams.get("otp")
+    ? atob(decodeURIComponent(searchParams.get("otp")))
+    : null;
+const navigate = useNavigate()
+const reset_password = async (e) => {
+    e.preventDefault()
+    if( password != confirmPassword){
+      toast.error("Passwords ar not same")
+      return
+    }
+
+    try {
+
+      const response = await resetPassword(email,otp,password);
+        console.log(response);
+        
+      if (response.success_key ==1) {
+        toast.success("Password set successfully!");
+        
+        navigate(`/home`)
+      } else {
+        toast.error(response.message);
+      }
+    } catch (error) {
+      toast.error("An error occurred while processing the request.");
+    }
   
+  };   
   return (
     <>
       {/* Pages: Sign Up: With Image Alternate */}
@@ -58,7 +96,7 @@ const ResetPassword = () => {
                       {/* Sign In Form */}
                       <div className="grow w-full md:px-1 md:py-4">
                         <form
-                          onSubmit={(e) => e.preventDefault()}
+                          onSubmit={reset_password}
                           className="space-y-5 text-xs"
                         >
                           
@@ -69,6 +107,8 @@ const ResetPassword = () => {
                             </label>
                             <div className="relative">
                               <input
+                              value={password}
+                              onChange={(e)=>{setPassword(e.target.value)}}
                                 type={showPassword ? "text" : "password"}
                                 id="password"
                                 name="password"
@@ -94,6 +134,8 @@ const ResetPassword = () => {
                             </label>
                             <div className="relative">
                               <input
+                              value={confirmPassword}
+                              onChange={(e)=>{setConfirmPassword(e.target.value)}}
                                 type={showPassword ? "text" : "password"}
                                 id="password"
                                 name="password"

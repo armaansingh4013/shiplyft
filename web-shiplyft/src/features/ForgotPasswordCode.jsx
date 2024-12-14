@@ -1,6 +1,36 @@
+import { useState } from "react";
 import signup from "../assets/signin.png"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { resetOtpCheck } from "../modules";
+import { toast } from "react-toastify";
 const ForgotPasswordCode = () => {
+const [otp,setOtp]=useState("");
+
+const { encodedEmail } = useParams(); 
+const navigate = useNavigate()
+const verify_otp = async (e) => {
+    e.preventDefault()
+    
+const email = atob(decodeURIComponent(encodedEmail));
+
+
+    try {
+
+      const response = await resetOtpCheck(email,otp);
+        console.log(response);
+        
+      if (response.success_key ==1) {
+        toast.success("OTP verified successfully!");
+        const encodedOTP = encodeURIComponent(btoa(otp));     
+        navigate(`/reset-password?email=${encodedEmail}&otp=${encodedOTP}`)
+      } else {
+        toast.error(response.message);
+      }
+    } catch (error) {
+      toast.error("An error occurred while processing the request.");
+    }
+  
+  };   
 
 
 
@@ -45,7 +75,7 @@ const ForgotPasswordCode = () => {
                                             {/* Sign In Form */}
                                             <div className="grow w-full md:px-1 md:py-6">
                                                 <form
-                                                    onSubmit={(e) => e.preventDefault()}
+                                                    onSubmit={verify_otp}
                                                     className="space-y-3 text-xs"
                                                 >
                                                     <div className="space-y-1">
@@ -53,6 +83,8 @@ const ForgotPasswordCode = () => {
                                                             Enter Code
                                                         </label>
                                                         <input
+                                                        value={otp}
+                                                        onChange={(e)=>{setOtp(e.target.value)}}
                                                             type="number"
                                                             id="code"
                                                             name="code"

@@ -19,7 +19,7 @@ const AppRoutes = () => (
       <Route path="/sign-in" element={<Signin />} />
       <Route path="/signin-number" element={<SignInNumber />} />
       <Route path="/forgot-password" element={<ForgotPasswordEmail/>} />
-      <Route path="/forgot-password-verify" element={<ForgotPasswordCode/>} />
+      <Route path="/forgot-password-verify/:encodedEmail" element={<ForgotPasswordCode/>} />
       <Route path="/reset-password" element={<ResetPassword/>} />
       <Route path="/login-otp/:encodedPhone" element={<LoginOtp/>} />
       <Route path="/" element={<HomePage />} />
