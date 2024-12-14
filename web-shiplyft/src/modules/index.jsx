@@ -4,11 +4,11 @@ import APIs from "../api/index";
 export const signUp = async (phone,firstname,email, password,confirm_password) => {
   try {
     const response = await axiosInstance.post(APIs.signup, {
-      body:{phone:phone,
+    phone:phone,
       firstname:firstname,
       user_email:email,
       password:password,
-      confirm_password:confirm_password}
+      confirm_password:confirm_password
     });
     return response.data.message.token;
   } catch (error) {
@@ -19,9 +19,8 @@ export const signUp = async (phone,firstname,email, password,confirm_password) =
 export const signIn = async (email, password) => {
   try {
     const response = await axiosInstance.post(APIs.signin, {
-      body:{
       usr:email,
-      pwd:password}
+      pwd:password
     });
     console.log('====================================');
     console.log(response.data.message);
@@ -34,8 +33,8 @@ export const signIn = async (email, password) => {
 export const signInPhone = async (phone) => {
   try {
     const response = await axiosInstance.post(APIs.signinphone, {
-      body:{
-      phone:phone}
+      
+      phone:phone
     });
     console.log('====================================');
     console.log(response);
@@ -48,9 +47,9 @@ export const signInPhone = async (phone) => {
 export const signInPhoneOtp = async (otp,phone) => {
   try {
     const response = await axiosInstance.post(APIs.signinphone, {
-      body:{
+     
         otp:otp,
-      phone:phone}
+      phone:phone
     });
     console.log('====================================');
     console.log(response);

@@ -60,14 +60,14 @@ const LoginOtp = () => {
             
           if (response) {
             localStorage.setItem("crsf_token",response.token);
-            toast.success("Replacement request submitted successfully!");
+            toast.success("Logged In successfully!");
             const encodedPhone = encodeURIComponent(btoa(phone))
-            navigate(`/home`)
+            navigate(`/dashboard`)
           } else {
-            toast.error("There was an error processing the replacement request.");
+            toast.error("There was an error processing the request.");
           }
         } catch (error) {
-          toast.error("An error occurred while processing the replacement.");
+          toast.error("An error occurred while processing the request.");
         }
       
       };   
