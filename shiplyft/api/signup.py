@@ -9,6 +9,7 @@ import jwt
 
 @frappe.whitelist(methods=["POST"],allow_guest=True)
 def signup(body={}):
+    print(body)
     phone = body.get('phone')
     user_email = body.get('user_email')  
     firstname = body.get('firstname', None)

@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import signup from "../assets/signin.png"
+import { Link } from 'react-router-dom';
+import { signUp } from '../modules';
 const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);
@@ -13,6 +15,42 @@ const SignUp = () => {
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword((prev) => !prev);
   };
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirm_password: "",
+    check:""
+  });
+  
+  const sign_up = async (e) => {
+    e.preventDefault()
+    if(formData.check != "1"){
+      toast.error("Please Read Policies")
+    }
+    else{
+    try {
+      
+
+      const response = await signUp(formData.phone,formData.firstname,formData.email,formData.password,formData.confirm_password);
+
+      if (response) {
+        localStorage.setItem("crsf_token",response.token);
+        toast.success("Replacement request submitted successfully!");
+      } else {
+        toast.error("There was an error processing the replacement request.");
+      }
+    } catch (error) {
+      toast.error("An error occurred while processing the replacement.");
+    }
+  }
+  };        
+
+
+
+
   return (
     <>
       {/* Pages: Sign Up: With Image Alternate */}
@@ -52,57 +90,62 @@ const SignUp = () => {
                       {/* Sign In Form */}
                       <div className="grow w-full md:px-1 md:py-6">
                         <form
-                          onSubmit={(e) => e.preventDefault()}
+                          onSubmit={sign_up}
                           className="space-y-3 text-xs"
                         >
-                          <div className="grid grid-cols-2 gap-5">
+                          <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-1">
-                              <label htmlFor="email" className="text-sm font-medium">
-                                Email
+                              <label htmlFor="firstname" className="text-sm font-medium">
+                                First Name
                               </label>
                               <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Enter your email"
+                              value={formData.firstname}
+                              onChange={(e)=>{setFormData({...formData,firstname:e.target.value})}}
+                                type="text"
+                                id="firstname"
+                                name="firstname"
+          
                                 className="block w-full px-2 py-1 bg-[var(--lightSecondary-color)] leading-6 placeholder-white-500 focus:border-blue-500 focus:ring focus:ring-blue-500/50 dark:border-white-600 dark:bg-white-800 dark:placeholder-white-400 dark:focus:border-blue-500"
                               />
                             </div>
                             <div className="space-y-1">
-                              <label htmlFor="password" className="text-sm font-medium">
-                                Password
+                              <label htmlFor="lastname" className="text-sm font-medium">
+                                Last Name
                               </label>
                               <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="Enter your password"
+                              value={formData.lastname}
+                              onChange={(e)=>{setFormData({...formData,lastname:e.target.value})}}
+                                type="text"
+                                id="lastname"
+                                name="lastname"
                                 className="block w-full  px-3 py-1 bg-[var(--lightSecondary-color)] leading-6 placeholder-white-500 focus:border-blue-500 focus:ring focus:ring-blue-500/50 dark:border-white-600 dark:bg-white-800 dark:placeholder-white-400 dark:focus:border-blue-500"
                               />
                             </div>
                           </div>
-                          <div className="grid grid-cols-2 gap-5">
+                          <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-1">
                               <label htmlFor="email" className="text-sm font-medium">
                                 Email
                               </label>
                               <input
+                              value={formData.email}
+                              onChange={(e)=>{setFormData({...formData,email:e.target.value})}}
                                 type="email"
                                 id="email"
                                 name="email"
-                                placeholder="Enter your email"
                                 className="block w-full   px-3 py-1 bg-[var(--lightSecondary-color)] leading-6 placeholder-white-500 focus:border-blue-500 focus:ring focus:ring-blue-500/50 dark:border-white-600 dark:bg-white-800 dark:placeholder-white-400 dark:focus:border-blue-500"
                               />
                             </div>
                             <div className="space-y-1">
-                              <label htmlFor="password" className="text-sm font-medium">
-                                Password
+                              <label htmlFor="phone" className="text-sm font-medium">
+                                Phone Number
                               </label>
                               <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="Enter your password"
+                              value={formData.phone}
+                              onChange={(e)=>{setFormData({...formData,phone:e.target.value})}}
+                                type="phone"
+                                id="phone"
+                                name="phone"
                                 className="block w-full  px-3 py-1 bg-[var(--lightSecondary-color)] leading-6 placeholder-white-500 focus:border-blue-500 focus:ring focus:ring-blue-500/50 dark:border-white-600 dark:bg-white-800 dark:placeholder-white-400 dark:focus:border-blue-500"
                               />
                             </div>
@@ -113,10 +156,11 @@ const SignUp = () => {
                             </label>
                             <div className="relative">
                               <input
+                                value={formData.password}
+                                onChange={(e)=>{setFormData({...formData,password:e.target.value})}}
                                 type={showPassword ? "text" : "password"}
                                 id="password"
                                 name="password"
-                                placeholder="Enter your password"
                                 className="block w-full bg-[var(--lightSecondary-color)] px-3 py-1 pr-10 leading-6 placeholder-gray-500 "
                               />
                               <button
@@ -133,15 +177,16 @@ const SignUp = () => {
                             </div>
                           </div>
                           <div className="space-y-1 relative">
-                            <label htmlFor="password" className="text-sm font-medium">
-                              Password
+                            <label htmlFor="confirm_password" className="text-sm font-medium">
+                             Confirm Password
                             </label>
                             <div className="relative">
                               <input
+                              value={formData.confirm_password}
+                              onChange={(e)=>{setFormData({...formData,confirm_password:e.target.value})}}
                                 type={showPassword ? "text" : "password"}
-                                id="password"
-                                name="password"
-                                placeholder="Enter your password"
+                                id="conform_password"
+                                name="confirm_password"
                                 className="block w-full bg-[var(--lightSecondary-color)] px-3 py-1 pr-10 leading-6 placeholder-gray-500 "
                               />
                               <button
@@ -161,6 +206,8 @@ const SignUp = () => {
                             <div className="mb-5 flex items-center justify-between gap-2">
                               <label className="flex items-center">
                                 <input
+                                  value={formData.check}
+                                  onChange={(e)=>{setFormData({...formData,check:e.target.checked})}}
                                   type="checkbox"
                                   id="remember_me"
                                   name="remember_me"
@@ -179,7 +226,7 @@ const SignUp = () => {
                                 <span>Sign Up</span>
                               </button>
                             </div>
-                            <div className='my-4 text-center text-gray-400'> Already have an account ? <span className='text-[var(--primary-color)]'>Sign In</span></div>
+                            <div className='my-4 text-center text-gray-400'> Already have an account ? <Link to="/sign-in" className='text-decoration-none'><span className='text-[var(--primary-color)]'>Sign In</span></Link></div>
                             {/* Divider: With Label */}
                             <div className="my-5 flex items-center w-6/8">
                               <span
@@ -195,7 +242,7 @@ const SignUp = () => {
                               />
                             </div>
                             {/* END Divider: With Label */}
-                            <div className="flex justify-evenly gap-2 w-6/8">
+                            <div className="flex flex-col md:flex-row justify-evenly gap-2 w-6/8">
 
                               <button
                                 type="button"
