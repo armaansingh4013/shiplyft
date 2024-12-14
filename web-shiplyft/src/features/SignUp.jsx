@@ -38,8 +38,8 @@ const SignUp = () => {
 
       const response = await signUp(formData.phone,formData.firstname,formData.email,formData.password,formData.confirm_password);
 
-      if (response) {
-        localStorage.setItem("crsf_token",response.token);
+      if (response.success_key==1) {
+        localStorage.setItem("crsf_token",response.sid);
         toast.success("Sign Up successfully!");
         navigate("/sign-in")
       } else {

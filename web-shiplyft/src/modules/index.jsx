@@ -10,7 +10,7 @@ export const signUp = async (phone,firstname,email, password,confirm_password) =
       password:password,
       confirm_password:confirm_password
     });
-    return response.data.message.token;
+    return response.data.message;
   } catch (error) {
     throw error;
   }
@@ -39,7 +39,7 @@ export const signInPhone = async (phone) => {
     console.log('====================================');
     console.log(response);
     console.log('====================================');
-    return response;
+    return response.data.message;
   } catch (error) {
     throw error;
   }
@@ -54,7 +54,7 @@ export const signInPhoneOtp = async (otp,phone) => {
     console.log('====================================');
     console.log(response);
     console.log('====================================');
-    return response;
+    return response.data.message;
   } catch (error) {
     throw error;
   }

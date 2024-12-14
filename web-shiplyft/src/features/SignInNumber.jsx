@@ -16,16 +16,15 @@ const SignInNumber = () => {
           const response = await signInPhone(phone);
             console.log(response);
             
-          if (response) {
-            localStorage.setItem("crsf_token",response.token);
+          if (response.success_key==1) {
             toast.success("OTP sent successfully!");
             const encodedPhone = encodeURIComponent(btoa(phone))
             navigate(`/login-otp/${encodedPhone}`)
           } else {
-            toast.error("There was an error processing the replacement request.");
+            toast.error("There was an error processing the OTP request.");
           }
         } catch (error) {
-          toast.error("An error occurred while processing the replacement.");
+          toast.error("An error occurred while processing the otp.");
         }
       
       };   
