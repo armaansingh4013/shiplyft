@@ -28,12 +28,12 @@ const navigate = useNavigate();
           const response = await signIn(formData.email,formData.password);
             console.log(response);
             
-          if (response) {
-            localStorage.setItem("crsf_token",response.success_key);
+          if (response.success_key == 1) {
+            localStorage.setItem("crsf_token",response.sid);
             toast.success("Sign successfully!");
             navigate("/dashboard")
           } else {
-            toast.error("There was an error processing the replacement request.");
+            toast.error("There was an error processing the signin request.");
           }
         } catch (error) {
           toast.error("An error occurred while processing the replacement.");
