@@ -7,6 +7,7 @@ import ForgotPasswordEmail from "../features/ForgotPasswordEmail";
 import ForgotPasswordCode from "../features/ForgotPasswordCode";
 import ResetPassword from "../features/ResetPassword";
 import LoginOtp from "../features/LoginOtp";
+import Dashboard from "../screens/Dashboard"
 
 const AppRoutes = () => (
   <BrowserRouter basename="web-shiplyft">
@@ -18,7 +19,8 @@ const AppRoutes = () => (
       <Route path="/forgot-password-verify" element={<ForgotPasswordCode/>} />
       <Route path="/reset-password" element={<ResetPassword/>} />
       <Route path="/login-otp/:encodedPhone" element={<LoginOtp/>} />
-      <Route path="/home" element={<HomePage />} />
+      <Route path="/" element={<HomePage />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   </BrowserRouter>
 );
