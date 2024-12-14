@@ -1,5 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
+import Navbar from '../components/Navbar';
 
 const MainLayout = ({ children }) => {
   return (
@@ -7,7 +8,8 @@ const MainLayout = ({ children }) => {
       {/* Sidebar */}
       <Sidebar />
       {/* Main Content */}
-      <div className="flex-1 p-4">
+      <div class="flex flex-col flex-1 xl:pl-64">
+        <Navbar/>
         {children}
       </div>
     </div>

@@ -9,6 +9,7 @@ import ResetPassword from "../features/ResetPassword";
 import LoginOtp from "../features/LoginOtp";
 import Dashboard from "../screens/Dashboard";
 import OrderPage from "../features/Order";
+import MainLayout from "../layout/MainLayout";
 
 
 const AppRoutes = () => (
@@ -22,8 +23,7 @@ const AppRoutes = () => (
       <Route path="/reset-password" element={<ResetPassword/>} />
       <Route path="/login-otp/:encodedPhone" element={<LoginOtp/>} />
       <Route path="/" element={<HomePage />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="dashboard/order" element={<OrderPage />} />
+      <Route path="/dashboard" element={<MainLayout><Dashboard /></MainLayout>} />
     </Routes>
   </BrowserRouter>
 );
