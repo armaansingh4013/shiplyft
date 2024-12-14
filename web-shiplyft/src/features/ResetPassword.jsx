@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import signup from "../assets/signin.png"
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 const ResetPassword = () => {
 
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +15,7 @@ const ResetPassword = () => {
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword((prev) => !prev);
   };
+  
   return (
     <>
       {/* Pages: Sign Up: With Image Alternate */}

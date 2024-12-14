@@ -24,9 +24,9 @@ export const signIn = async (email, password) => {
       pwd:password}
     });
     console.log('====================================');
-    console.log(response.data.message.token);
+    console.log(response.data.message);
     console.log('====================================');
-    return response;
+    return response.message;
   } catch (error) {
     throw error;
   }
