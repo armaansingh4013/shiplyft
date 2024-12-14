@@ -1,8 +1,6 @@
 import frappe
-from random import randint
-import jwt
-import datetime
-import json
+import random
+import string
 
 @frappe.whitelist( allow_guest=True )
 def login(usr, pwd):
@@ -56,15 +54,44 @@ def generate_keys(user):
        
        
 
-@frappe.whitelist(methods="POST",allow_guest=True)
-def change_password(body={}):
-    username = frappe.db.get_value("User",body.get("usr"), 'name')
+
+
+
+
+@frappe.whitelist(methods="POST", allow_guest=True)
+def send_otp(body={}):
+    user_email = frappe.db.get_value("User", body.get("usr"), 'email')
+    if user_email:
+        otp = ''.join(random.choices(string.digits, k=6)) 
+        frappe.cache().set_value(f"otp:{body.get('usr')}", otp, expires_in_sec=300)
+        
+        subject = "Your OTP for Password Reset"
+        message = f"Your OTP for resetting the password is: {otp}. This OTP is valid for 5 minutes."
+        frappe.sendmail(recipients=user_email, subject=subject, message=message)
+        
+        frappe.local.response["message"] = {
+            "success_key": 1,
+            "message": "OTP sent to your email"
+        }
+    else:
+        frappe.local.response["message"] = {
+            "success_key": 0,
+            "message": "User not found"
+        }
+
+@frappe.whitelist(methods="POST", allow_guest=True)
+def change_password_with_otp(body={}):
+    username = frappe.db.get_value("User", body.get("usr"), 'name')
     if username:
-        user_doc = frappe.get_doc("User", body.get("usr"))
-        if frappe.local.login_manager.check_password(user_doc.name, body.get("old_pwd")):
+        cached_otp = frappe.cache().get_value(f"otp:{body.get('usr')}")
+        if cached_otp and cached_otp == body.get("otp"):
+            user_doc = frappe.get_doc("User", body.get("usr"))
             user_doc.new_password = body.get("new_pwd")
             user_doc.save()
             frappe.db.commit()
+            
+            frappe.cache().delete_value(f"otp:{body.get('usr')}")
+            
             frappe.local.response["message"] = {
                 "success_key": 1,
                 "message": "Password changed successfully"
@@ -72,21 +99,13 @@ def change_password(body={}):
         else:
             frappe.local.response["message"] = {
                 "success_key": 0,
-                "message": "Old password is incorrect"
+                "message": "Invalid or expired OTP"
             }
     else:
         frappe.local.response["message"] = {
             "success_key": 0,
             "message": "User not found"
         }
-
-
-
-
-
-
-
-
 
 
 
