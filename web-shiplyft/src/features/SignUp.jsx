@@ -26,9 +26,9 @@ const SignUp = () => {
     check:""
   });
   
+    const navigate = useNavigate();
   const sign_up = async (e) => {
     e.preventDefault()
-    const navigate = useNavigate();
     if(formData.check != "1"){
       toast.error("Please Read Policies")
     }
