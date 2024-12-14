@@ -2,6 +2,7 @@ import signup from "../assets/signin.png"
 import React, { useRef, useState } from 'react';
 import { signInPhoneOtp } from "../modules";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from'react-toastify';
 
 const LoginOtp = () => {
 
@@ -59,7 +60,7 @@ const LoginOtp = () => {
             
           if (response) {
             localStorage.setItem("crsf_token",response.token);
-            // toast.success("Replacement request submitted successfully!");
+            toast.success("Replacement request submitted successfully!");
             const encodedPhone = encodeURIComponent(btoa(phone))
             navigate(`/home`)
           } else {
