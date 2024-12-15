@@ -13,9 +13,7 @@ const OrderNew = () => {
           console.log(response);
           setData(response)
         if (response.success_key ==1) {
-          toast.success("Password set successfully!");
           
-          navigate(`/sign-in`)
         } else {
           toast.error(response.message);
         }
