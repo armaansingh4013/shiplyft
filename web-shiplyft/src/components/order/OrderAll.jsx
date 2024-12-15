@@ -8,9 +8,9 @@ const OrderAll= () => {
   useEffect(()=>{
     try {
       
-        const response = orderDetails("All",filters.orderTime,filters.keyword,filters.category);
+        const response = orderDetails("All",filters.orderTime,filters.keyword,filters.category,setData);
           console.log(response);
-          setData(response)
+          // setData(response)
         if (response.success_key ==1) {
           
         } else {

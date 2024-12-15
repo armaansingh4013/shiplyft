@@ -91,19 +91,35 @@ export const resetPassword = async (user,otp,password) => {
   }
 };
 
-export const orderDetails = async (custom_status, time_period, order_id, cusotm_order_category) => {
+export const orderDetails = async (custom_status, time_period, order_id, cusotm_order_category,setData) => {
   try {
     console.log("jhgf");
     
-    const response = await axiosInstance.post(APIs.order_details, {
-      custom_status:custom_status,
-      time_period:time_period,
-      order_id:order_id,
-      cusotm_order_category:cusotm_order_category
-    });
-    console.log(response.data.message);
-    
-    return response.data.message;
+    // const response = await axiosInstance.post(APIs.order_details, {
+    //   custom_status:custom_status,
+    //   time_period:time_period,
+    //   order_id:order_id,
+    //   cusotm_order_category:cusotm_order_category
+    // });
+    // console.log(response.data.message);
+    setData([
+      {
+          "name": "SAL-ORD-2024-00001",
+          "customer_name": "Pardeep",
+          "custom_custom_status": "New",
+          "custom_order_category": "Domestic",
+          "grand_total": 100,
+          "shipping_address": "punjab<br>\nJindwari<br>mohali<br>\nPunjab<br>140133<br>India<br>\n<br>\n",
+          "items": [
+              {
+                  "item_name": "Samsung Phone",
+                  "item_code": "Samsung Phone"
+              }
+          ]
+      }
+  ])
+  return 
+    // return response.data.message;
   } catch (error) {
     throw error;
   }
