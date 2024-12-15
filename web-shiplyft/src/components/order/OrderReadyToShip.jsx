@@ -1,25 +1,28 @@
-import React from 'react'
-const data = [
-    {
-      col1: "Data 1",
-      col2: "Data 2",
-      col3: "Data 3",
-      col4: "Data 4",
-      col5: "Data 5",
-      col6: "Data 6",
-      col7: "Data 7",
-    },
-    {
-      col1: "Row 2",
-      col2: "Row 2",
-      col3: "Row 2",
-      col4: "Row 2",
-      col5: "Row 2",
-      col6: "Row 2",
-      col7: "Row 2",
-    },
-  ];
+import React, { useEffect, useState } from 'react'
+import { useOrderFilter } from '../../hooks/OrderContext';
+
 const OrderReadyToShip = () => {
+  const {filters,updateFilter} = useOrderFilter()
+  const [data,setData] = useState({});
+  useEffect(()=>{
+    try {
+      console.log(email,otp,password);
+      
+        const response = orderDetails("Ready to Ship",filters.orderTime,filters.keyword,filters.category);
+          console.log(response);
+          
+        if (response.success_key ==1) {
+          toast.success("Password set successfully!");
+          
+          navigate(`/sign-in`)
+        } else {
+          toast.error(response.message);
+        }
+      } catch (error) {
+        toast.error("An error occurred while processing the request.");
+      }
+    
+  },[filters.orderTime, filters.keyword, filters.category])
   return (
     <div className="p-6 w-full overflow-x-scroll">
     {/* Table */}
