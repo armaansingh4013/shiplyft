@@ -22,7 +22,7 @@ const OrderInTransit = () => {
           toast.error(response.message);
         }
       } catch (error) {
-        toast.error("An error occurred while processing the request.");
+        // toast.error("An error occurred while processing the request.");
       }
     };
   
@@ -35,15 +35,15 @@ const OrderInTransit = () => {
       {/* Header */}
       <thead>
         <tr className="bg-white text-black font-normal  shadow-lg rounded-xl">
-          <th className="p-2 md:p-3 text-left border-b w-40 rounded-s-3xl">
+          <th className="p-2 md:p-3 text-left font-normal border-b w-40 rounded-s-3xl">
             Order Details
           </th>
-          <th className="p-2 md:p-3 text-left w-40 border-b">Customer Details</th>
-          <th className="p-2 md:p-3 text-left w-40 border-b">Payment</th>
-          <th className="p-2 md:p-3 text-left w-40 border-b">Shipping Details</th>
-          <th className="p-2 md:p-3 text-left w-40 border-b">EOD</th>
-          <th className="p-2 md:p-3 text-left w-40 border-b">Status</th>
-          <th className="p-2 md:p-3 text-left w-40 border-b rounded-e-3xl">
+          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">Customer Details</th>
+          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">Payment</th>
+          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">Shipping Details</th>
+          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">EOD</th>
+          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">Status</th>
+          <th className="p-2 md:p-3 text-left font-normal w-40 border-b rounded-e-3xl">
            Action
           </th>
         </tr>
@@ -61,7 +61,7 @@ const OrderInTransit = () => {
                <td className="p-2 md:p-3">{row.name}</td>
               <td className="p-2 md:p-3">{row.customer_name}</td>
               <td className="p-2 md:p-3">{row.grand_total}</td>
-              <td className="p-2 md:p-3">{dangerouslySetInnerHTML={{ __html: row.shipping_address}}}</td>
+              <td className="p-2 md:p-3" dangerouslySetInnerHTML={{ __html: row.shipping_address }}></td>
               <td className="p-2 md:p-3">{row.items[0].item_code}</td>
               <td className="p-2 md:p-3">{row.custom_custom_status}</td>
               <td className="p-2 md:p-3">{row.custom_order_category}</td>
