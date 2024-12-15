@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useOrderFilter } from '../../hooks/OrderContext';
 
+import {CubeIcon} from "@heroicons/react/24/solid";
+
+import { toast } from'react-toastify';
 const OrderDelivered = () => {
   const {filters,updateFilter} = useOrderFilter()
   const [data,setData] = useState({});
   useEffect(()=>{
     try {
-      console.log(email,otp,password);
       
         const response = orderDetails("Delivered",filters.orderTime,filters.keyword,filters.category);
           console.log(response);
           
         if (response.success_key ==1) {
-          toast.success("Password set successfully!");
-          
-          navigate(`/sign-in`)
+        
         } else {
           toast.error(response.message);
         }
@@ -52,12 +52,12 @@ const OrderDelivered = () => {
               key={index}
               className="text-black text-sm shadow-m transition even:bg-[var(--lightSecondary-color)] odd:bg-white"
             >
-              <td className="p-2 md:p-3">{row.col1}</td>
-              <td className="p-2 md:p-3">{row.col2}</td>
-              <td className="p-2 md:p-3">{row.col3}</td>
-              <td className="p-2 md:p-3">{row.col4}</td>
-              <td className="p-2 md:p-3">{row.col5}</td>
-              <td className="p-2 md:p-3">{row.col6}</td>
+              <td className="p-2 md:p-3">{row.name}</td>
+              <td className="p-2 md:p-3">{row.customer_name}</td>
+              <td className="p-2 md:p-3">{row.grand_total}</td>
+              <td className="p-2 md:p-3">{row.shipping_address}</td>
+              <td className="p-2 md:p-3">{row.custom_custom_status}</td>
+              <td className="p-2 md:p-3">{row.custom_order_category}</td>
             </tr>
           ))
         ) : (

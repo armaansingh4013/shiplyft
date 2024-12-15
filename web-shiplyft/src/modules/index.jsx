@@ -99,7 +99,9 @@ export const orderDetails = async (custom_status, time_period, order_id, cusotm_
       order_id:order_id,
       cusotm_order_category:cusotm_order_category
     });
-    return response.data.message;
+    console.log(response.message);
+    
+    return response.message;
   } catch (error) {
     throw error;
   }
