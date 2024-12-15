@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useOrderFilter } from '../../hooks/OrderContext';
 
 import {CubeIcon} from "@heroicons/react/24/solid";
+import { orderDetails } from '../../modules';
 
 import { toast } from'react-toastify';
 const OrderDelivered = () => {
