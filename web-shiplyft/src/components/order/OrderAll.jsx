@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useOrderFilter } from '../../hooks/OrderContext';
-
+import {CubeIcon} from "@heroicons/react/24/solid";
+import { toast } from'react-toastify';
 const OrderAll= () => {
   const {filters,updateFilter} = useOrderFilter()
   const [data,setData] = useState([]);
   useEffect(()=>{
     try {
-      console.log(email,otp,password);
       
         const response = orderDetails("All",filters.orderTime,filters.keyword,filters.category);
           console.log(response);

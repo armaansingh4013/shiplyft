@@ -7,8 +7,8 @@ const OrderFilterContext = createContext();
 export const OrderFilterProvider = ({ children }) => {
   const [filters, setFilters] = useState({
     keyword: "",
-    category: "",
-    orderTime:""
+    category: "All",
+    orderTime:"1"
   });
   
   // Function to update filters
