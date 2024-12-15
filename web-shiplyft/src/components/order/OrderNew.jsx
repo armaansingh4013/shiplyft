@@ -11,9 +11,9 @@ const OrderNew = () => {
     const fetchOrderDetails = async () => {
       try {
         console.log(filters);
-        const response = await orderDetails("New", filters.orderTime, filters.keyword, filters.category);
+        const response = await orderDetails("New", filters.orderTime, filters.keyword, filters.category,setData);
         console.log(response);
-        setData(response);
+        // setData(response);
   
         if (response.success_key === 1) {
           // Success Logic
