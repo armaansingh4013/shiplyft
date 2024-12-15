@@ -16,7 +16,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <div className="hidden xl:flex xl:w-64 xl:flex-col xl:fixed xl:inset-y-0">
+    <div className="hidden w-1/5 xl:flex xl:w-64 xl:flex-col xl:fixed xl:inset-y-0">
       <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-[var(--primary-dashboard-color)]">
         <div className="flex items-center flex-shrink-0 px-4 text-3xl font-bold text-white">
           LOGO HERE

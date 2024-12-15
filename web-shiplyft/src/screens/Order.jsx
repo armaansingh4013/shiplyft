@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link, Route, Routes, useLocation } from "react-router-dom"; // Import Link from react-router-dom
 
 import {
   HomeIcon,
@@ -8,68 +8,63 @@ import {
   CubeIcon,
   EyeSlashIcon,
 } from "@heroicons/react/24/solid";
+import OrderNew from "../components/order/OrderNew";
+import OrderReadyToShip from "../components/order/OrderReadyToShip";
+import OrderPickupsManifests from "../components/order/OrderPickupsMnifest";
+import OrderInTransit from "../components/order/OrderInTransit";
+import OrderDelivered from "../components/order/OrderDelivered";
+import OrderAll from "../components/order/OrderAll";
+import OrderRTO from "../components/order/OrderRTO";
+import {OrderFilterProvider, useOrderFilter} from "../hooks/OrderContext"
 export default function Dashboard() {
-  const data = [
-    {
-      col1: "Data 1",
-      col2: "Data 2",
-      col3: "Data 3",
-      col4: "Data 4",
-      col5: "Data 5",
-      col6: "Data 6",
-      col7: "Data 7",
-    },
-    {
-      col1: "Row 2",
-      col2: "Row 2",
-      col3: "Row 2",
-      col4: "Row 2",
-      col5: "Row 2",
-      col6: "Row 2",
-      col7: "Row 2",
-    },
-  ];
+ const location = useLocation() 
+ const {filters,updateFilter} = useOrderFilter()
+
   return (
     <>
       <main>
-        <div class="py-6 bg-gray-100 min-h-screen overflow-x-scroll">
+        <div class="py-6 bg-gray-100 min-h-screen">
           <div class="px-4 mx-auto sm:px-6 md:px-8 flex flex-row justify-between ">
-            <div className="flex flex-row justify-start">
-              <h1 class="text-2xl font-bold text-gray-900 mr-3">Orders</h1>
-              <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl w-[140px] h-[37px] justify-center ">
-                <select className="w-full  h-full rounded-md">
-                  <option value="New York">All</option>
-                  <option value="London">1 Months</option>
-                  <option value="Paris">3 Months</option>
-                  <option value="Tokyo">6</option>
-                  <option value="Mumbai">12 MOnths</option>
-                </select>
+            <div className="flex flex-row justify-start items-center">
+              <h1 class="text-xl font-bold text-gray-900 mr-3">Orders</h1>
+              <div class="relative text-gray-700 transition-all duration-200 hover:text-gray-900 focus:outline-none hover:shadow-inner w-[140px] h-[37px] justify-center ">
+              <select
+        className="w-full h-full rounded-sm bg-white"
+        value={filters.category} 
+        onChange={(e)=>{updateFilter("category",e.target.value)}} 
+      >
+        <option value="All">All</option>
+        <option value="Domestic">Domestic</option>
+        <option value="International">International</option>
+      </select>
               </div>
             </div>
 
-            <div className="flex items-center rounded-md border border-gray-300 p-2 w-full md:w-80">
-              <SearchIcon className="w-4 h-4" />
+            <div className="flex items-center bg-white rounded-md border border-gray-300 px-2 w-full md:w-96">
+              <SearchIcon className="w-4 h-4 mx-2" />
 
               <input
+              value={filters.keyword}
+              onChange={(e)=>{updateFilter("keyword",e.target.value)}}
                 type="text"
                 placeholder="Search for AWB, Order Id, Mobile Number"
                 className="flex-1 outline-none text-sm placeholder-gray-500"
               />
             </div>
 
-            <div className="flex flex-row justify-end">
-              <div class=" relative p-1 text-gray-700 transition-all duration-200 bg-[#e0caeb] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
+            <div className="flex flex-row  items-center justify-end">
+              <div class="mx-2 relative p-1 text-gray-700 transition-all duration-200 bg-[#e0caeb] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
                 <button
                   type="button"
-                  class="p-1 text-[#af92d6] transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-bold"
+                  class="p-1 text-[#af92d6] transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-semibold"
                 >
                   + Add Order
                 </button>
               </div>
-              <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
+              <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-md hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
                 <button
                   type="button"
-                  class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 flex flex-row"
+                  class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 flex flex-row  items-center"
                 >
                   <svg
                     width="20"
@@ -85,7 +80,8 @@ export default function Dashboard() {
                       fill="#0F172A"
                     />
                   </svg>
-                  Sync Orders
+                  <span className="px-2">
+                  Sync Orders</span>
                 </button>
               </div>
             </div>
@@ -95,65 +91,89 @@ export default function Dashboard() {
             <div class="w-full pb-1 overflow-x-auto">
               <div class="border-b border-gray-200">
                 <nav class="flex -mb-px space-x-10">
-                  <a
-                    href="#"
-                    class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
-                  >
+                  <Link
+                    to="/order"
+                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
+                      location.pathname === "/order"
+                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                    }`}                  >
                     New
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
-                  >
+                  <Link
+                    to="/order/ready-to-ship"
+                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
+                      location.pathname === "/order/ready-to-ship"
+                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                    }`}                     >
                     Ready to Ship
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
-                  >
+                  <Link
+                    to="/order/pickups&manifests"
+                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
+                      location.pathname === "/order/pickups&manifests"
+                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                    }`}                     >
                     Pickups and Manifests
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
-                  >
+                  <Link
+                    to="/order/in-transit"
+                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
+                      location.pathname === "/order/in-transit"
+                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                    }`}                     >
                     In Transit
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    class="py-4 text-sm font-medium text-indigo-600 transition-all duration-200 border-b-2 border-indigo-600 whitespace-nowrap"
-                  >
+                  <Link
+                    to="/order/delivered"
+                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
+                      location.pathname === "/order/delivered"
+                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                    }`}                     >
                     Delivered
-                  </a>
+                  </Link>
 
-                  <a
-                    href="#"
-                    class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
-                  >
+                  <Link
+                    to="/order/rto"
+                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
+                      location.pathname === "/order/rto"
+                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                    }`}                     >
                     RTO
-                  </a>
-                  <a
-                    href="#"
-                    class="py-4 text-sm font-medium text-gray-500 transition-all duration-200 border-b-2 border-transparent hover:border-gray-300 whitespace-nowrap"
-                  >
+                  </Link>
+                  <Link
+                    to="/order/all"
+                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
+                      location.pathname === "/order/all"
+                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                    }`}                     >
                     All
-                  </a>
+                  </Link>
                 </nav>
               </div>
             </div>
             <div class="px-4 mx-auto sm:px-6 md:px-8 flex flex-row justify-between">
               <div className="flex flex-row justify-start">
                 <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl w-[140px] h-[37px] justify-center ">
-                  <select className="w-full  h-full rounded-md">
-                    <option value="New York">Last 30 Days</option>
-                    <option value="London">1 Months</option>
-                    <option value="Paris">3 Months</option>
-                    <option value="Tokyo">6</option>
-                    <option value="Mumbai">12 MOnths</option>
+                  <select className="w-full  h-full rounded-md"
+                  value={filters.orderTime}
+                  onChange={(e)=>{updateFilter("orderTime",e.target.value)}}
+                  >
+                    <option value="Last 30 Days">Last 30 Days</option>
+                    <option value="1 Months">1 Months</option>
+                    <option value="3 Months">3 Months</option>
+                    <option value="6 Months">6 Months</option>
+                    <option value="12 Months">12 MOnths</option>
                   </select>
                 </div>
                 <div class=" relative p-1 text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
@@ -167,79 +187,28 @@ export default function Dashboard() {
               </div>
 
               <div className="flex flex-row justify-end">
-                <div class=" relative p-1 text-gray-700 transition-all duration-200 bg-[#e0caeb] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
-                  <button
-                    type="button"
-                    class="p-1 text-[#af92d6] transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-bold"
-                  >
-                    + Add Order
-                  </button>
-                </div>
                 <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl w-[190px] h-[37px] justify-center ">
                   <select className="w-full  h-full rounded-md">
-                    <option value="New York">Select Bulk Actions</option>
-                    <option value="London">1 Months</option>
-                    <option value="Paris">3 Months</option>
-                    <option value="Tokyo">6</option>
-                    <option value="Mumbai">12 MOnths</option>
+                    <option value="" disable>Select Bulk Actions</option>
+                    <option value="1 Months">1 Months</option>
+                    <option value="3 Months">3 Months</option>
+                    <option value="6 Months">6 Months</option>
+                    <option value="12 Months">12 MOnths</option>
                   </select>
                 </div>
               </div>
             </div>
 
-            <div className="p-6">
-              {/* Table */}
-              <table className="table-auto w-full border-collapse">
-                {/* Header */}
-                <thead className="p-4 m-4">
-                  <tr className="bg-white text-black shadow-lg rounded-xl">
-                    <th className="p-2 md:p-3 text-left border-b rounded-s-3xl">
-                      Column 1
-                    </th>
-                    <th className="p-2 md:p-3 text-left border-b">Column 2</th>
-                    <th className="p-2 md:p-3 text-left border-b">Column 3</th>
-                    <th className="p-2 md:p-3 text-left border-b">Column 4</th>
-                    <th className="p-2 md:p-3 text-left border-b">Column 5</th>
-                    <th className="p-2 md:p-3 text-left border-b">Column 6</th>
-                    <th className="p-2 md:p-3 text-left border-b rounded-e-3xl">
-                      Column 7
-                    </th>
-                  </tr>
-                </thead>
-
-                {/* Body */}
-                <tbody>
-                  <div className="h-8"></div>
-                  {data.length > 0 ? (
-                    data.map((row, index) => (
-                      <tr
-                        key={index}
-                        className="text-black text-sm shadow-m transition even:bg-[var(--lightSecondary-color)] odd:bg-white"
-                      >
-                        <td className="p-2 md:p-3">{row.col1}</td>
-                        <td className="p-2 md:p-3">{row.col2}</td>
-                        <td className="p-2 md:p-3">{row.col3}</td>
-                        <td className="p-2 md:p-3">{row.col4}</td>
-                        <td className="p-2 md:p-3">{row.col5}</td>
-                        <td className="p-2 md:p-3">{row.col6}</td>
-                        <td className="p-2 md:p-3">{row.col7}</td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan="7" className="text-center p-10 h-96">
-                        <div className="flex flex-col items-center justify-center space-y-2">
-                          <CubeIcon className="w-12 h-12 text-gray-400" />
-                          <span className="text-gray-600 text-lg font-medium">
-                            No Data
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
+<Routes>
+  <Route path="" element={<OrderNew/>}/>
+  <Route path="ready-to-ship" element={<OrderReadyToShip/>}/>
+  <Route path="Pickups&manifests" element={<OrderPickupsManifests/>}/>
+  <Route path="in-transit" element={<OrderInTransit/>}/>
+  <Route path="delivered" element={<OrderDelivered/>}/>
+  <Route path="rto" element={<OrderRTO/>}/>
+  <Route path="all" element={<OrderAll/>}/>
+</Routes>
+           
 
             {/* <div class="mt-8 border border-indigo-300 rounded-lg bg-indigo-50">
                   <div class="px-4 py-5 sm:p-6">
