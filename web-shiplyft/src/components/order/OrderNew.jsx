@@ -33,7 +33,7 @@ const OrderNew = () => {
     <table className="table-fixed w-full border-collapse">
       {/* Header */}
       <thead>
-        <tr className="bg-white text-black shadow-lg rounded-xl">
+        <tr className="bg-white text-black  font-normal shadow-lg rounded-xl">
           <th className="p-2 md:p-3 text-left border-b w-40 rounded-s-3xl">
             Order Details
           </th>
@@ -63,7 +63,7 @@ const OrderNew = () => {
               <td className="p-2 md:p-3">{row.items[0].item_name}</td>
               <td className="p-2 md:p-3">{row.items[0].item_code}</td>
               <td className="p-2 md:p-3">{row.grand_total}</td>
-              <td className="p-2 md:p-3">{row.shipping_address}</td>
+              <td className="p-2 md:p-3">{dangerouslySetInnerHTML={{ __html: row.shipping_address}}}</td>
               <td className="p-2 md:p-3">{row.custom_custom_status}</td>
               <td className="p-2 md:p-3">{row.custom_order_category}</td>
             </tr>
