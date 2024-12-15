@@ -9,12 +9,19 @@ import weightManagementicon from "../assets/svg/weightmanagement.svg";
 import billingicon from "../assets/svg/billing.svg";
 import customersupporticon from "../assets/svg/customersupport.svg"
 
-import { Link } from "react-router-dom";
+import { Link, matchPath, useLocation } from "react-router-dom";
 import {
+  ChatBubbleLeftEllipsisIcon,
+  CogIcon,
+  DocumentCurrencyDollarIcon,
+  HomeIcon,
+  RectangleGroupIcon,
   ShoppingCartIcon,
+  WrenchScrewdriverIcon,
 } from "@heroicons/react/24/solid";
 
 const Sidebar = () => {
+  const location = useLocation()
   return (
     <div className="hidden w-1/5 xl:flex xl:w-64 xl:flex-col xl:fixed xl:inset-y-0">
       <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-[var(--primary-dashboard-color)]">
@@ -27,31 +34,33 @@ const Sidebar = () => {
             <nav className="flex-1 space-y-2">
               <Link
                 to="/home"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/home" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
-                <img src={homeicon} alt="Home Icon" className="w-5 h-5 mr-3" />
+                <HomeIcon className={`w-5 h-5 ${location.pathname=="/home"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
+
                 Home
               </Link>
 
               <Link
                 to="/dashboard"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/dashboard" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
-                <img src={dashboardicon} alt="Dashboard Icon" className="w-5 h-5 mr-3" />
+                <RectangleGroupIcon className={`w-6 h-6 ${location.pathname=="/dashboard"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
+
                 Dashboard
               </Link>
 
               <Link
                 to="/order"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${matchPath("/order/*", location.pathname) ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
-                <ShoppingCartIcon className="w-5 h-5 fill-white group-hover:fill-[#DD675B] mr-3" />
+                <ShoppingCartIcon className={`w-5 h-5 ${matchPath("/order/*", location.pathname)? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
                 Orders
               </Link>
 
               <Link
                 to="/return"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/return" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <img src={returnicon} alt="Return Icon" className="w-5 h-5 mr-3" />
                 Returns
@@ -59,7 +68,7 @@ const Sidebar = () => {
 
               <Link
                 to="/weight-management"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/weight-management" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <img
                   src={weightManagementicon}
@@ -71,33 +80,39 @@ const Sidebar = () => {
 
               <Link
                 to="/tools"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/tools" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
-                <img src={toolicon} alt="Tools Icon" className="w-5 h-5 mr-3" />
+               <WrenchScrewdriverIcon className={`w-6 h-6 ${location.pathname=="/tools"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
+
                 Tools
               </Link>
 
               <Link
                 to="/billing"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/billing" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
-                <img src={billingicon} alt="Billing Icon" className="w-5 h-5 mr-3" />
+                <DocumentCurrencyDollarIcon className={`w-6 h-6 ${location.pathname=="/billing"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
+
                 Billing
               </Link>
 
               <Link
                 to="/setting"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/setting" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
-                <img src={settingicon} alt="Setting Icon" className="w-5 h-5 mr-3" />
+                {/* <img src={settingicon} alt="Setting Icon" className="w-5 h-5 mr-3" /> */}
+                <CogIcon className={`w-6 h-6 ${location.pathname=="/setting"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
+
                 Setting
               </Link>
 
               <Link
                 to="/customer-support"
-                className="flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF] hover:text-[var(--primary-dashboard-color)] transition-all duration-200 hover:bg-white rounded-lg group text-decoration-none"
+                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/customer-support" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
-                <img src={customersupporticon} alt="Setting Icon" className="w-5 h-5 mr-3" />
+                {/* <img src={customersupporticon} alt="Setting Icon" className="w-5 h-5 mr-3" /> */}
+                <ChatBubbleLeftEllipsisIcon className={`w-6 h-6 ${location.pathname=="/customer-support"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
+
                 CustomerSupport
               </Link>
             </nav>

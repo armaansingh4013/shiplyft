@@ -187,7 +187,7 @@ const SignUp = () => {
                               <input
                               value={formData.confirm_password}
                               onChange={(e)=>{setFormData({...formData,confirm_password:e.target.value})}}
-                                type={showPassword ? "text" : "password"}
+                                type={showConfirmPassword ? "text" : "password"}
                                 id="conform_password"
                                 name="confirm_password"
                                 className="block w-full bg-[var(--lightSecondary-color)] px-3 py-1 pr-10 leading-6 placeholder-gray-500 "
