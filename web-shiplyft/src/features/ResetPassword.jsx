@@ -22,9 +22,8 @@ const ResetPassword = () => {
   const [searchParams] = useSearchParams();
 
   // Retrieve and decode parameters
-  const email = searchParams.get("email")
-    ? atob(decodeURIComponent(searchParams.get("email")))
-    : null;
+  const email = atob(decodeURIComponent(searchParams.get("email")))
+    
 
   const otp = searchParams.get("otp")
     ? atob(decodeURIComponent(searchParams.get("otp")))
@@ -38,14 +37,15 @@ const reset_password = async (e) => {
     }
 
     try {
-
+    console.log(email,otp,password);
+    
       const response = await resetPassword(email,otp,password);
         console.log(response);
         
       if (response.success_key ==1) {
         toast.success("Password set successfully!");
         
-        navigate(`/home`)
+        navigate(`/sign-in`)
       } else {
         toast.error(response.message);
       }
@@ -136,8 +136,8 @@ const reset_password = async (e) => {
                               <input
                               value={confirmPassword}
                               onChange={(e)=>{setConfirmPassword(e.target.value)}}
-                                type={showPassword ? "text" : "password"}
-                                id="password"
+                                type={showConfirmPassword ? "text" : "password"}
+                                id="confirmpassword"
                                 name="password"
                                 placeholder="Enter your password"
                                 className="block w-full bg-[var(--lightSecondary-color)] px-3 py-1 pr-10 leading-6 placeholder-gray-500 "

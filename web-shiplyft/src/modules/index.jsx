@@ -76,7 +76,7 @@ export const resetOtpCheck = async (user,otp) => {
     throw error;
   }
 };
-export const resetPassword = async (otp,phone) => {
+export const resetPassword = async (user,otp,password) => {
   try {
     const response = await axiosInstance.post(APIs.resetpassword, {
      "body":{

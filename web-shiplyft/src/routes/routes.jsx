@@ -18,6 +18,7 @@ import Setting from "../screens/Setting";
 import Tools from "../screens/Tools";
 import WeightManagement from "../screens/WeightManagement";
 import HomePage from "../screens/Hero";
+import ProtectedRoute from "./ProtectedRoutes";
 
 
 const AppRoutes = () => (
@@ -31,7 +32,8 @@ const AppRoutes = () => (
       <Route path="/forgot-password-verify/:encodedEmail" element={<ForgotPasswordCode/>} />
       <Route path="/reset-password" element={<ResetPassword/>} />
       <Route path="/login-otp/:encodedPhone" element={<LoginOtp/>} />
-      <Route path="/" element={<HomePage />} />
+      <Route element={<ProtectedRoute />}>
+      {/* <Route path="/" element={<HomePage />} /> */}
       <Route path="/dashboard" element={<MainLayout><Dashboard /></MainLayout>} />
       <Route path="/order/*" element={<MainLayout><OrderPage /></MainLayout>} />
       <Route path="/home" element={<MainLayout><Home /></MainLayout>} />
@@ -42,6 +44,7 @@ const AppRoutes = () => (
       <Route path="/weight-management" element={<MainLayout><WeightManagement /></MainLayout>} />
       <Route path="/home" element={<MainLayout><Home /></MainLayout>} />
       <Route path="/return" element={<MainLayout><Returns /></MainLayout>} />
+      </Route>
     </Routes>
   </BrowserRouter>
 );
