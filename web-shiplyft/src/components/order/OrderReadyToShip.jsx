@@ -9,7 +9,8 @@ const OrderReadyToShip = () => {
   const [data,setData] = useState({});
   useEffect(()=>{
     try {
-      
+        console.log(filters);
+        
         const response = orderDetails("Ready to Ship",filters.orderTime,filters.keyword,filters.category);
           console.log(response);
           

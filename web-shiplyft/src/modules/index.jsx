@@ -93,15 +93,17 @@ export const resetPassword = async (user,otp,password) => {
 
 export const orderDetails = async (custom_status, time_period, order_id, cusotm_order_category) => {
   try {
+    console.log("jhgf");
+    
     const response = await axiosInstance.post(APIs.order_details, {
       custom_status:custom_status,
       time_period:time_period,
       order_id:order_id,
       cusotm_order_category:cusotm_order_category
     });
-    console.log(response);
+    console.log(response.data.message);
     
-    return response.message;
+    return response.data.message;
   } catch (error) {
     throw error;
   }
