@@ -15,7 +15,6 @@ def signup(body={}):
     firstname = body.get('firstname', None)
     new_password=body.get('password')
     lastname=body.get('lastname', None)
-    new_password=body.get('new_password')
     
     if body.get('password')!=body.get('confirm_password'):
         return{
