@@ -8,21 +8,24 @@ const OrderNew = () => {
   const {filters,updateFilter} = useOrderFilter()
   const [data,setData] = useState([]);
   useEffect(()=>{
-    try {
-      console.log(filters);
-      
-        const response = orderDetails("New",filters.orderTime,filters.keyword,filters.category);
-          console.log(response);
-          setData(response)
-        if (response.success_key ==1) {
-          
+    const fetchOrderDetails = async () => {
+      try {
+        console.log(filters);
+        const response = await orderDetails("New", filters.orderTime, filters.keyword, filters.category);
+        console.log(response);
+        setData(response);
+  
+        if (response.success_key === 1) {
+          // Success Logic
         } else {
           toast.error(response.message);
         }
       } catch (error) {
         toast.error("An error occurred while processing the request.");
       }
-    
+    };
+  
+    fetchOrderDetails(); // Call the async function
   },[filters.orderTime, filters.keyword, filters.category])
   return (
     <div className="p-6 w-full overflow-x-scroll">
