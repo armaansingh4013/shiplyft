@@ -9,7 +9,7 @@ import weightManagementicon from "../assets/svg/weightmanagement.svg";
 import billingicon from "../assets/svg/billing.svg";
 import customersupporticon from "../assets/svg/customersupport.svg"
 
-import { Link, matchPath, useLocation } from "react-router-dom";
+import { Link, matchPath, useLocation,useNavigate} from "react-router-dom";
 import {
   ChatBubbleLeftEllipsisIcon,
   CogIcon,
@@ -21,6 +21,13 @@ import {
 } from "@heroicons/react/24/solid";
 
 const Sidebar = () => {
+  const logout = ()=>{
+    console.log("asdgf");
+    
+  localStorage.removeItem("crsf_token")
+  navigate("/sign-in")
+  }
+  const navigate = useNavigate()
   const location = useLocation()
   return (
     <div className="hidden w-1/5 xl:flex xl:w-64 xl:flex-col xl:fixed xl:inset-y-0">
@@ -120,6 +127,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
+      <div><button onClick={logout} className="bg-[var(--primary-color)] font-bolder text-xl text-[var(--secondary-color)] border-t border-2 border-[var(--secondary-color)] w-full h-12 hover:bg-[var(--secondary-color)] hover:text-[var(--primary-color)]">Logout</button></div>
     </div>
   );
 };
