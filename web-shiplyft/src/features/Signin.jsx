@@ -31,7 +31,7 @@ const navigate = useNavigate();
           if (response.success_key == 1) {
             localStorage.setItem("crsf_token",response.sid);
             toast.success("Sign successfully!");
-            navigate("/dashboard")
+            navigate("/order")
           } else {
             toast.error("There was an error processing the signin request.");
           }

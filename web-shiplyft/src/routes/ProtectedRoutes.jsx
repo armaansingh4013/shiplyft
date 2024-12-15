@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = () => {
-  const token = localStorage.getItem("csrf_token"); // Check for token
+  const token = localStorage.getItem("crsf_token"); // Check for token
 
   return token ? <Outlet /> : <Navigate to="/sign-in" replace />;
 };

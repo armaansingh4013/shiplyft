@@ -169,11 +169,10 @@ export default function Dashboard() {
                   value={filters.orderTime}
                   onChange={(e)=>{updateFilter("orderTime",e.target.value)}}
                   >
-                    <option value="Last 30 Days">Last 30 Days</option>
-                    <option value="1 Months">1 Months</option>
-                    <option value="3 Months">3 Months</option>
-                    <option value="6 Months">6 Months</option>
-                    <option value="12 Months">12 MOnths</option>
+                    <option value="1">1 Months</option>
+                    <option value="3">3 Months</option>
+                    <option value="6">6 Months</option>
+                    <option value="12">12 MOnths</option>
                   </select>
                 </div>
                 <div class=" relative p-1 text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">

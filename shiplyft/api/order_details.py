@@ -4,7 +4,7 @@ from frappe.utils import nowdate, add_months
 import frappe
 import re
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest = True)
 def get_filtered_sales_orders(custom_status=None, custom_order_category=None, time_period=None, order_id=None):
     filters = {"docstatus": 0}  
 
