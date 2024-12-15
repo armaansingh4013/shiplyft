@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useOrderFilter } from '../../hooks/OrderContext';
 import {CubeIcon} from "@heroicons/react/24/solid";
 import { toast } from'react-toastify';
+import { orderDetails } from '../../modules';
+
 const OrderAll= () => {
   const {filters,updateFilter} = useOrderFilter()
   const [data,setData] = useState([]);
