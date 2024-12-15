@@ -61,7 +61,7 @@ const LoginOtp = () => {
           if (response.status=="success") {
             localStorage.setItem("crsf_token",response.sid);
             toast.success("Logged In successfully!");
-            navigate(`/dashboard`)
+            navigate(`/order`)
           } else {
             toast.error(response.message);
           }

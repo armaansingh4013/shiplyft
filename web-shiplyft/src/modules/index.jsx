@@ -90,3 +90,17 @@ export const resetPassword = async (user,otp,password) => {
     throw error;
   }
 };
+
+export const orderDetails = async (custom_status, time_period, order_id, cusotm_order_category) => {
+  try {
+    const response = await axiosInstance.post(APIs.order_details, {
+      custom_status:custom_status,
+      time_period:time_period,
+      order_id:order_id,
+      cusotm_order_category:cusotm_order_category
+    });
+    return response.data.message;
+  } catch (error) {
+    throw error;
+  }
+};
