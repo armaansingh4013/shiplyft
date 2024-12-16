@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
-
+import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <>
@@ -16,7 +16,7 @@ const HomePage = () => {
             <div className="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between lg:gap-10">
               <a
                 href="#"
-                className="group inline-flex items-center gap-2 text-lg font-bold tracking-wide text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300"
+                className="group text-decoration-none inline-flex items-center gap-2 text-lg font-bold tracking-wide text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300"
               >
                 <svg
                   className="hi-mini hi-rocket-launch inline-block size-5 text-pink-600 transition duration-200 group-hover:-rotate-45 group-active:-translate-y-2 dark:text-pink-400"
@@ -36,7 +36,7 @@ const HomePage = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-                <span>IndieRocket</span>
+                <span>Shiplyft</span>
               </a>
               <nav className="space-x-3 md:space-x-6">
                 <a
@@ -67,13 +67,14 @@ const HomePage = () => {
             </div>
             <div className="flex flex-col gap-4 text-center md:flex-row md:items-center md:justify-between md:gap-0">
               <div className="flex items-center justify-center gap-2">
-                <a
+                <Link
+                to="/sign-in"
                   href="#"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-transparent bg-white px-3 py-2 text-sm font-semibold leading-5 text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-sm focus:ring focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:bg-transparent dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700"
                 >
                   <span>Sign in</span>
-                </a>
-                <a
+                </Link>
+                <Link to="/sign-up"
                   href="#"
                   className="group inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold leading-5 text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-sm focus:ring focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-transparent dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700"
                 >
@@ -91,7 +92,7 @@ const HomePage = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -104,7 +105,7 @@ const HomePage = () => {
           <div className="lg:flex lg:items-center">
             <div>
               <h1 className="mb-4 text-5xl font-black tracking-tight text-black xl:text-6xl dark:text-white">
-                Rocket start your indie business
+                Join Us in Shiplyft business
               </h1>
               <h2 className="text-lg font-medium leading-relaxed text-gray-700 dark:text-gray-300">
                 Stop worrying about marketing and let us know guide you through.
@@ -210,12 +211,12 @@ const HomePage = () => {
                     </p>
                   </div>
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                    Join 5,000+ indie makers
+                    Join 5,000+ Shiplyft makers
                   </p>
                 </div>
               </div>
               <div className="flex flex-col justify-center gap-3 sm:flex-row sm:items-center lg:justify-start">
-                <a
+                <Link to="/sign-up"
                   href="#"
                   className="group inline-flex items-center justify-center gap-2 rounded-lg border border-pink-700 bg-pink-700 px-7 py-3.5 text-sm font-semibold text-white hover:border-pink-600 hover:bg-pink-600 hover:text-white focus:ring focus:ring-pink-400/50 active:border-pink-700 active:bg-pink-700 dark:focus:ring-pink-400/90"
                 >
@@ -233,7 +234,7 @@ const HomePage = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                </a>
+                </Link>
                 <a
                   href="#"
                   className="inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-7 py-3.5 text-sm font-semibold text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-sm focus:ring focus:ring-gray-300/25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-transparent dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600/40 dark:active:border-gray-700"
