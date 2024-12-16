@@ -5,6 +5,7 @@ import signup from "../assets/signin.png"
 import { Link, useNavigate } from 'react-router-dom';
 import { signUp } from '../modules';
 import { toast } from 'react-toastify';
+import SignUpComponent from '../components/SignUpComponent';
 const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);
@@ -315,11 +316,13 @@ const SignUp = () => {
             </div>
             {/* END Side Image */}
 
-            <div className="absolute top-0 right-0 h-full w-[40%] bg-[var(--secondary-color)] -z-10"></div>
+            <div className="absolute top-0 right-0 h-full w-[40%] bg-[#feede0] -z-10"></div>
           </div>
         </main>
         {/* END Page Content */}
       </div>
+
+      <SignUpComponent/>
       {/* END Page Container */}
       {/* END Pages: Sign Up: With Image Alternate */}
     </>

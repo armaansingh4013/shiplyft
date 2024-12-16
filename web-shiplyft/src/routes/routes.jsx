@@ -17,7 +17,6 @@ import Returns from "../screens/Returns";
 import Setting from "../screens/Setting";
 import Tools from "../screens/Tools";
 import WeightManagement from "../screens/WeightManagement";
-import HomePage from "../screens/Hero";
 import ProtectedRoute from "./ProtectedRoutes";
 
 
