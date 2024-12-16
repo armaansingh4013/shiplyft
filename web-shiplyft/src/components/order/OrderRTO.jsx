@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { useOrderFilter } from '../../hooks/OrderContext';
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react";
+import { useOrderFilter } from "../../hooks/OrderContext";
 
 import {CubeIcon} from "@heroicons/react/24/solid";
 import { orderDetails } from '../../modules';
 
-import { toast } from'react-toastify';
+import { toast } from "react-toastify";
 const OrderRTO = () => {
   const {filters,updateFilter} = useOrderFilter()
   const [data,setData] = useState({});
@@ -87,4 +88,4 @@ const OrderRTO = () => {
   )
 }
 
-export default OrderRTO
+export default OrderRTO;
