@@ -33,7 +33,7 @@ const SignUp = () => {
     if(formData.check != "1"){
       toast.error("Please Read Policies")
     }
-    else if(password!= confirm_password || password.length <6){
+    else if(formData.password!= formData.confirm_password || formData.password.length <6){
       toast.error("Password not valid")
     }
     else{
