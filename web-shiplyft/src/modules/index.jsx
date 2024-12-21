@@ -103,37 +103,8 @@ export const orderDetails = async (custom_status, time_period, order_id, cusotm_
     });
     console.log(response.data.message);
     setData(response.data.message)
-  //   setData([
-  //     {
-  //         "name": "SAL-ORD-2024-00001",
-  //         "customer_name": "Pardeep",
-  //         "custom_custom_status": "New",
-  //         "custom_order_category": "Domestic",
-  //         "grand_total": 100.0,
-  //         "shipping_address": "punjab<br>\nJindwari<br>mohali<br>\nPunjab<br>140133<br>India<br>\n<br>\n",
-  //         "items": [
-  //             {
-  //                 "item_name": "Samsung Phone",
-  //                 "item_code": "Samsung Phone"
-  //             }
-  //         ]
-  //     },
-  //     {
-  //         "name": "SAL-ORD-2024-00011",
-  //         "customer_name": "Pardeep",
-  //         "custom_custom_status": "New",
-  //         "custom_order_category": "Domestic",
-  //         "grand_total": 4999.0,
-  //         "shipping_address": "punjab<br>\nJindwari<br>mohali<br>\nPunjab<br>140133<br>India<br>\n<br>\n",
-  //         "items": [
-  //             {
-  //                 "item_name": "Redmi",
-  //                 "item_code": "Redmi"
-  //             }
-  //         ]
-  //     }
-  // ])
-  return 
+ 
+    return 
     // return response.data.message;
   } catch (error) {
     throw error;

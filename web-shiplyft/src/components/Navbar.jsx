@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/solid";
 const Navbar = () => {
   return (
-    <div class="sticky top-0 z-10 flex flex-shrink-0 h-16 bg-white border-b border-gray-200">
+    <div class="sticky top-0 z-10 flex flex-shrink-0 h-14 bg-white border-b border-gray-200">
       <div class="flex flex-1 px-4 sm:px-6 md:px-8">
         <div class="flex items-center justify-between flex-1 lg:justify-end">
           <div class="flex items-center -m-2 xl:hidden">
@@ -78,12 +78,9 @@ const Navbar = () => {
           </div>
         </div> */}
 
-          <div class="flex items-center space-x-6 sm:ml-4">
-            <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl ml-[10px] !important">
-              <button
-                type="button"
-                class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100"
-              >
+          <div class="flex items-center space-x-3l sm:ml-4">
+            <div class="flex space-x-1">
+             
                 <svg
                   width="24"
                   height="24"
@@ -103,20 +100,16 @@ const Navbar = () => {
                     </clipPath>
                   </defs>
                 </svg>
-              </button>
-            </div>
-            <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl ml-[10px] !important">
-              <button
-                type="button"
-                class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100"
-              >
+             
+              <span>
                 ₹0
-              </button>
-            </div>
-            <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl ml-[10px]">
+                </span>
+              
+      
+            
               <button
                 type="button"
-                class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100"
+                class="p-1 transition-all duration-200  rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100"
               >
                 <svg
                   width="16"
@@ -144,22 +137,22 @@ const Navbar = () => {
               </button>
             </div>
 
-            <div class=" relative p-1 text-gray-700 transition-all duration-200 bg-[#FFEFED] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[140px] h-[37px] justify-center md:block hidden">
+            <div class=" relative mx-1 transition-all duration-200 bg-[#FFEFED] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl justify-center md:block hidden">
               <button
                 type="button"
-                class="p-1 text-[#FA7669] transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-bold"
+                class="px-3 py-1 text-[#FA7669] transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-normal text-sm"
               >
                 Recharge Wallet
               </button>
             </div>
 
-            <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
+            <div class="relative mx-3 text-gray-700 transition-all duration-200 bg-white rounded-full shadow-sm hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
               <button
                 type="button"
                 class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100"
               >
                 <svg
-                  class="w-6 h-6"
+                  class="w-5 h-5"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -173,20 +166,19 @@ const Navbar = () => {
                   ></path>
                 </svg>
               </button>
-              <span class="inline-flex items-center px-1.5 absolute -top-px -right-1 py-0.5 rounded-full text-xs font-semibold bg-[#FF0000] text-white">
+              <span class="inline-flex items-center px-1.5 absolute -top-px p-1 -right-1 py-0.5 rounded-full text-xs font-semibold bg-[#FF0000] text-white">
                 {" "}
-                2{" "}
+                {" "}
               </span>
             </div>
 
-            <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
+            <div class="relative mx-1 text-gray-700 transition-all duration-200 bg-white shadow-sm rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
               <button
                 type="button"
                 class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100"
               >
                 <svg
-                  width="24"
-                  height="24"
+                 class="w-5 h-5"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"

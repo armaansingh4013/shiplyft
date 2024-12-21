@@ -8,7 +8,6 @@ import ForgotPasswordCode from "../features/ForgotPasswordCode";
 import ResetPassword from "../features/ResetPassword";
 import LoginOtp from "../features/LoginOtp";
 import Dashboard from "../screens/Dashboard";
-import OrderPage from "../screens/Order";
 import MainLayout from "../layout/MainLayout";
 import Home from "../screens/Home";
 import BIlling from "../screens/Billing";
@@ -18,9 +17,11 @@ import Setting from "../screens/Setting";
 import Tools from "../screens/Tools";
 import WeightManagement from "../screens/WeightManagement";
 import ProtectedRoute from "./ProtectedRoutes";
+import OrderLayout from "../layout/OrderLayout";
 
 
 const AppRoutes = () => (
+ 
   <BrowserRouter basename="web-shiplyft">
     <Routes>
       <Route path="/" element={<Hero />} />
@@ -34,7 +35,7 @@ const AppRoutes = () => (
       <Route element={<ProtectedRoute />}>
       {/* <Route path="/" element={<HomePage />} /> */}
       <Route path="/dashboard" element={<MainLayout><Dashboard /></MainLayout>} />
-      <Route path="/order/*" element={<MainLayout><OrderPage /></MainLayout>} />
+      <Route path="/order/*" element={<MainLayout><OrderLayout /></MainLayout>} />
       <Route path="/home" element={<MainLayout><Home /></MainLayout>} />
       <Route path="/billing" element={<MainLayout><BIlling /></MainLayout>} />
       <Route path="/customer-support" element={<MainLayout><CustomerSupport /></MainLayout>} />

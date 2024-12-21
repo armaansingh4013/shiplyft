@@ -29,25 +29,25 @@ const OrderAll= () => {
     
   },[filters.orderTime, filters.keyword, filters.category])
   return (
-    <div className="p-6 w-full overflow-x-scroll">
+    <div className="py-6 w-full overflow-x-scroll">
     {/* Table */}
     <table className="table-fixed w-full border-collapse">
       {/* Header */}
       <thead>
-        <tr className="bg-white text-black  shadow-lg rounded-xl">
-          <th className="p-2 md:p-3 text-left border-b font-normal w-40 rounded-s-3xl"> Order Details </th>
-          <th className="p-2 md:p-3 text-left w-40 font-normal border-b">Customer Details</th>
-          <th className="p-2 md:p-3 text-left w-40 font-normal border-b">Payment</th>
-          <th className="p-2 md:p-3 text-left w-60 font-normal border-b">Pickup/RTO Address</th>
-          <th className="p-2 md:p-3 text-left w-40 font-normal border-b">Shipping Details</th>
-          <th className="p-2 md:p-3 text-left w-40 font-normal border-b">Status</th>
-          <th className="p-2 md:p-3 text-left w-40 font-normal border-b rounded-e-3xl"> Action </th>
+        <tr className="bg-white text-black  shadow-lg rounded-md">
+          <th className="p-2 md:p-3 text-left border-b font-normal w-36 rounded-s-md"> Order Details </th>
+          <th className="p-2 md:p-3 text-left w-36 font-normal border-b">Customer Details</th>
+          <th className="p-2 md:p-3 text-left w-36 font-normal border-b">Payment</th>
+          <th className="p-2 md:p-3 text-left w-36 font-normal border-b">Pickup/RTO Address</th>
+          <th className="p-2 md:p-3 text-left w-36 font-normal border-b">Shipping Details</th>
+          <th className="p-2 md:p-3 text-left w-36 font-normal border-b">Status</th>
+          <th className="p-2 md:p-3 text-left w-36 font-normal border-b rounded-e-md"> Action </th>
         </tr>
       </thead>
 
+        <div className="h-8"></div>
       {/* Body */}
       <tbody>
-        <div className="h-8"></div>
         {data.length > 0 ? (
           data.map((row, index) => (
             <tr

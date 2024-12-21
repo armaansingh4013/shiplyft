@@ -30,22 +30,22 @@ const OrderRTO = () => {
     fetchOrderDetails(); // Call the async function
   },[filters.orderTime, filters.keyword, filters.category])
   return (
-    <div className="p-6 w-full overflow-x-scroll">
+    <div className="py-6 w-full overflow-x-scroll">
     {/* Table */}
     <table className="table-fixed w-full border-collapse">
       {/* Header */}
       <thead>
-        <tr className="bg-white text-black font-normal  shadow-lg rounded-xl">
-          <th className="p-2 md:p-3 text-left font-normal border-b w-40 rounded-s-3xl">
+        <tr className="bg-white text-black font-normal  shadow-lg rounded-md">
+          <th className="p-2 md:p-3 text-left font-normal border-b w-36 rounded-s-md">
             Order Details
           </th>
-          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">Customer Details</th>
-          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">Order Shipped Details</th>
-          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">Shipping Details</th>
-          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">RTO EDD</th>
-          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">RTO Address</th>
-          <th className="p-2 md:p-3 text-left font-normal w-40 border-b">Status</th>
-          <th className="p-2 md:p-3 text-left font-normal w-40 border-b rounded-e-3xl">
+          <th className="p-2 md:p-3 text-left font-normal w-36 border-b">Customer Details</th>
+          <th className="p-2 md:p-3 text-left font-normal w-36 border-b">Order Shipped Details</th>
+          <th className="p-2 md:p-3 text-left font-normal w-36 border-b">Shipping Details</th>
+          <th className="p-2 md:p-3 text-left font-normal w-36 border-b">RTO EDD</th>
+          <th className="p-2 md:p-3 text-left font-normal w-36 border-b">RTO Address</th>
+          <th className="p-2 md:p-3 text-left font-normal w-36 border-b">Status</th>
+          <th className="p-2 md:p-3 text-left font-normal w-36 border-b rounded-e-md">
            Action
           </th>
         </tr>

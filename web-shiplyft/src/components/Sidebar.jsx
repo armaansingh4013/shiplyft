@@ -30,18 +30,18 @@ const Sidebar = () => {
   const navigate = useNavigate()
   const location = useLocation()
   return (
-    <div className="hidden w-1/5 xl:flex xl:w-64 xl:flex-col xl:fixed xl:inset-y-0">
-      <div className="flex flex-col flex-grow pt-5 overflow-y-auto bg-[var(--primary-dashboard-color)]">
-        <div className="flex items-center flex-shrink-0 px-4 text-3xl font-bold text-white">
+    <div className="w-1/6 xl:flex xl:flex-col xl:inset-y-0 ">
+      <div className="flex flex-col flex-grow overflow-y-auto bg-[var(--primary-dashboard-color)]">
+        <div className="flex items-center p-2 flex-shrink-0rf px-4 text-3xl text-white">
           LOGO HERE
         </div>
 
-        <div className="flex flex-col flex-1 px-3 mt-8 ">
+        <div className="flex flex-col flex-1 px-2 mt-2">
           <div className="space-y-4">
             <nav className="flex-1 space-y-2">
               <Link
                 to="/home"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/home" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/home" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <HomeIcon className={`w-5 h-5 ${location.pathname=="/home"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
 
@@ -50,7 +50,7 @@ const Sidebar = () => {
 
               <Link
                 to="/dashboard"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/dashboard" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/dashboard" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <RectangleGroupIcon className={`w-6 h-6 ${location.pathname=="/dashboard"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
 
@@ -59,7 +59,7 @@ const Sidebar = () => {
 
               <Link
                 to="/order"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${matchPath("/order/*", location.pathname) ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${matchPath("/order/*", location.pathname) ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <ShoppingCartIcon className={`w-5 h-5 ${matchPath("/order/*", location.pathname)? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
                 Orders
@@ -67,7 +67,7 @@ const Sidebar = () => {
 
               <Link
                 to="/return"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/return" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/return" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <img src={returnicon} alt="Return Icon" className="w-5 h-5 mr-3" />
                 Returns
@@ -75,7 +75,7 @@ const Sidebar = () => {
 
               <Link
                 to="/weight-management"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/weight-management" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/weight-management" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <img
                   src={weightManagementicon}
@@ -87,7 +87,7 @@ const Sidebar = () => {
 
               <Link
                 to="/tools"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/tools" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/tools" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                <WrenchScrewdriverIcon className={`w-6 h-6 ${location.pathname=="/tools"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
 
@@ -96,7 +96,7 @@ const Sidebar = () => {
 
               <Link
                 to="/billing"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/billing" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/billing" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <DocumentCurrencyDollarIcon className={`w-6 h-6 ${location.pathname=="/billing"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
 
@@ -105,7 +105,7 @@ const Sidebar = () => {
 
               <Link
                 to="/setting"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/setting" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/setting" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 {/* <img src={settingicon} alt="Setting Icon" className="w-5 h-5 mr-3" /> */}
                 <CogIcon className={`w-6 h-6 ${location.pathname=="/setting"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
@@ -115,7 +115,7 @@ const Sidebar = () => {
 
               <Link
                 to="/customer-support"
-                className={`flex items-center px-4 py-2.5 text-sm font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/customer-support" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/customer-support" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 {/* <img src={customersupporticon} alt="Setting Icon" className="w-5 h-5 mr-3" /> */}
                 <ChatBubbleLeftEllipsisIcon className={`w-6 h-6 ${location.pathname=="/customer-support"? "fill-[#DD675B]":"fill-white group-hover:fill-[#DD675B]"} mr-3`} />
@@ -127,7 +127,7 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-      <div><button onClick={logout} className="bg-[var(--primary-color)] font-bolder text-xl text-[var(--secondary-color)] border-t border-2 border-[var(--secondary-color)] w-full h-12 hover:bg-[var(--secondary-color)] hover:text-[var(--primary-color)]">Logout</button></div>
+      {/* <div><button onClick={logout} className="bg-[var(--primary-color)] font-bolder text-xl text-[var(--secondary-color)] border-t border-2 border-[var(--secondary-color)] w-full h-12 hover:bg-[var(--secondary-color)] hover:text-[var(--primary-color)]">Logout</button></div> */}
     </div>
   );
 };
