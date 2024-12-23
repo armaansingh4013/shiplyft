@@ -28,7 +28,7 @@ const OrderNew = () => {
     fetchOrderDetails(); // Call the async function
   },[filters.orderTime, filters.keyword, filters.category])
   return (
-    <div className="py-6 w-full overflow-x-scroll">
+    <div className="py-6 w-full overflow-x-scroll scrollbar scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-gray-300">
     {/* Table */}
     <table className="table-fixed w-full border-collapse">
       {/* Header */}

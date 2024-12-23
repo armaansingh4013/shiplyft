@@ -7,17 +7,17 @@ import ForgotPasswordEmail from "../features/ForgotPasswordEmail";
 import ForgotPasswordCode from "../features/ForgotPasswordCode";
 import ResetPassword from "../features/ResetPassword";
 import LoginOtp from "../features/LoginOtp";
-import Dashboard from "../screens/Dashboard";
 import MainLayout from "../layout/MainLayout";
 import Home from "../screens/Home";
 import BIlling from "../screens/Billing";
 import CustomerSupport from "../screens/CustomerSupport";
-import Returns from "../screens/Returns";
 import Setting from "../screens/Setting";
 import Tools from "../screens/Tools";
 import WeightManagement from "../screens/WeightManagement";
 import ProtectedRoute from "./ProtectedRoutes";
 import OrderLayout from "../layout/OrderLayout";
+import ReturnLayout from "../layout/ReturnLayout";
+import DashboardLayout from "../layout/DashboardLayout";
 
 
 const AppRoutes = () => (
@@ -34,7 +34,7 @@ const AppRoutes = () => (
       <Route path="/login-otp/:encodedPhone" element={<LoginOtp/>} />
       <Route element={<ProtectedRoute />}>
       {/* <Route path="/" element={<HomePage />} /> */}
-      <Route path="/dashboard" element={<MainLayout><Dashboard /></MainLayout>} />
+      <Route path="/dashboard/*" element={<MainLayout><DashboardLayout /></MainLayout>} />
       <Route path="/order/*" element={<MainLayout><OrderLayout /></MainLayout>} />
       <Route path="/home" element={<MainLayout><Home /></MainLayout>} />
       <Route path="/billing" element={<MainLayout><BIlling /></MainLayout>} />
@@ -43,7 +43,7 @@ const AppRoutes = () => (
       <Route path="/tools" element={<MainLayout><Tools /></MainLayout>} />
       <Route path="/weight-management" element={<MainLayout><WeightManagement /></MainLayout>} />
       <Route path="/home" element={<MainLayout><Home /></MainLayout>} />
-      <Route path="/return" element={<MainLayout><Returns /></MainLayout>} />
+      <Route path="/return/*" element={<MainLayout><ReturnLayout /></MainLayout>} />
       </Route>
     </Routes>
   </BrowserRouter>

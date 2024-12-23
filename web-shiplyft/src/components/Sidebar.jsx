@@ -67,7 +67,7 @@ const Sidebar = () => {
 
               <Link
                 to="/return"
-                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${location.pathname == "/return" ? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
+                className={`flex items-center px-3 py-2.5 text-xs font-medium text-[#FFFFFF]  transition-all duration-200  rounded-lg  group text-decoration-none ${matchPath("/return/*", location.pathname)? "bg-white text-[var(--primary-dashboard-color)]" : " text-[#FFFFFF] hover:bg-white hover:text-[var(--primary-color)]"}`}
               >
                 <img src={returnicon} alt="Return Icon" className="w-5 h-5 mr-3" />
                 Returns
