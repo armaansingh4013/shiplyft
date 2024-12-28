@@ -54,12 +54,14 @@ export default function Order() {
 
             <div className="flex flex-row  items-center justify-end">
               <div class="mx-2 relative px-2 text-gray-700 transition-all duration-200 bg-[#e0caeb] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl  justify-center md:block hidden">
+                <Link to="/add-order">
                 <button
                   type="button"
                   class="p-1 text-[#af92d6] text-sm transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-semibold"
                 >
                   + Add Order
                 </button>
+                </Link>
               </div>
               <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-md hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
                 <button

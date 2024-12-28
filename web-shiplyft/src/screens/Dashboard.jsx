@@ -17,6 +17,7 @@ import OrderAll from "../components/order/OrderAll";
 import OrderRTO from "../components/order/OrderRTO";
 import { useDashboardFilter } from "../hooks/DashboardCOntext";
 import Overview from "../components/dashboard/Overview";
+import NDR from "../components/dashboard/NDR";
 
 export default function Dashboard() {
   const location = useLocation()
@@ -78,7 +79,7 @@ export default function Dashboard() {
                   </Link>
 
                   <Link
-                    to="/order/in-transit"
+                    to="/dashboard/ndr"
                     className={`py-2  transition-all duration-200 whitespace-nowrap text-decoration-none ${location.pathname === "/order/in-transit"
                       ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
                       : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
@@ -165,7 +166,7 @@ export default function Dashboard() {
               <Route path="" element={<Overview />} />
               <Route path="ready-to-ship" element={<OrderReadyToShip />} />
               <Route path="Pickups&manifests" element={<OrderPickupsManifests />} />
-              <Route path="in-transit" element={<OrderInTransit />} />
+              <Route path="ndr" element={<NDR/>} />
               <Route path="delivered" element={<OrderDelivered />} />
               <Route path="rto" element={<OrderRTO />} />
               <Route path="all" element={<OrderAll />} />

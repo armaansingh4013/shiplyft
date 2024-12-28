@@ -18,6 +18,7 @@ import ProtectedRoute from "./ProtectedRoutes";
 import OrderLayout from "../layout/OrderLayout";
 import ReturnLayout from "../layout/ReturnLayout";
 import DashboardLayout from "../layout/DashboardLayout";
+import AddOrder from "../screens/AddOrder";
 
 
 const AppRoutes = () => (
@@ -35,7 +36,12 @@ const AppRoutes = () => (
       <Route element={<ProtectedRoute />}>
       {/* <Route path="/" element={<HomePage />} /> */}
       <Route path="/dashboard/*" element={<MainLayout><DashboardLayout /></MainLayout>} />
+
+
+
       <Route path="/order/*" element={<MainLayout><OrderLayout /></MainLayout>} />
+      <Route path="/add-order/*" element={<MainLayout><AddOrder/></MainLayout>} />
+
       <Route path="/home" element={<MainLayout><Home /></MainLayout>} />
       <Route path="/billing" element={<MainLayout><BIlling /></MainLayout>} />
       <Route path="/customer-support" element={<MainLayout><CustomerSupport /></MainLayout>} />
