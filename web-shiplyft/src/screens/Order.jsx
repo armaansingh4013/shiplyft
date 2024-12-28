@@ -15,60 +15,61 @@ import OrderInTransit from "../components/order/OrderInTransit";
 import OrderDelivered from "../components/order/OrderDelivered";
 import OrderAll from "../components/order/OrderAll";
 import OrderRTO from "../components/order/OrderRTO";
-import {OrderFilterProvider, useOrderFilter} from "../hooks/OrderContext"
-export default function Dashboard() {
- const location = useLocation() 
- const {filters,updateFilter} = useOrderFilter()
+import { OrderFilterProvider, useOrderFilter } from "../hooks/OrderContext"
+export default function Order() {
+  const location = useLocation()
+  const { filters, updateFilter } = useOrderFilter()
 
   return (
     <>
       <main>
-        <div class="py-6 bg-gray-100 min-h-screen">
+        <div class="py-6 bg-gray-100">
           <div class="px-4 mx-auto sm:px-6 md:px-8 flex flex-row justify-between ">
-            <div className="flex flex-row justify-start items-center">
-              <h1 class="text-xl font-bold text-gray-900 mr-3">Orders</h1>
-              <div class="relative text-gray-700 transition-all duration-200 hover:text-gray-900 focus:outline-none hover:shadow-inner w-[140px] h-[37px] justify-center ">
-              <select
-        className="w-full h-full rounded-sm bg-white"
-        value={filters.category} 
-        onChange={(e)=>{updateFilter("category",e.target.value)}} 
-      >
-        <option value="All">All</option>
-        <option value="Domestic">Domestic</option>
-        <option value="International">International</option>
-      </select>
+            <div className="flex flex-row justify-start items-baseline">
+              <h1 class="text-lg font-bold text-gray-900 mr-3">Orders</h1>
+              <div class="relative ps-1 bg-white text-gray-700 transition-all duration-200 hover:text-gray-900 focus:outline-none hover:shadow-inner justify-center ">
+                <select
+                  className="w-full h-full rounded-sm text-sm  bg-white"
+                  value={filters.category}
+                  onChange={(e) => { updateFilter("category", e.target.value) }}
+                >
+                  <option value="All">All</option>
+                  <option value="Domestic">Domestic</option>
+                  <option value="International">International</option>
+                </select>
               </div>
             </div>
 
-            <div className="flex items-center bg-white rounded-md border border-gray-300 px-2 w-full md:w-96">
-              <SearchIcon className="w-4 h-4 mx-2" />
+            <div className="flex items-center bg-white rounded-md border border-gray-300 px-3 w-full md:w-96">
+              <SearchIcon className="w-3 h-3 mx-2" />
 
               <input
-              value={filters.keyword}
-              onChange={(e)=>{updateFilter("keyword",e.target.value)}}
+                value={filters.keyword}
+                onChange={(e) => { updateFilter("keyword", e.target.value) }}
                 type="text"
                 placeholder="Search for AWB, Order Id, Mobile Number"
-                className="flex-1 outline-none text-sm placeholder-gray-500"
+                className="flex-1 outline-none text-xs placeholder-gray-500 "
               />
             </div>
 
             <div className="flex flex-row  items-center justify-end">
-              <div class="mx-2 relative p-1 text-gray-700 transition-all duration-200 bg-[#e0caeb] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
+              <div class="mx-2 relative px-2 text-gray-700 transition-all duration-200 bg-[#e0caeb] rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl  justify-center md:block hidden">
+                <Link to="/add-order">
                 <button
                   type="button"
-                  class="p-1 text-[#af92d6] transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-semibold"
+                  class="p-1 text-[#af92d6] text-sm transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-semibold"
                 >
                   + Add Order
                 </button>
+                </Link>
               </div>
               <div class="relative p-1 text-gray-700 transition-all duration-200 bg-white rounded-md hover:text-gray-900 focus:outline-none hover:bg-gray-100 hover:shadow-2xl">
                 <button
                   type="button"
-                  class="p-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 flex flex-row  items-center"
+                  class="ps-1 text-gray-700 transition-all duration-200 bg-white rounded-full hover:text-gray-900 focus:outline-none hover:bg-gray-100 flex flex-row  items-center"
                 >
                   <svg
-                    width="20"
-                    height="20"
+                    class="w-4 h-4"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -80,94 +81,90 @@ export default function Dashboard() {
                       fill="#0F172A"
                     />
                   </svg>
-                  <span className="px-2">
-                  Sync Orders</span>
+                  <span className="px-2 text-sm">
+                    Sync Orders</span>
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="px-4 mx-auto mt-8 sm:px-6 md:px-8">
-            <div class="w-full pb-1 overflow-x-auto">
+          <div class="px-4 mx-auto text-sm sm:px-6 md:px-8">
+            <div class="w-full pb-1 mt-3 overflow-x-auto">
               <div class="border-b border-gray-200">
-                <nav class="flex -mb-px space-x-10">
+                <nav class="flex -mb-px space-x-6">
                   <Link
                     to="/order"
-                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
-                      location.pathname === "/order"
-                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
-                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
-                    }`}                  >
+                    className={`py-2 transition-all duration-200 whitespace-nowrap text-decoration-none ${location.pathname === "/order"
+                      ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                      : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                      }`}                  >
                     New
                   </Link>
 
                   <Link
                     to="/order/ready-to-ship"
-                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
-                      location.pathname === "/order/ready-to-ship"
-                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
-                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
-                    }`}                     >
+                    className={`py-2  transition-all duration-200 whitespace-nowrap text-decoration-none ${location.pathname === "/order/ready-to-ship"
+                      ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                      : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                      }`}                     >
                     Ready to Ship
                   </Link>
 
                   <Link
                     to="/order/pickups&manifests"
-                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
-                      location.pathname === "/order/pickups&manifests"
-                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
-                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
-                    }`}                     >
+                    className={`py-2  transition-all duration-200 whitespace-nowrap text-decoration-none ${location.pathname === "/order/pickups&manifests"
+                      ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                      : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                      }`}                     >
                     Pickups and Manifests
                   </Link>
 
                   <Link
                     to="/order/in-transit"
-                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
-                      location.pathname === "/order/in-transit"
-                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
-                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
-                    }`}                     >
+                    className={`py-2  transition-all duration-200 whitespace-nowrap text-decoration-none ${location.pathname === "/order/in-transit"
+                      ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                      : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                      }`}                     >
                     In Transit
                   </Link>
 
                   <Link
                     to="/order/delivered"
-                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
-                      location.pathname === "/order/delivered"
-                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
-                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
-                    }`}                     >
+                    className={`py-2  transition-all duration-200 whitespace-nowrap text-decoration-none ${location.pathname === "/order/delivered"
+                      ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                      : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                      }`}                     >
                     Delivered
                   </Link>
 
                   <Link
                     to="/order/rto"
-                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
-                      location.pathname === "/order/rto"
-                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
-                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
-                    }`}                     >
+                    className={`py-2  transition-all duration-200 whitespace-nowrap text-decoration-none ${location.pathname === "/order/rto"
+                      ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                      : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                      }`}                     >
                     RTO
                   </Link>
                   <Link
                     to="/order/all"
-                    className={`py-4 font-medium transition-all duration-200 whitespace-nowrap text-decoration-none ${
-                      location.pathname === "/order/all"
-                        ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
-                        : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
-                    }`}                     >
+                    className={`py-2  transition-all duration-200 whitespace-nowrap text-decoration-none ${location.pathname === "/order/all"
+                      ? "text-md text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                      : "text-sm text-gray-500 border-b-2 border-transparent hover:border-gray-300"
+                      }`}                     >
                     All
                   </Link>
                 </nav>
               </div>
             </div>
-            <div class="px-4 mx-auto sm:px-6 md:px-8 flex flex-row justify-between">
-              <div className="flex flex-row justify-start">
-                <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl w-[140px] h-[37px] justify-center ">
-                  <select className="w-full  h-full rounded-md"
-                  value={filters.orderTime}
-                  onChange={(e)=>{updateFilter("orderTime",e.target.value)}}
+
+
+
+            <div class="px-2  mt-3 mx-auto sm:px-6 md:px-8 flex flex-row items-center justify-between">
+              <div className="flex flex-row space-x-3">
+                <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl  justify-center ">
+                  <select className="bg-white px-2 py-1 rounded-sm"
+                    value={filters.orderTime}
+                    onChange={(e) => { updateFilter("orderTime", e.target.value) }}
                   >
                     <option value="1">1 Months</option>
                     <option value="3">3 Months</option>
@@ -175,19 +172,19 @@ export default function Dashboard() {
                     <option value="12">12 MOnths</option>
                   </select>
                 </div>
-                <div class=" relative p-1 text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl w-[110px] h-[32px] justify-center md:block hidden">
+                <div class=" relative p-1 flex items-center text-gray-700 bg-white transition-all duration-200 rounded-sm hover:text-gray-900 focus:outline-none hover:bg-[#FFEFED] hover:shadow-2xl md:block hidden">
                   <button
                     type="button"
-                    class="p-1 transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none font-bold"
+                    class="transition-all duration-200  rounded-sm hover:text-gray-900 focus:outline-none"
                   >
                     More Filters
                   </button>
                 </div>
               </div>
 
-              <div className="flex flex-row justify-end">
-                <div class="relative text-gray-700 transition-all duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl w-[190px] h-[37px] justify-center ">
-                  <select className="w-full  h-full rounded-md">
+              <div className="flex flex-row">
+                <div class="relative flex items-center text-gray-700 transition-all bg-white duration-200 rounded-md hover:text-gray-900 focus:outline-none hover:shadow-2xl justify-center ">
+                  <select className="px-2 py-1 rounded-sm bg-white text-sm">
                     <option value="" disable>Select Bulk Actions</option>
                     <option value="1 Months">1 Months</option>
                     <option value="3 Months">3 Months</option>
@@ -198,16 +195,16 @@ export default function Dashboard() {
               </div>
             </div>
 
-<Routes>
-  <Route path="" element={<OrderNew/>}/>
-  <Route path="ready-to-ship" element={<OrderReadyToShip/>}/>
-  <Route path="Pickups&manifests" element={<OrderPickupsManifests/>}/>
-  <Route path="in-transit" element={<OrderInTransit/>}/>
-  <Route path="delivered" element={<OrderDelivered/>}/>
-  <Route path="rto" element={<OrderRTO/>}/>
-  <Route path="all" element={<OrderAll/>}/>
-</Routes>
-           
+            <Routes>
+              <Route path="" element={<OrderNew />} />
+              <Route path="ready-to-ship" element={<OrderReadyToShip />} />
+              <Route path="Pickups&manifests" element={<OrderPickupsManifests />} />
+              <Route path="in-transit" element={<OrderInTransit />} />
+              <Route path="delivered" element={<OrderDelivered />} />
+              <Route path="rto" element={<OrderRTO />} />
+              <Route path="all" element={<OrderAll />} />
+            </Routes>
+
 
             {/* <div class="mt-8 border border-indigo-300 rounded-lg bg-indigo-50">
                   <div class="px-4 py-5 sm:p-6">
