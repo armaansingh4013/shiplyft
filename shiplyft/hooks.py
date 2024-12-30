@@ -242,5 +242,10 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+fixtures = [{
+    "dt": "Custom Field",
+    "filters": [['module', "=", "shiplyft"]]
+}]
+
 
 website_route_rules = [{'from_route': '/web-shiplyft/<path:app_path>', 'to_route': 'web-shiplyft'},]
