@@ -20,11 +20,12 @@ const OrderDetailProduct = ({idx}) => {
             <div className="row flex items-end">
               <div className="col-xl-4 col-12 mb-3 mb-xl-0 ">
                 <label className="mb-2">Product {idx+1} Name </label>
-                <div className="border-1 p-2 rounded">
+                <div className="border-1 rounded">
                   <input
                     type="text"
                     placeholder="Enter or search your product name"
                     autoComplete="off"
+                    className='w-full p-2 '
                     name="productname0"
                     id="productname0"
                     data-gtm-form-interact-field-id={13}
