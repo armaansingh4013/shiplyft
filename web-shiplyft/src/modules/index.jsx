@@ -113,9 +113,9 @@ export const orderDetails = async (custom_status, time_period, order_id, cusotm_
 export const add_single_order = async (data) => {
   try {
     
-    const response = await axiosInstance.post(APIs.add_single_order, {
+    const response = await axiosInstance.post(APIs.add_single_order, 
       data
-    });
+    );
     console.log(response.data.message);
   
  
