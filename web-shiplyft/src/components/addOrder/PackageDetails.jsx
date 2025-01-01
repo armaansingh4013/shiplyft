@@ -1,6 +1,8 @@
 import React from 'react'
+import { useAddSingleOrder } from '../../hooks/AddSIngleOrderContext'
 
 const PackageDetails = () => {
+const {order,updateAddSingleOrder} = useAddSingleOrder();
   return (
     <>
  
@@ -39,6 +41,8 @@ const PackageDetails = () => {
                       onwheel="return false;"
                       onkeypress="if(this.value.length==6) return false;"
                       className="w-4/5 rounded-s p-2"
+                      value={order.weight}
+                      onChange={(e)=>{updateAddSingleOrder("weight",e.target.value)}}
                     />
                     <span className='rounded-e bg-gray-200 p-2 w-1/5'>Kg</span>
                   </div>
@@ -86,6 +90,8 @@ const PackageDetails = () => {
                           onwheel="return false;"
                           onkeypress="if(this.value.length==6) return false;"
                           className="rounded-s p-2 w-4/5"
+                          value={order.length}
+                          onChange={(e)=>{updateAddSingleOrder("length",e.target.value)}}
                         />
                         <span className='bg-gray-200 rounded-e w-1/5 text-center flex items-center'>cm</span>
                       </div>
@@ -101,6 +107,8 @@ const PackageDetails = () => {
                           onwheel="return false;"
                           onkeypress="if(this.value.length==6) return false;"
                           className="w-4/5 rounded-s p-2"
+                          value={order.breadth}
+                          onChange={(e)=>{updateAddSingleOrder("breadth",e.target.value)}}
                         />
                         <span className='bg-gray-200 rounded-e w-1/5 flex items-center text-center'> cm</span>
                       </div>
@@ -116,6 +124,8 @@ const PackageDetails = () => {
                           onwheel="return false;"
                           onkeypress="if(this.value.length==6) return false;"
                           className="w-4/5 rounded-s p-2 "
+                          value={order.height}
+                          onChange={(e)=>{updateAddSingleOrder('height',e.target.value)}}
                         />
                         <span className='bg-gray-200 items-center flex text-center rounded-e'>cm</span>
                       </div>

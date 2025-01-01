@@ -7,6 +7,7 @@ import PackageDetails from "./PackageDetails";
 import {
   useAddSingleOrder,
 } from "../../hooks/AddSIngleOrderContext";
+import { add_single_order } from "../../modules";
 
 const SingleOrder = () => {
   const { order, updateAddSingleOrder } = useAddSingleOrder();
@@ -26,6 +27,13 @@ const SingleOrder = () => {
       break;
     default:
       renderComponent = <BuyerDetail />;
+  }
+
+  const addOrder = async()=>{
+    const res = await add_single_order(order)
+    console.log('====================================');
+    console.log(res);
+    console.log('====================================');
   }
   return (
     <>
@@ -80,7 +88,7 @@ const SingleOrder = () => {
                 </button>
                 <button
                   onClick={() => {
-                    updateAddSingleOrder("status", order.status + 1);
+                    addOrder()
                   }}
                   type="button"
                   className={`bg-[var(--primary-color)] text-white p-2 rounded ${order.status!=3?"hidden":""}`}

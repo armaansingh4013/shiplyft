@@ -4,6 +4,12 @@ import { useAddSingleOrder } from '../../hooks/AddSIngleOrderContext'
 const OrderDetailProduct = ({idx}) => {
     const {order,updateAddSingleOrder} = useAddSingleOrder()
     const [tax,setTax]= useState(false)
+    let item  = order.order_items[idx]
+    const updateProduct = function (key,value){
+      let items = order.order_items
+      items[idx] = {...item,[key]:value}
+      updateAddSingleOrder("order_items",items)
+    }
   return (
     <div
           className="pt-2 "
@@ -22,6 +28,8 @@ const OrderDetailProduct = ({idx}) => {
                     name="productname0"
                     id="productname0"
                     data-gtm-form-interact-field-id={13}
+                    value={item.name}
+                    onChange={(e)=>{updateProduct("name",e.target.value)}}
                   />
                 </div>
               </div>
@@ -41,6 +49,8 @@ const OrderDetailProduct = ({idx}) => {
                     className="w-4/5 rounded-e"
                     id="selling_price0"
                     data-gtm-form-interact-field-id={14}
+                    value={item.selling_price}
+                    onChange={(e)=>{updateProduct("selling_price",e.target.value)}}
                   />
                 </div>
               </div>
@@ -56,6 +66,8 @@ const OrderDetailProduct = ({idx}) => {
                     maxLength={10}
                     className="p-2 w-3/5"
                     id="quantity0"
+                    value={item.units}
+                    onChange={(e)=>{updateProduct("units",e.target.value)}}
                   />
                   <span className="cursor-pointer w-1/5 p-2 bg-gray-200 rounded-e">
                     +
@@ -75,6 +87,8 @@ const OrderDetailProduct = ({idx}) => {
                     name="productcategory0"
                     id="productcategory0"
                     data-gtm-form-interact-field-id={15}
+                    value={item.category_name}
+                    onChange={(e)=>{updateProduct("category_name",e.target.value)}}
                   />
                   <div
                     className="suggestions"
@@ -89,7 +103,7 @@ const OrderDetailProduct = ({idx}) => {
               <div className="col-2 col-lg-1">
                 <button
                   className="m-2"
-                  onClick={(e)=>{e.preventDefault();updateAddSingleOrder("products",order.products.filter((_, index) => index !== idx))}}
+                  onClick={(e)=>{e.preventDefault();updateAddSingleOrder("order_items",order.order_items.filter((_, index) => index !== idx))}}
                 >
                   <img
                     apppathcorrection=""
@@ -164,6 +178,8 @@ const OrderDetailProduct = ({idx}) => {
                         placeholder="Enter your product HSN code"
                         className="form-control"
                         id="hsn0"
+                        value={item.hsn}
+                        onChange={(e)=>{updateProduct("hsn",e.target.value)}}
                       />
                     </div>
                     <label className="mt-2 text-xs">
@@ -198,6 +214,8 @@ const OrderDetailProduct = ({idx}) => {
                         placeholder="Enter Product SKU"
                         className="form-control"
                         id="sku0"
+                        value={item.sku}
+                        onChange={(e)=>{updateProduct("sku",e.target.value)}}
                       />
                     </div>
                   </div>
@@ -214,6 +232,8 @@ const OrderDetailProduct = ({idx}) => {
                         maxLength={15}
                         className="form-control"
                         id="tax0"
+                        value={item.tax_amount}
+                        onChange={(e)=>{updateProduct("tax_amount",e.target.value)}}
                       />
                     </div>
                   </div>
@@ -240,6 +260,8 @@ const OrderDetailProduct = ({idx}) => {
                         maxLength={15}
                         className="form-control"
                         id="discount0"
+                        value={item.discount }
+                        onChange={(e)=>{updateProduct("discount",e.target.value)}}
                       />
                     </div>
                   </div>

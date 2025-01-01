@@ -40,6 +40,8 @@ const OrderDetail = () => {
               className="form-control ng-pristine ng-valid ng-touched"
               max="2024-12-28"
               min="2024-06-28"
+              value={order.order_date}
+              onChange={(e)=>{updateAddSingleOrder("order_date",e.target.value)}}
             />
             <img src="assets/images/calenderr.svg" alt="" className="" />
           </div>
@@ -124,6 +126,8 @@ const OrderDetail = () => {
                 aria-expanded="false"
                 aria-haspopup="true"
                 id="mat-chip-list-input-1"
+                value={order.order_tag}
+                onChange={(e)=>{updateAddSingleOrder("order_tag",e.target.value)}}
               />
             </div>
             <div className="col-xl-3 col-md-4 custom_width ng-star-inserted">
@@ -138,6 +142,8 @@ const OrderDetail = () => {
                 formcontrolname="reseller_name"
                 maxLength={90}
                 className="form-control ng-untouched ng-pristine ng-valid"
+                value={order.reseller_name}
+                onChange={(e)=>{updateAddSingleOrder("reseller_nme",e.target.value)}}
               />
             </div>
           </div>
@@ -147,11 +153,11 @@ const OrderDetail = () => {
 
         <h6 className="pt-4">Product Details</h6>
 
-          {order.products.map((product,idx) => (
+          {order.order_items.map((product,idx) => (
     <OrderDetailProduct key={idx} idx={idx} />
 ))}
         
-          <button onClick={(e)=>{e.preventDefault();updateAddSingleOrder("products",[...order.products,{}])}} className="border-2 mt-4 p-2 rounded text-white bg-[var(--primary-color)]">+ Add Another Product </button>
+          <button onClick={(e)=>{e.preventDefault();updateAddSingleOrder("order_items",[...order.order_items,{}])}} className="border-2 mt-4 p-2 rounded text-white bg-[var(--primary-color)]">+ Add Another Product </button>
         {/**/}
         <div className="mt-4 ng-star-inserted">
           <div className="row">
@@ -172,9 +178,10 @@ const OrderDetail = () => {
                     formcontrolname="payment_method"
                     id="prepaid"
                     defaultValue="prepaid"
-                    className="form-check-input ng-dirty ng-valid ng-touched"
+                    className=""
                     data-gtm-form-interact-field-id={16}
-                  />
+                    
+                    />
                   <span className="checkmark" /> Prepaid{" "}
                   <img
                     appsrpopover=""
@@ -254,6 +261,8 @@ const OrderDetail = () => {
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                         maxLength={15}
                         className="w-4/5 rounded-e p-2"
+                        value={order.shipping_charges}
+                        onChange={(e)=>{updateAddSingleOrder("shipping_charges",e.target.value)}}
                       />
                     </div>
                   </div>
@@ -275,6 +284,8 @@ const OrderDetail = () => {
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                         maxLength={15}
                         className="rounded-e p-2 w-4/5"
+                        value={order.giftwrap_charges}
+                        onChange={(e)=>{updateAddSingleOrder("giftwrap_charges",e.target.value)}}
                       />
                     </div>
                   </div>
@@ -308,6 +319,8 @@ const OrderDetail = () => {
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                         maxLength={15}
                         className="w-4/5 rounded-e p-2"
+                        value={order.transaction_charges}
+                        onChange={(e)=>{updateAddSingleOrder("transaction_charges",e.target.value)}}
                       />
                     </div>
                   </div>
@@ -341,6 +354,8 @@ const OrderDetail = () => {
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
                         maxLength={15}
                         className="rounded-e w-4/5 p-2"
+                        value={order.total_discount}
+                        onChange={(e)=>{updateAddSingleOrder("total_discount",e.target.value)}}
                       />
                     </div>
                   </div>

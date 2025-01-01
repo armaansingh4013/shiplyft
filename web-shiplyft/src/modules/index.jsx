@@ -93,7 +93,6 @@ export const resetPassword = async (user,otp,password) => {
 
 export const orderDetails = async (custom_status, time_period, order_id, cusotm_order_category,setData) => {
   try {
-    console.log("jhgf");
     
     const response = await axiosInstance.post(APIs.order_details, {
       custom_status:custom_status,
@@ -103,6 +102,22 @@ export const orderDetails = async (custom_status, time_period, order_id, cusotm_
     });
     console.log(response.data.message);
     setData(response.data.message)
+ 
+    return 
+    // return response.data.message;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const add_single_order = async (data) => {
+  try {
+    
+    const response = await axiosInstance.post(APIs.add_single_order, {
+      data
+    });
+    console.log(response.data.message);
+  
  
     return 
     // return response.data.message;
