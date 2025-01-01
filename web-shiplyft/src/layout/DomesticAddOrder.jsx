@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 import SingleOrder from "../components/addOrder/SingleOrder";
+import { AddSingleOrderProvider } from "../hooks/AddSIngleOrderContext";
 
 const DomesticAddOrder = () => {
   const location = useLocation();
@@ -61,7 +62,7 @@ const DomesticAddOrder = () => {
         </div>
         <div>
           <Routes>
-            <Route path="single-order" element={<SingleOrder />} />
+            <Route path="single-order" element={<AddSingleOrderProvider><SingleOrder /></AddSingleOrderProvider> } />
           </Routes>
         </div>
       </div>

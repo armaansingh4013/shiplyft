@@ -1,7 +1,7 @@
 import frappe
 from frappe.utils import flt, nowdate
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def create_order(**kwargs):
     try:
         billing_customer_name = kwargs.get("shipping_customer_name")
