@@ -27,6 +27,16 @@ def create_order(**kwargs):
             customer=shipping_customer_name
         )
         
+        pickup_address = create_address(
+            title=kwargs.get('pickup_address'),
+            city=kwargs.get('pickup_city'),
+            state=kwargs.get('pickup_state'),
+            country=kwargs.get('pickup_country'),
+            pincode=kwargs.get('pickup_pincode'),
+            email=kwargs.get('pickup_email'),
+            phone=kwargs.get('pickup_phone'),
+            customer=shipping_customer_name
+        )
         order_doc = frappe.get_doc(dict(
             doctype = "Sales Order",
             custom_order_id =(kwargs.get('order_id')),
@@ -46,6 +56,7 @@ def create_order(**kwargs):
             custom_shipping_last_name = kwargs.get('shipping_last_name'),
             shipping_address_name = shipping_address.name,
             custom_shipping_address_2 = kwargs.get('shipping_address_2'),
+            custom_pickup_address_ = pickup_address.name,
             order_type = kwargs.get('order_type'),
             custom_product_category = kwargs.get('product_category'),
             contact_phone = kwargs.get('billing_alternate_phone'),
