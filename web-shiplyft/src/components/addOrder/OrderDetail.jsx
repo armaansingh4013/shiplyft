@@ -8,6 +8,12 @@ const OrderDetail = () => {
   const [orderReseller,setOrderReseller] = useState(false);
   const [taxCharges,setTaxCharges] = useState(false);
   const {order,updateAddSingleOrder} = useAddSingleOrder()
+  const productTotal = order.order_items.reduce((sum, item) => sum + (item.selling_price*item.units), 0);
+  const otherCharges = 
+  Number(order.shipping_charges || 0) +
+  Number(order.giftwrap_charges || 0) +
+  Number(order.transaction_charges || 0) - 
+  Number(order.total_discount || 0);
   return (
     <>
       <h5>Order Details</h5>
@@ -180,7 +186,8 @@ const OrderDetail = () => {
                     defaultValue="prepaid"
                     className=""
                     data-gtm-form-interact-field-id={16}
-                    
+                    checked ={order.payment_method === "prepaid"}
+                    onChange={(e)=>{updateAddSingleOrder("payment_method",e.target.value)}}
                     />
                   <span className="checkmark" /> Prepaid{" "}
                   <img
@@ -207,6 +214,8 @@ const OrderDetail = () => {
                     defaultValue="COD"
                     className="form-check-input ng-dirty ng-valid ng-touched"
                     data-gtm-form-interact-field-id={17}
+                    checked ={order.payment_method === "COD"}
+                    onChange={(e)=>{updateAddSingleOrder("payment_method",e.target.value)}}
                   />
                   <span className="checkmark" /> Cash On Delivery{" "}
                   <img
@@ -369,7 +378,7 @@ const OrderDetail = () => {
                   <p className="fs-14px"> Sub-total for Product </p>
                 </div>
                 <div className="col-6">
-                  <p className="text-end"> ₹ 9 </p>
+                  <p className="text-end"> ₹ {productTotal}</p>
                 </div>
               </div>
               <div className="row">
@@ -377,7 +386,7 @@ const OrderDetail = () => {
                   <p className="fs-14px">Other Charges</p>
                 </div>
                 <div className="col-6">
-                  <p className="text-end"> ₹ 0 </p>
+                  <p className="text-end"> ₹ {otherCharges} </p>
                 </div>
               </div>
               {/**/}
@@ -386,7 +395,7 @@ const OrderDetail = () => {
                   <p className="mb-0 fs-14px">Total Order Value</p>
                 </div>
                 <div className="col-6">
-                  <p className="mb-0 text-end"> ₹ 9 </p>
+                  <p className="mb-0 text-end"> ₹ {productTotal+otherCharges} </p>
                 </div>
               </div>
             </div>

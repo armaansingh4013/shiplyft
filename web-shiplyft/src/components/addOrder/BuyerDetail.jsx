@@ -247,127 +247,52 @@ const BuyerDetail = () => {
               <label>State</label>
 
               <div className="flex border-1 rounded">
-                <select
-                  name="shipping_state"
-                  id="shipping_state"
-                  formcontrolname="shipping_state"
-                  className="p-2 bg-white rounded w-full"
-                  data-gtm-form-interact-field-id={5}
-                  disabled=""
-                >
-                  <option value="">Please Select State</option>
-                  <option value={1475} className="ng-star-inserted">
-                    Andaman and Nicobar Islands
-                  </option>
-                  <option value={1476} className="ng-star-inserted">
-                    Andhra Pradesh
-                  </option>
-                  <option value={1477} className="ng-star-inserted">
-                    Arunachal Pradesh
-                  </option>
-                  <option value={1478} className="ng-star-inserted">
-                    Assam
-                  </option>
-                  <option value={1479} className="ng-star-inserted">
-                    Bihar
-                  </option>
-                  <option value={1480} className="ng-star-inserted">
-                    Chandigarh
-                  </option>
-                  <option value={1481} className="ng-star-inserted">
-                    Dadra and Nagar Haveli
-                  </option>
-                  <option value={1482} className="ng-star-inserted">
-                    Daman and Diu
-                  </option>
-                  <option value={1483} className="ng-star-inserted">
-                    Delhi
-                  </option>
-                  <option value={1484} className="ng-star-inserted">
-                    Goa
-                  </option>
-                  <option value={1485} className="ng-star-inserted">
-                    Gujarat
-                  </option>
-                  <option value={1486} className="ng-star-inserted">
-                    Haryana
-                  </option>
-                  <option value={1487} className="ng-star-inserted">
-                    Himachal Pradesh
-                  </option>
-                  <option value={1488} className="ng-star-inserted">
-                    Jammu and Kashmir
-                  </option>
-                  <option value={1489} className="ng-star-inserted">
-                    Karnataka
-                  </option>
-                  <option value={1490} className="ng-star-inserted">
-                    Kerala
-                  </option>
-                  <option value={1491} className="ng-star-inserted">
-                    Lakshadweep Islands
-                  </option>
-                  <option value={1492} className="ng-star-inserted">
-                    Madhya Pradesh
-                  </option>
-                  <option value={1493} className="ng-star-inserted">
-                    Maharashtra
-                  </option>
-                  <option value={1494} className="ng-star-inserted">
-                    Manipur
-                  </option>
-                  <option value={1495} className="ng-star-inserted">
-                    Meghalaya
-                  </option>
-                  <option value={1496} className="ng-star-inserted">
-                    Mizoram
-                  </option>
-                  <option value={1497} className="ng-star-inserted">
-                    Nagaland
-                  </option>
-                  <option value={1498} className="ng-star-inserted">
-                    Odisha
-                  </option>
-                  <option value={1499} className="ng-star-inserted">
-                    Pondicherry
-                  </option>
-                  <option value={1500} className="ng-star-inserted">
-                    Punjab
-                  </option>
-                  <option value={1501} className="ng-star-inserted">
-                    Rajasthan
-                  </option>
-                  <option value={1502} className="ng-star-inserted">
-                    Sikkim
-                  </option>
-                  <option value={1503} className="ng-star-inserted">
-                    Tamil Nadu
-                  </option>
-                  <option value={1504} className="ng-star-inserted">
-                    Tripura
-                  </option>
-                  <option value={1505} className="ng-star-inserted">
-                    Uttar Pradesh
-                  </option>
-                  <option value={1506} className="ng-star-inserted">
-                    West Bengal
-                  </option>
-                  <option value={3971} className="ng-star-inserted">
-                    Jharkhand
-                  </option>
-                  <option value={3972} className="ng-star-inserted">
-                    Uttarakhand
-                  </option>
-                  <option value={3973} className="ng-star-inserted">
-                    Chhattisgarh
-                  </option>
-                  <option value={3976} className="ng-star-inserted">
-                    Telangana
-                  </option>
-                  <option value={3986} className="ng-star-inserted">
-                    Ladakh
-                  </option>
-                </select>
+              <select
+        name="shipping_state"
+        id="shipping_state"
+        className="p-2 bg-white rounded w-full"
+        value={order.shipping_state} // Bind value to state
+        onChange={(e)=>{updateAddSingleOrder("shipping_state",e.target.value)}} // Handle change
+      >
+        <option value="">Please Select State</option>
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+        <option value="Daman and Diu">Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Lakshadweep Islands">Lakshadweep Islands</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Pondicherry">Pondicherry</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="West Bengal">West Bengal</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Ladakh">Ladakh</option>
+      </select>
               </div>
             </div>
 
@@ -380,750 +305,752 @@ const BuyerDetail = () => {
                   id="shipping_country"
                   formcontrolname="shipping_country"
                   className="p-2 rounded w-full bg-white"
-                  disabled="true"
+                  value={order.shipping_country}
+                  onChange={(e)=>{updateAddSingleOrder("shipping_country",e.target.value)}}
+
                 >
-                  <option value={1} className="ng-star-inserted">
+                  <option value={1} >
                     Afghanistan
                   </option>
-                  <option value={2} className="ng-star-inserted">
+                  <option value={2} >
                     Albania
                   </option>
-                  <option value={3} className="ng-star-inserted">
+                  <option value={3} >
                     Algeria
                   </option>
-                  <option value={4} className="ng-star-inserted">
+                  <option value={4} >
                     American Samoa
                   </option>
-                  <option value={5} className="ng-star-inserted">
+                  <option value={5} >
                     Andorra
                   </option>
-                  <option value={6} className="ng-star-inserted">
+                  <option value={6} >
                     Angola
                   </option>
-                  <option value={7} className="ng-star-inserted">
+                  <option value={7} >
                     Anguilla
                   </option>
-                  <option value={8} className="ng-star-inserted">
+                  <option value={8} >
                     Antarctica
                   </option>
-                  <option value={9} className="ng-star-inserted">
+                  <option value={9} >
                     Antigua and Barbuda
                   </option>
-                  <option value={10} className="ng-star-inserted">
+                  <option value={10} >
                     Argentina
                   </option>
-                  <option value={11} className="ng-star-inserted">
+                  <option value={11} >
                     Armenia
                   </option>
-                  <option value={12} className="ng-star-inserted">
+                  <option value={12} >
                     Aruba
                   </option>
-                  <option value={13} className="ng-star-inserted">
+                  <option value={13} >
                     Australia
                   </option>
-                  <option value={14} className="ng-star-inserted">
+                  <option value={14} >
                     Austria
                   </option>
-                  <option value={15} className="ng-star-inserted">
+                  <option value={15} >
                     Azerbaijan
                   </option>
-                  <option value={16} className="ng-star-inserted">
+                  <option value={16} >
                     Bahamas
                   </option>
-                  <option value={17} className="ng-star-inserted">
+                  <option value={17} >
                     Bahrain
                   </option>
-                  <option value={18} className="ng-star-inserted">
+                  <option value={18} >
                     Bangladesh
                   </option>
-                  <option value={19} className="ng-star-inserted">
+                  <option value={19} >
                     Barbados
                   </option>
-                  <option value={20} className="ng-star-inserted">
+                  <option value={20} >
                     Belarus
                   </option>
-                  <option value={21} className="ng-star-inserted">
+                  <option value={21} >
                     Belgium
                   </option>
-                  <option value={22} className="ng-star-inserted">
+                  <option value={22} >
                     Belize
                   </option>
-                  <option value={23} className="ng-star-inserted">
+                  <option value={23} >
                     Benin
                   </option>
-                  <option value={24} className="ng-star-inserted">
+                  <option value={24} >
                     Bermuda
                   </option>
-                  <option value={25} className="ng-star-inserted">
+                  <option value={25} >
                     Bhutan
                   </option>
-                  <option value={26} className="ng-star-inserted">
+                  <option value={26} >
                     Bolivia
                   </option>
-                  <option value={27} className="ng-star-inserted">
+                  <option value={27} >
                     Bosnia and Herzegowina
                   </option>
-                  <option value={28} className="ng-star-inserted">
+                  <option value={28} >
                     Botswana
                   </option>
-                  <option value={29} className="ng-star-inserted">
+                  <option value={29} >
                     Bouvet Island
                   </option>
-                  <option value={30} className="ng-star-inserted">
+                  <option value={30} >
                     Brazil
                   </option>
-                  <option value={31} className="ng-star-inserted">
+                  <option value={31} >
                     British Indian Ocean Territory
                   </option>
-                  <option value={32} className="ng-star-inserted">
+                  <option value={32} >
                     Brunei Darussalam
                   </option>
-                  <option value={33} className="ng-star-inserted">
+                  <option value={33} >
                     Bulgaria
                   </option>
-                  <option value={34} className="ng-star-inserted">
+                  <option value={34} >
                     Burkina Faso
                   </option>
-                  <option value={35} className="ng-star-inserted">
+                  <option value={35} >
                     Burundi
                   </option>
-                  <option value={36} className="ng-star-inserted">
+                  <option value={36} >
                     Cambodia
                   </option>
-                  <option value={37} className="ng-star-inserted">
+                  <option value={37} >
                     Cameroon
                   </option>
-                  <option value={38} className="ng-star-inserted">
+                  <option value={38} >
                     Canada
                   </option>
-                  <option value={39} className="ng-star-inserted">
+                  <option value={39} >
                     Cape Verde
                   </option>
-                  <option value={40} className="ng-star-inserted">
+                  <option value={40} >
                     Cayman Islands
                   </option>
-                  <option value={41} className="ng-star-inserted">
+                  <option value={41} >
                     Central African Republic
                   </option>
-                  <option value={42} className="ng-star-inserted">
+                  <option value={42} >
                     Chad
                   </option>
-                  <option value={43} className="ng-star-inserted">
+                  <option value={43} >
                     Chile
                   </option>
-                  <option value={44} className="ng-star-inserted">
+                  <option value={44} >
                     China
                   </option>
-                  <option value={45} className="ng-star-inserted">
+                  <option value={45} >
                     Christmas Island
                   </option>
-                  <option value={46} className="ng-star-inserted">
+                  <option value={46} >
                     Cocos (Keeling) Islands
                   </option>
-                  <option value={47} className="ng-star-inserted">
+                  <option value={47} >
                     Colombia
                   </option>
-                  <option value={48} className="ng-star-inserted">
+                  <option value={48} >
                     Comoros
                   </option>
-                  <option value={49} className="ng-star-inserted">
+                  <option value={49} >
                     Congo
                   </option>
-                  <option value={50} className="ng-star-inserted">
+                  <option value={50} >
                     Cook Islands
                   </option>
-                  <option value={51} className="ng-star-inserted">
+                  <option value={51} >
                     Costa Rica
                   </option>
-                  <option value={52} className="ng-star-inserted">
+                  <option value={52} >
                     Cote D'Ivoire
                   </option>
-                  <option value={53} className="ng-star-inserted">
+                  <option value={53} >
                     Croatia
                   </option>
-                  <option value={54} className="ng-star-inserted">
+                  <option value={54} >
                     Cuba
                   </option>
-                  <option value={55} className="ng-star-inserted">
+                  <option value={55} >
                     Cyprus
                   </option>
-                  <option value={56} className="ng-star-inserted">
+                  <option value={56} >
                     Czech Republic
                   </option>
-                  <option value={57} className="ng-star-inserted">
+                  <option value={57} >
                     Denmark
                   </option>
-                  <option value={58} className="ng-star-inserted">
+                  <option value={58} >
                     Djibouti
                   </option>
-                  <option value={59} className="ng-star-inserted">
+                  <option value={59} >
                     Dominica
                   </option>
-                  <option value={60} className="ng-star-inserted">
+                  <option value={60} >
                     Dominican Republic
                   </option>
-                  <option value={61} className="ng-star-inserted">
+                  <option value={61} >
                     East Timor
                   </option>
-                  <option value={62} className="ng-star-inserted">
+                  <option value={62} >
                     Ecuador
                   </option>
-                  <option value={63} className="ng-star-inserted">
+                  <option value={63} >
                     Egypt
                   </option>
-                  <option value={64} className="ng-star-inserted">
+                  <option value={64} >
                     El Salvador
                   </option>
-                  <option value={65} className="ng-star-inserted">
+                  <option value={65} >
                     Equatorial Guinea
                   </option>
-                  <option value={66} className="ng-star-inserted">
+                  <option value={66} >
                     Eritrea
                   </option>
-                  <option value={67} className="ng-star-inserted">
+                  <option value={67} >
                     Estonia
                   </option>
-                  <option value={68} className="ng-star-inserted">
+                  <option value={68} >
                     Ethiopia
                   </option>
-                  <option value={69} className="ng-star-inserted">
+                  <option value={69} >
                     Falkland Islands (Malvinas)
                   </option>
-                  <option value={70} className="ng-star-inserted">
+                  <option value={70} >
                     Faroe Islands
                   </option>
-                  <option value={71} className="ng-star-inserted">
+                  <option value={71} >
                     Fiji
                   </option>
-                  <option value={72} className="ng-star-inserted">
+                  <option value={72} >
                     Finland
                   </option>
-                  <option value={73} className="ng-star-inserted">
+                  <option value={73} >
                     France
                   </option>
-                  <option value={74} className="ng-star-inserted">
+                  <option value={74} >
                     France, Metropolitan
                   </option>
-                  <option value={75} className="ng-star-inserted">
+                  <option value={75} >
                     French Guiana
                   </option>
-                  <option value={76} className="ng-star-inserted">
+                  <option value={76} >
                     French Polynesia
                   </option>
-                  <option value={77} className="ng-star-inserted">
+                  <option value={77} >
                     French Southern Territories
                   </option>
-                  <option value={78} className="ng-star-inserted">
+                  <option value={78} >
                     Gabon
                   </option>
-                  <option value={79} className="ng-star-inserted">
+                  <option value={79} >
                     Gambia
                   </option>
-                  <option value={80} className="ng-star-inserted">
+                  <option value={80} >
                     Georgia
                   </option>
-                  <option value={81} className="ng-star-inserted">
+                  <option value={81} >
                     Germany
                   </option>
-                  <option value={82} className="ng-star-inserted">
+                  <option value={82} >
                     Ghana
                   </option>
-                  <option value={83} className="ng-star-inserted">
+                  <option value={83} >
                     Gibraltar
                   </option>
-                  <option value={84} className="ng-star-inserted">
+                  <option value={84} >
                     Greece
                   </option>
-                  <option value={85} className="ng-star-inserted">
+                  <option value={85} >
                     Greenland
                   </option>
-                  <option value={86} className="ng-star-inserted">
+                  <option value={86} >
                     Grenada
                   </option>
-                  <option value={87} className="ng-star-inserted">
+                  <option value={87} >
                     Guadeloupe
                   </option>
-                  <option value={88} className="ng-star-inserted">
+                  <option value={88} >
                     Guam
                   </option>
-                  <option value={89} className="ng-star-inserted">
+                  <option value={89} >
                     Guatemala
                   </option>
-                  <option value={90} className="ng-star-inserted">
+                  <option value={90} >
                     Guinea
                   </option>
-                  <option value={91} className="ng-star-inserted">
+                  <option value={91} >
                     Guinea-bissau
                   </option>
-                  <option value={92} className="ng-star-inserted">
+                  <option value={92} >
                     Guyana
                   </option>
-                  <option value={93} className="ng-star-inserted">
+                  <option value={93} >
                     Haiti
                   </option>
-                  <option value={94} className="ng-star-inserted">
+                  <option value={94} >
                     Heard and Mc Donald Islands
                   </option>
-                  <option value={95} className="ng-star-inserted">
+                  <option value={95} >
                     Honduras
                   </option>
-                  <option value={96} className="ng-star-inserted">
+                  <option value={96} >
                     Hong Kong
                   </option>
-                  <option value={97} className="ng-star-inserted">
+                  <option value={97} >
                     Hungary
                   </option>
-                  <option value={98} className="ng-star-inserted">
+                  <option value={98} >
                     Iceland
                   </option>
-                  <option value={99} className="ng-star-inserted">
+                  <option value={99} >
                     India
                   </option>
-                  <option value={100} className="ng-star-inserted">
+                  <option value={100} >
                     Indonesia
                   </option>
-                  <option value={101} className="ng-star-inserted">
+                  <option value={101} >
                     Iran (Islamic Republic of)
                   </option>
-                  <option value={102} className="ng-star-inserted">
+                  <option value={102} >
                     Iraq
                   </option>
-                  <option value={103} className="ng-star-inserted">
+                  <option value={103} >
                     Ireland
                   </option>
-                  <option value={104} className="ng-star-inserted">
+                  <option value={104} >
                     Israel
                   </option>
-                  <option value={105} className="ng-star-inserted">
+                  <option value={105} >
                     Italy
                   </option>
-                  <option value={106} className="ng-star-inserted">
+                  <option value={106} >
                     Jamaica
                   </option>
-                  <option value={107} className="ng-star-inserted">
+                  <option value={107} >
                     Japan
                   </option>
-                  <option value={108} className="ng-star-inserted">
+                  <option value={108} >
                     Jordan
                   </option>
-                  <option value={109} className="ng-star-inserted">
+                  <option value={109} >
                     Kazakhstan
                   </option>
-                  <option value={110} className="ng-star-inserted">
+                  <option value={110} >
                     Kenya
                   </option>
-                  <option value={111} className="ng-star-inserted">
+                  <option value={111} >
                     Kiribati
                   </option>
-                  <option value={112} className="ng-star-inserted">
+                  <option value={112} >
                     North Korea
                   </option>
-                  <option value={113} className="ng-star-inserted">
+                  <option value={113} >
                     South Korea
                   </option>
-                  <option value={114} className="ng-star-inserted">
+                  <option value={114} >
                     Kuwait
                   </option>
-                  <option value={115} className="ng-star-inserted">
+                  <option value={115} >
                     Kyrgyzstan
                   </option>
-                  <option value={116} className="ng-star-inserted">
+                  <option value={116} >
                     Lao People's Democratic Republic
                   </option>
-                  <option value={117} className="ng-star-inserted">
+                  <option value={117} >
                     Latvia
                   </option>
-                  <option value={118} className="ng-star-inserted">
+                  <option value={118} >
                     Lebanon
                   </option>
-                  <option value={119} className="ng-star-inserted">
+                  <option value={119} >
                     Lesotho
                   </option>
-                  <option value={120} className="ng-star-inserted">
+                  <option value={120} >
                     Liberia
                   </option>
-                  <option value={121} className="ng-star-inserted">
+                  <option value={121} >
                     Libyan Arab Jamahiriya
                   </option>
-                  <option value={122} className="ng-star-inserted">
+                  <option value={122} >
                     Liechtenstein
                   </option>
-                  <option value={123} className="ng-star-inserted">
+                  <option value={123} >
                     Lithuania
                   </option>
-                  <option value={124} className="ng-star-inserted">
+                  <option value={124} >
                     Luxembourg
                   </option>
-                  <option value={125} className="ng-star-inserted">
+                  <option value={125} >
                     Macau
                   </option>
-                  <option value={126} className="ng-star-inserted">
+                  <option value={126} >
                     Macedonia
                   </option>
-                  <option value={127} className="ng-star-inserted">
+                  <option value={127} >
                     Madagascar
                   </option>
-                  <option value={128} className="ng-star-inserted">
+                  <option value={128} >
                     Malawi
                   </option>
-                  <option value={129} className="ng-star-inserted">
+                  <option value={129} >
                     Malaysia
                   </option>
-                  <option value={130} className="ng-star-inserted">
+                  <option value={130} >
                     Maldives
                   </option>
-                  <option value={131} className="ng-star-inserted">
+                  <option value={131} >
                     Mali
                   </option>
-                  <option value={132} className="ng-star-inserted">
+                  <option value={132} >
                     Malta
                   </option>
-                  <option value={133} className="ng-star-inserted">
+                  <option value={133} >
                     Marshall Islands
                   </option>
-                  <option value={134} className="ng-star-inserted">
+                  <option value={134} >
                     Martinique
                   </option>
-                  <option value={135} className="ng-star-inserted">
+                  <option value={135} >
                     Mauritania
                   </option>
-                  <option value={136} className="ng-star-inserted">
+                  <option value={136} >
                     Mauritius
                   </option>
-                  <option value={137} className="ng-star-inserted">
+                  <option value={137} >
                     Mayotte
                   </option>
-                  <option value={138} className="ng-star-inserted">
+                  <option value={138} >
                     Mexico
                   </option>
-                  <option value={139} className="ng-star-inserted">
+                  <option value={139} >
                     Micronesia, Federated States of
                   </option>
-                  <option value={140} className="ng-star-inserted">
+                  <option value={140} >
                     Moldova, Republic of
                   </option>
-                  <option value={141} className="ng-star-inserted">
+                  <option value={141} >
                     Monaco
                   </option>
-                  <option value={142} className="ng-star-inserted">
+                  <option value={142} >
                     Mongolia
                   </option>
-                  <option value={143} className="ng-star-inserted">
+                  <option value={143} >
                     Montserrat
                   </option>
-                  <option value={144} className="ng-star-inserted">
+                  <option value={144} >
                     Morocco
                   </option>
-                  <option value={145} className="ng-star-inserted">
+                  <option value={145} >
                     Mozambique
                   </option>
-                  <option value={146} className="ng-star-inserted">
+                  <option value={146} >
                     Myanmar
                   </option>
-                  <option value={147} className="ng-star-inserted">
+                  <option value={147} >
                     Namibia
                   </option>
-                  <option value={148} className="ng-star-inserted">
+                  <option value={148} >
                     Nauru
                   </option>
-                  <option value={149} className="ng-star-inserted">
+                  <option value={149} >
                     Nepal
                   </option>
-                  <option value={150} className="ng-star-inserted">
+                  <option value={150} >
                     Netherlands
                   </option>
-                  <option value={151} className="ng-star-inserted">
+                  <option value={151} >
                     Netherlands Antilles
                   </option>
-                  <option value={152} className="ng-star-inserted">
+                  <option value={152} >
                     New Caledonia
                   </option>
-                  <option value={153} className="ng-star-inserted">
+                  <option value={153} >
                     New Zealand
                   </option>
-                  <option value={154} className="ng-star-inserted">
+                  <option value={154} >
                     Nicaragua
                   </option>
-                  <option value={155} className="ng-star-inserted">
+                  <option value={155} >
                     Niger
                   </option>
-                  <option value={156} className="ng-star-inserted">
+                  <option value={156} >
                     Nigeria
                   </option>
-                  <option value={157} className="ng-star-inserted">
+                  <option value={157} >
                     Niue
                   </option>
-                  <option value={158} className="ng-star-inserted">
+                  <option value={158} >
                     Norfolk Island
                   </option>
-                  <option value={159} className="ng-star-inserted">
+                  <option value={159} >
                     Northern Mariana Islands
                   </option>
-                  <option value={160} className="ng-star-inserted">
+                  <option value={160} >
                     Norway
                   </option>
-                  <option value={161} className="ng-star-inserted">
+                  <option value={161} >
                     Oman
                   </option>
-                  <option value={162} className="ng-star-inserted">
+                  <option value={162} >
                     Pakistan
                   </option>
-                  <option value={163} className="ng-star-inserted">
+                  <option value={163} >
                     Palau
                   </option>
-                  <option value={164} className="ng-star-inserted">
+                  <option value={164} >
                     Panama
                   </option>
-                  <option value={165} className="ng-star-inserted">
+                  <option value={165} >
                     Papua New Guinea
                   </option>
-                  <option value={166} className="ng-star-inserted">
+                  <option value={166} >
                     Paraguay
                   </option>
-                  <option value={167} className="ng-star-inserted">
+                  <option value={167} >
                     Peru
                   </option>
-                  <option value={168} className="ng-star-inserted">
+                  <option value={168} >
                     Philippines
                   </option>
-                  <option value={169} className="ng-star-inserted">
+                  <option value={169} >
                     Pitcairn
                   </option>
-                  <option value={170} className="ng-star-inserted">
+                  <option value={170} >
                     Poland
                   </option>
-                  <option value={171} className="ng-star-inserted">
+                  <option value={171} >
                     Portugal
                   </option>
-                  <option value={172} className="ng-star-inserted">
+                  <option value={172} >
                     Puerto Rico
                   </option>
-                  <option value={173} className="ng-star-inserted">
+                  <option value={173} >
                     Qatar
                   </option>
-                  <option value={174} className="ng-star-inserted">
+                  <option value={174} >
                     Reunion
                   </option>
-                  <option value={175} className="ng-star-inserted">
+                  <option value={175} >
                     Romania
                   </option>
-                  <option value={176} className="ng-star-inserted">
+                  <option value={176} >
                     Russian Federation
                   </option>
-                  <option value={177} className="ng-star-inserted">
+                  <option value={177} >
                     Rwanda
                   </option>
-                  <option value={178} className="ng-star-inserted">
+                  <option value={178} >
                     Saint Kitts and Nevis
                   </option>
-                  <option value={179} className="ng-star-inserted">
+                  <option value={179} >
                     Saint Lucia
                   </option>
-                  <option value={180} className="ng-star-inserted">
+                  <option value={180} >
                     Saint Vincent and the Grenadines
                   </option>
-                  <option value={181} className="ng-star-inserted">
+                  <option value={181} >
                     Samoa
                   </option>
-                  <option value={182} className="ng-star-inserted">
+                  <option value={182} >
                     San Marino
                   </option>
-                  <option value={183} className="ng-star-inserted">
+                  <option value={183} >
                     Sao Tome and Principe
                   </option>
-                  <option value={184} className="ng-star-inserted">
+                  <option value={184} >
                     Saudi Arabia
                   </option>
-                  <option value={185} className="ng-star-inserted">
+                  <option value={185} >
                     Senegal
                   </option>
-                  <option value={186} className="ng-star-inserted">
+                  <option value={186} >
                     Seychelles
                   </option>
-                  <option value={187} className="ng-star-inserted">
+                  <option value={187} >
                     Sierra Leone
                   </option>
-                  <option value={188} className="ng-star-inserted">
+                  <option value={188} >
                     Singapore
                   </option>
-                  <option value={189} className="ng-star-inserted">
+                  <option value={189} >
                     Slovak Republic
                   </option>
-                  <option value={190} className="ng-star-inserted">
+                  <option value={190} >
                     Slovenia
                   </option>
-                  <option value={191} className="ng-star-inserted">
+                  <option value={191} >
                     Solomon Islands
                   </option>
-                  <option value={192} className="ng-star-inserted">
+                  <option value={192} >
                     Somalia
                   </option>
-                  <option value={193} className="ng-star-inserted">
+                  <option value={193} >
                     South Africa
                   </option>
-                  <option value={194} className="ng-star-inserted">
+                  <option value={194} >
                     South Georgia &amp;amp; South Sandwich Islands
                   </option>
-                  <option value={195} className="ng-star-inserted">
+                  <option value={195} >
                     Spain
                   </option>
-                  <option value={196} className="ng-star-inserted">
+                  <option value={196} >
                     Sri Lanka
                   </option>
-                  <option value={197} className="ng-star-inserted">
+                  <option value={197} >
                     St. Helena
                   </option>
-                  <option value={198} className="ng-star-inserted">
+                  <option value={198} >
                     St. Pierre and Miquelon
                   </option>
-                  <option value={199} className="ng-star-inserted">
+                  <option value={199} >
                     Sudan
                   </option>
-                  <option value={200} className="ng-star-inserted">
+                  <option value={200} >
                     Suriname
                   </option>
-                  <option value={201} className="ng-star-inserted">
+                  <option value={201} >
                     Svalbard and Jan Mayen Islands
                   </option>
-                  <option value={202} className="ng-star-inserted">
+                  <option value={202} >
                     Swaziland
                   </option>
-                  <option value={203} className="ng-star-inserted">
+                  <option value={203} >
                     Sweden
                   </option>
-                  <option value={204} className="ng-star-inserted">
+                  <option value={204} >
                     Switzerland
                   </option>
-                  <option value={205} className="ng-star-inserted">
+                  <option value={205} >
                     Syrian Arab Republic
                   </option>
-                  <option value={206} className="ng-star-inserted">
+                  <option value={206} >
                     Taiwan
                   </option>
-                  <option value={207} className="ng-star-inserted">
+                  <option value={207} >
                     Tajikistan
                   </option>
-                  <option value={208} className="ng-star-inserted">
+                  <option value={208} >
                     Tanzania, United Republic of
                   </option>
-                  <option value={209} className="ng-star-inserted">
+                  <option value={209} >
                     Thailand
                   </option>
-                  <option value={210} className="ng-star-inserted">
+                  <option value={210} >
                     Togo
                   </option>
-                  <option value={211} className="ng-star-inserted">
+                  <option value={211} >
                     Tokelau
                   </option>
-                  <option value={212} className="ng-star-inserted">
+                  <option value={212} >
                     Tonga
                   </option>
-                  <option value={213} className="ng-star-inserted">
+                  <option value={213} >
                     Trinidad and Tobago
                   </option>
-                  <option value={214} className="ng-star-inserted">
+                  <option value={214} >
                     Tunisia
                   </option>
-                  <option value={215} className="ng-star-inserted">
+                  <option value={215} >
                     Turkey
                   </option>
-                  <option value={216} className="ng-star-inserted">
+                  <option value={216} >
                     Turkmenistan
                   </option>
-                  <option value={217} className="ng-star-inserted">
+                  <option value={217} >
                     Turks and Caicos Islands
                   </option>
-                  <option value={218} className="ng-star-inserted">
+                  <option value={218} >
                     Tuvalu
                   </option>
-                  <option value={219} className="ng-star-inserted">
+                  <option value={219} >
                     Uganda
                   </option>
-                  <option value={220} className="ng-star-inserted">
+                  <option value={220} >
                     Ukraine
                   </option>
-                  <option value={221} className="ng-star-inserted">
+                  <option value={221} >
                     United Arab Emirates
                   </option>
-                  <option value={222} className="ng-star-inserted">
+                  <option value={222} >
                     United Kingdom
                   </option>
-                  <option value={223} className="ng-star-inserted">
+                  <option value={223} >
                     United States
                   </option>
-                  <option value={224} className="ng-star-inserted">
+                  <option value={224} >
                     United States Minor Outlying Islands
                   </option>
-                  <option value={225} className="ng-star-inserted">
+                  <option value={225} >
                     Uruguay
                   </option>
-                  <option value={226} className="ng-star-inserted">
+                  <option value={226} >
                     Uzbekistan
                   </option>
-                  <option value={227} className="ng-star-inserted">
+                  <option value={227} >
                     Vanuatu
                   </option>
-                  <option value={228} className="ng-star-inserted">
+                  <option value={228} >
                     Vatican City State (Holy See)
                   </option>
-                  <option value={229} className="ng-star-inserted">
+                  <option value={229} >
                     Venezuela
                   </option>
-                  <option value={230} className="ng-star-inserted">
+                  <option value={230} >
                     Viet Nam
                   </option>
-                  <option value={231} className="ng-star-inserted">
+                  <option value={231} >
                     Virgin Islands (British)
                   </option>
-                  <option value={232} className="ng-star-inserted">
+                  <option value={232} >
                     Virgin Islands (U.S.)
                   </option>
-                  <option value={233} className="ng-star-inserted">
+                  <option value={233} >
                     Wallis and Futuna Islands
                   </option>
-                  <option value={234} className="ng-star-inserted">
+                  <option value={234} >
                     Western Sahara
                   </option>
-                  <option value={235} className="ng-star-inserted">
+                  <option value={235} >
                     Yemen
                   </option>
-                  <option value={236} className="ng-star-inserted">
+                  <option value={236} >
                     Yugoslavia
                   </option>
-                  <option value={237} className="ng-star-inserted">
+                  <option value={237} >
                     Democratic Republic of Congo
                   </option>
-                  <option value={238} className="ng-star-inserted">
+                  <option value={238} >
                     Zambia
                   </option>
-                  <option value={239} className="ng-star-inserted">
+                  <option value={239} >
                     Zimbabwe
                   </option>
-                  <option value={240} className="ng-star-inserted">
+                  <option value={240} >
                     Aland Islands
                   </option>
-                  <option value={241} className="ng-star-inserted">
+                  <option value={241} >
                     St Barthelemy
                   </option>
-                  <option value={242} className="ng-star-inserted">
+                  <option value={242} >
                     Guernsey
                   </option>
-                  <option value={243} className="ng-star-inserted">
+                  <option value={243} >
                     Isle of Man
                   </option>
-                  <option value={244} className="ng-star-inserted">
+                  <option value={244} >
                     Jersey
                   </option>
-                  <option value={245} className="ng-star-inserted">
+                  <option value={245} >
                     Montenegro
                   </option>
-                  <option value={246} className="ng-star-inserted">
+                  <option value={246} >
                     St Martin (French part)
                   </option>
-                  <option value={247} className="ng-star-inserted">
+                  <option value={247} >
                     Serbia
                   </option>
-                  <option value={248} className="ng-star-inserted">
+                  <option value={248} >
                     South Sudan
                   </option>
                 </select>
@@ -1316,127 +1243,52 @@ const BuyerDetail = () => {
                   <label>State</label>
 
                   <div className="flex border-1 rounded">
-                    <select
-                      name="shipping_state"
-                      id="shipping_state"
-                      formcontrolname="shipping_state"
-                      className="p-2 bg-white rounded w-full"
-                      data-gtm-form-interact-field-id={5}
-                      disabled=""
-                    >
-                      <option value="">Please Select State</option>
-                      <option value={1475} className="ng-star-inserted">
-                        Andaman and Nicobar Islands
-                      </option>
-                      <option value={1476} className="ng-star-inserted">
-                        Andhra Pradesh
-                      </option>
-                      <option value={1477} className="ng-star-inserted">
-                        Arunachal Pradesh
-                      </option>
-                      <option value={1478} className="ng-star-inserted">
-                        Assam
-                      </option>
-                      <option value={1479} className="ng-star-inserted">
-                        Bihar
-                      </option>
-                      <option value={1480} className="ng-star-inserted">
-                        Chandigarh
-                      </option>
-                      <option value={1481} className="ng-star-inserted">
-                        Dadra and Nagar Haveli
-                      </option>
-                      <option value={1482} className="ng-star-inserted">
-                        Daman and Diu
-                      </option>
-                      <option value={1483} className="ng-star-inserted">
-                        Delhi
-                      </option>
-                      <option value={1484} className="ng-star-inserted">
-                        Goa
-                      </option>
-                      <option value={1485} className="ng-star-inserted">
-                        Gujarat
-                      </option>
-                      <option value={1486} className="ng-star-inserted">
-                        Haryana
-                      </option>
-                      <option value={1487} className="ng-star-inserted">
-                        Himachal Pradesh
-                      </option>
-                      <option value={1488} className="ng-star-inserted">
-                        Jammu and Kashmir
-                      </option>
-                      <option value={1489} className="ng-star-inserted">
-                        Karnataka
-                      </option>
-                      <option value={1490} className="ng-star-inserted">
-                        Kerala
-                      </option>
-                      <option value={1491} className="ng-star-inserted">
-                        Lakshadweep Islands
-                      </option>
-                      <option value={1492} className="ng-star-inserted">
-                        Madhya Pradesh
-                      </option>
-                      <option value={1493} className="ng-star-inserted">
-                        Maharashtra
-                      </option>
-                      <option value={1494} className="ng-star-inserted">
-                        Manipur
-                      </option>
-                      <option value={1495} className="ng-star-inserted">
-                        Meghalaya
-                      </option>
-                      <option value={1496} className="ng-star-inserted">
-                        Mizoram
-                      </option>
-                      <option value={1497} className="ng-star-inserted">
-                        Nagaland
-                      </option>
-                      <option value={1498} className="ng-star-inserted">
-                        Odisha
-                      </option>
-                      <option value={1499} className="ng-star-inserted">
-                        Pondicherry
-                      </option>
-                      <option value={1500} className="ng-star-inserted">
-                        Punjab
-                      </option>
-                      <option value={1501} className="ng-star-inserted">
-                        Rajasthan
-                      </option>
-                      <option value={1502} className="ng-star-inserted">
-                        Sikkim
-                      </option>
-                      <option value={1503} className="ng-star-inserted">
-                        Tamil Nadu
-                      </option>
-                      <option value={1504} className="ng-star-inserted">
-                        Tripura
-                      </option>
-                      <option value={1505} className="ng-star-inserted">
-                        Uttar Pradesh
-                      </option>
-                      <option value={1506} className="ng-star-inserted">
-                        West Bengal
-                      </option>
-                      <option value={3971} className="ng-star-inserted">
-                        Jharkhand
-                      </option>
-                      <option value={3972} className="ng-star-inserted">
-                        Uttarakhand
-                      </option>
-                      <option value={3973} className="ng-star-inserted">
-                        Chhattisgarh
-                      </option>
-                      <option value={3976} className="ng-star-inserted">
-                        Telangana
-                      </option>
-                      <option value={3986} className="ng-star-inserted">
-                        Ladakh
-                      </option>
-                    </select>
+                  <select
+        name="billing_state"
+        id="billing_state"
+        className="p-2 bg-white rounded w-full"
+        value={order.billing_state} // Bind value to state
+        onChange={(e)=>{updateAddSingleOrder("shipping_state",e.target.value)}} // Handle change
+      >
+        <option value="">Please Select State</option>
+        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+        <option value="Daman and Diu">Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Lakshadweep Islands">Lakshadweep Islands</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Pondicherry">Pondicherry</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="West Bengal">West Bengal</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Ladakh">Ladakh</option>
+      </select>
                   </div>
                 </div>
 
@@ -1449,750 +1301,752 @@ const BuyerDetail = () => {
                       id="shipping_country"
                       formcontrolname="shipping_country"
                       className="p-2 rounded w-full bg-white"
-                      disabled="true"
+                      
+                  value={order.billing_country}
+                  onChange={(e)=>{updateAddSingleOrder("billing_country",e.target.value)}}
                     >
-                      <option value={1} className="ng-star-inserted">
+                      <option value={1} >
                         Afghanistan
                       </option>
-                      <option value={2} className="ng-star-inserted">
+                      <option value={2} >
                         Albania
                       </option>
-                      <option value={3} className="ng-star-inserted">
+                      <option value={3} >
                         Algeria
                       </option>
-                      <option value={4} className="ng-star-inserted">
+                      <option value={4} >
                         American Samoa
                       </option>
-                      <option value={5} className="ng-star-inserted">
+                      <option value={5} >
                         Andorra
                       </option>
-                      <option value={6} className="ng-star-inserted">
+                      <option value={6} >
                         Angola
                       </option>
-                      <option value={7} className="ng-star-inserted">
+                      <option value={7} >
                         Anguilla
                       </option>
-                      <option value={8} className="ng-star-inserted">
+                      <option value={8} >
                         Antarctica
                       </option>
-                      <option value={9} className="ng-star-inserted">
+                      <option value={9} >
                         Antigua and Barbuda
                       </option>
-                      <option value={10} className="ng-star-inserted">
+                      <option value={10} >
                         Argentina
                       </option>
-                      <option value={11} className="ng-star-inserted">
+                      <option value={11} >
                         Armenia
                       </option>
-                      <option value={12} className="ng-star-inserted">
+                      <option value={12} >
                         Aruba
                       </option>
-                      <option value={13} className="ng-star-inserted">
+                      <option value={13} >
                         Australia
                       </option>
-                      <option value={14} className="ng-star-inserted">
+                      <option value={14} >
                         Austria
                       </option>
-                      <option value={15} className="ng-star-inserted">
+                      <option value={15} >
                         Azerbaijan
                       </option>
-                      <option value={16} className="ng-star-inserted">
+                      <option value={16} >
                         Bahamas
                       </option>
-                      <option value={17} className="ng-star-inserted">
+                      <option value={17} >
                         Bahrain
                       </option>
-                      <option value={18} className="ng-star-inserted">
+                      <option value={18} >
                         Bangladesh
                       </option>
-                      <option value={19} className="ng-star-inserted">
+                      <option value={19} >
                         Barbados
                       </option>
-                      <option value={20} className="ng-star-inserted">
+                      <option value={20} >
                         Belarus
                       </option>
-                      <option value={21} className="ng-star-inserted">
+                      <option value={21} >
                         Belgium
                       </option>
-                      <option value={22} className="ng-star-inserted">
+                      <option value={22} >
                         Belize
                       </option>
-                      <option value={23} className="ng-star-inserted">
+                      <option value={23} >
                         Benin
                       </option>
-                      <option value={24} className="ng-star-inserted">
+                      <option value={24} >
                         Bermuda
                       </option>
-                      <option value={25} className="ng-star-inserted">
+                      <option value={25} >
                         Bhutan
                       </option>
-                      <option value={26} className="ng-star-inserted">
+                      <option value={26} >
                         Bolivia
                       </option>
-                      <option value={27} className="ng-star-inserted">
+                      <option value={27} >
                         Bosnia and Herzegowina
                       </option>
-                      <option value={28} className="ng-star-inserted">
+                      <option value={28} >
                         Botswana
                       </option>
-                      <option value={29} className="ng-star-inserted">
+                      <option value={29} >
                         Bouvet Island
                       </option>
-                      <option value={30} className="ng-star-inserted">
+                      <option value={30} >
                         Brazil
                       </option>
-                      <option value={31} className="ng-star-inserted">
+                      <option value={31} >
                         British Indian Ocean Territory
                       </option>
-                      <option value={32} className="ng-star-inserted">
+                      <option value={32} >
                         Brunei Darussalam
                       </option>
-                      <option value={33} className="ng-star-inserted">
+                      <option value={33} >
                         Bulgaria
                       </option>
-                      <option value={34} className="ng-star-inserted">
+                      <option value={34} >
                         Burkina Faso
                       </option>
-                      <option value={35} className="ng-star-inserted">
+                      <option value={35} >
                         Burundi
                       </option>
-                      <option value={36} className="ng-star-inserted">
+                      <option value={36} >
                         Cambodia
                       </option>
-                      <option value={37} className="ng-star-inserted">
+                      <option value={37} >
                         Cameroon
                       </option>
-                      <option value={38} className="ng-star-inserted">
+                      <option value={38} >
                         Canada
                       </option>
-                      <option value={39} className="ng-star-inserted">
+                      <option value={39} >
                         Cape Verde
                       </option>
-                      <option value={40} className="ng-star-inserted">
+                      <option value={40} >
                         Cayman Islands
                       </option>
-                      <option value={41} className="ng-star-inserted">
+                      <option value={41} >
                         Central African Republic
                       </option>
-                      <option value={42} className="ng-star-inserted">
+                      <option value={42} >
                         Chad
                       </option>
-                      <option value={43} className="ng-star-inserted">
+                      <option value={43} >
                         Chile
                       </option>
-                      <option value={44} className="ng-star-inserted">
+                      <option value={44} >
                         China
                       </option>
-                      <option value={45} className="ng-star-inserted">
+                      <option value={45} >
                         Christmas Island
                       </option>
-                      <option value={46} className="ng-star-inserted">
+                      <option value={46} >
                         Cocos (Keeling) Islands
                       </option>
-                      <option value={47} className="ng-star-inserted">
+                      <option value={47} >
                         Colombia
                       </option>
-                      <option value={48} className="ng-star-inserted">
+                      <option value={48} >
                         Comoros
                       </option>
-                      <option value={49} className="ng-star-inserted">
+                      <option value={49} >
                         Congo
                       </option>
-                      <option value={50} className="ng-star-inserted">
+                      <option value={50} >
                         Cook Islands
                       </option>
-                      <option value={51} className="ng-star-inserted">
+                      <option value={51} >
                         Costa Rica
                       </option>
-                      <option value={52} className="ng-star-inserted">
+                      <option value={52} >
                         Cote D'Ivoire
                       </option>
-                      <option value={53} className="ng-star-inserted">
+                      <option value={53} >
                         Croatia
                       </option>
-                      <option value={54} className="ng-star-inserted">
+                      <option value={54} >
                         Cuba
                       </option>
-                      <option value={55} className="ng-star-inserted">
+                      <option value={55} >
                         Cyprus
                       </option>
-                      <option value={56} className="ng-star-inserted">
+                      <option value={56} >
                         Czech Republic
                       </option>
-                      <option value={57} className="ng-star-inserted">
+                      <option value={57} >
                         Denmark
                       </option>
-                      <option value={58} className="ng-star-inserted">
+                      <option value={58} >
                         Djibouti
                       </option>
-                      <option value={59} className="ng-star-inserted">
+                      <option value={59} >
                         Dominica
                       </option>
-                      <option value={60} className="ng-star-inserted">
+                      <option value={60} >
                         Dominican Republic
                       </option>
-                      <option value={61} className="ng-star-inserted">
+                      <option value={61} >
                         East Timor
                       </option>
-                      <option value={62} className="ng-star-inserted">
+                      <option value={62} >
                         Ecuador
                       </option>
-                      <option value={63} className="ng-star-inserted">
+                      <option value={63} >
                         Egypt
                       </option>
-                      <option value={64} className="ng-star-inserted">
+                      <option value={64} >
                         El Salvador
                       </option>
-                      <option value={65} className="ng-star-inserted">
+                      <option value={65} >
                         Equatorial Guinea
                       </option>
-                      <option value={66} className="ng-star-inserted">
+                      <option value={66} >
                         Eritrea
                       </option>
-                      <option value={67} className="ng-star-inserted">
+                      <option value={67} >
                         Estonia
                       </option>
-                      <option value={68} className="ng-star-inserted">
+                      <option value={68} >
                         Ethiopia
                       </option>
-                      <option value={69} className="ng-star-inserted">
+                      <option value={69} >
                         Falkland Islands (Malvinas)
                       </option>
-                      <option value={70} className="ng-star-inserted">
+                      <option value={70} >
                         Faroe Islands
                       </option>
-                      <option value={71} className="ng-star-inserted">
+                      <option value={71} >
                         Fiji
                       </option>
-                      <option value={72} className="ng-star-inserted">
+                      <option value={72} >
                         Finland
                       </option>
-                      <option value={73} className="ng-star-inserted">
+                      <option value={73} >
                         France
                       </option>
-                      <option value={74} className="ng-star-inserted">
+                      <option value={74} >
                         France, Metropolitan
                       </option>
-                      <option value={75} className="ng-star-inserted">
+                      <option value={75} >
                         French Guiana
                       </option>
-                      <option value={76} className="ng-star-inserted">
+                      <option value={76} >
                         French Polynesia
                       </option>
-                      <option value={77} className="ng-star-inserted">
+                      <option value={77} >
                         French Southern Territories
                       </option>
-                      <option value={78} className="ng-star-inserted">
+                      <option value={78} >
                         Gabon
                       </option>
-                      <option value={79} className="ng-star-inserted">
+                      <option value={79} >
                         Gambia
                       </option>
-                      <option value={80} className="ng-star-inserted">
+                      <option value={80} >
                         Georgia
                       </option>
-                      <option value={81} className="ng-star-inserted">
+                      <option value={81} >
                         Germany
                       </option>
-                      <option value={82} className="ng-star-inserted">
+                      <option value={82} >
                         Ghana
                       </option>
-                      <option value={83} className="ng-star-inserted">
+                      <option value={83} >
                         Gibraltar
                       </option>
-                      <option value={84} className="ng-star-inserted">
+                      <option value={84} >
                         Greece
                       </option>
-                      <option value={85} className="ng-star-inserted">
+                      <option value={85} >
                         Greenland
                       </option>
-                      <option value={86} className="ng-star-inserted">
+                      <option value={86} >
                         Grenada
                       </option>
-                      <option value={87} className="ng-star-inserted">
+                      <option value={87} >
                         Guadeloupe
                       </option>
-                      <option value={88} className="ng-star-inserted">
+                      <option value={88} >
                         Guam
                       </option>
-                      <option value={89} className="ng-star-inserted">
+                      <option value={89} >
                         Guatemala
                       </option>
-                      <option value={90} className="ng-star-inserted">
+                      <option value={90} >
                         Guinea
                       </option>
-                      <option value={91} className="ng-star-inserted">
+                      <option value={91} >
                         Guinea-bissau
                       </option>
-                      <option value={92} className="ng-star-inserted">
+                      <option value={92} >
                         Guyana
                       </option>
-                      <option value={93} className="ng-star-inserted">
+                      <option value={93} >
                         Haiti
                       </option>
-                      <option value={94} className="ng-star-inserted">
+                      <option value={94} >
                         Heard and Mc Donald Islands
                       </option>
-                      <option value={95} className="ng-star-inserted">
+                      <option value={95} >
                         Honduras
                       </option>
-                      <option value={96} className="ng-star-inserted">
+                      <option value={96} >
                         Hong Kong
                       </option>
-                      <option value={97} className="ng-star-inserted">
+                      <option value={97} >
                         Hungary
                       </option>
-                      <option value={98} className="ng-star-inserted">
+                      <option value={98} >
                         Iceland
                       </option>
-                      <option value={99} className="ng-star-inserted">
+                      <option value={99} >
                         India
                       </option>
-                      <option value={100} className="ng-star-inserted">
+                      <option value={100} >
                         Indonesia
                       </option>
-                      <option value={101} className="ng-star-inserted">
+                      <option value={101} >
                         Iran (Islamic Republic of)
                       </option>
-                      <option value={102} className="ng-star-inserted">
+                      <option value={102} >
                         Iraq
                       </option>
-                      <option value={103} className="ng-star-inserted">
+                      <option value={103} >
                         Ireland
                       </option>
-                      <option value={104} className="ng-star-inserted">
+                      <option value={104} >
                         Israel
                       </option>
-                      <option value={105} className="ng-star-inserted">
+                      <option value={105} >
                         Italy
                       </option>
-                      <option value={106} className="ng-star-inserted">
+                      <option value={106} >
                         Jamaica
                       </option>
-                      <option value={107} className="ng-star-inserted">
+                      <option value={107} >
                         Japan
                       </option>
-                      <option value={108} className="ng-star-inserted">
+                      <option value={108} >
                         Jordan
                       </option>
-                      <option value={109} className="ng-star-inserted">
+                      <option value={109} >
                         Kazakhstan
                       </option>
-                      <option value={110} className="ng-star-inserted">
+                      <option value={110} >
                         Kenya
                       </option>
-                      <option value={111} className="ng-star-inserted">
+                      <option value={111} >
                         Kiribati
                       </option>
-                      <option value={112} className="ng-star-inserted">
+                      <option value={112} >
                         North Korea
                       </option>
-                      <option value={113} className="ng-star-inserted">
+                      <option value={113} >
                         South Korea
                       </option>
-                      <option value={114} className="ng-star-inserted">
+                      <option value={114} >
                         Kuwait
                       </option>
-                      <option value={115} className="ng-star-inserted">
+                      <option value={115} >
                         Kyrgyzstan
                       </option>
-                      <option value={116} className="ng-star-inserted">
+                      <option value={116} >
                         Lao People's Democratic Republic
                       </option>
-                      <option value={117} className="ng-star-inserted">
+                      <option value={117} >
                         Latvia
                       </option>
-                      <option value={118} className="ng-star-inserted">
+                      <option value={118} >
                         Lebanon
                       </option>
-                      <option value={119} className="ng-star-inserted">
+                      <option value={119} >
                         Lesotho
                       </option>
-                      <option value={120} className="ng-star-inserted">
+                      <option value={120} >
                         Liberia
                       </option>
-                      <option value={121} className="ng-star-inserted">
+                      <option value={121} >
                         Libyan Arab Jamahiriya
                       </option>
-                      <option value={122} className="ng-star-inserted">
+                      <option value={122} >
                         Liechtenstein
                       </option>
-                      <option value={123} className="ng-star-inserted">
+                      <option value={123} >
                         Lithuania
                       </option>
-                      <option value={124} className="ng-star-inserted">
+                      <option value={124} >
                         Luxembourg
                       </option>
-                      <option value={125} className="ng-star-inserted">
+                      <option value={125} >
                         Macau
                       </option>
-                      <option value={126} className="ng-star-inserted">
+                      <option value={126} >
                         Macedonia
                       </option>
-                      <option value={127} className="ng-star-inserted">
+                      <option value={127} >
                         Madagascar
                       </option>
-                      <option value={128} className="ng-star-inserted">
+                      <option value={128} >
                         Malawi
                       </option>
-                      <option value={129} className="ng-star-inserted">
+                      <option value={129} >
                         Malaysia
                       </option>
-                      <option value={130} className="ng-star-inserted">
+                      <option value={130} >
                         Maldives
                       </option>
-                      <option value={131} className="ng-star-inserted">
+                      <option value={131} >
                         Mali
                       </option>
-                      <option value={132} className="ng-star-inserted">
+                      <option value={132} >
                         Malta
                       </option>
-                      <option value={133} className="ng-star-inserted">
+                      <option value={133} >
                         Marshall Islands
                       </option>
-                      <option value={134} className="ng-star-inserted">
+                      <option value={134} >
                         Martinique
                       </option>
-                      <option value={135} className="ng-star-inserted">
+                      <option value={135} >
                         Mauritania
                       </option>
-                      <option value={136} className="ng-star-inserted">
+                      <option value={136} >
                         Mauritius
                       </option>
-                      <option value={137} className="ng-star-inserted">
+                      <option value={137} >
                         Mayotte
                       </option>
-                      <option value={138} className="ng-star-inserted">
+                      <option value={138} >
                         Mexico
                       </option>
-                      <option value={139} className="ng-star-inserted">
+                      <option value={139} >
                         Micronesia, Federated States of
                       </option>
-                      <option value={140} className="ng-star-inserted">
+                      <option value={140} >
                         Moldova, Republic of
                       </option>
-                      <option value={141} className="ng-star-inserted">
+                      <option value={141} >
                         Monaco
                       </option>
-                      <option value={142} className="ng-star-inserted">
+                      <option value={142} >
                         Mongolia
                       </option>
-                      <option value={143} className="ng-star-inserted">
+                      <option value={143} >
                         Montserrat
                       </option>
-                      <option value={144} className="ng-star-inserted">
+                      <option value={144} >
                         Morocco
                       </option>
-                      <option value={145} className="ng-star-inserted">
+                      <option value={145} >
                         Mozambique
                       </option>
-                      <option value={146} className="ng-star-inserted">
+                      <option value={146} >
                         Myanmar
                       </option>
-                      <option value={147} className="ng-star-inserted">
+                      <option value={147} >
                         Namibia
                       </option>
-                      <option value={148} className="ng-star-inserted">
+                      <option value={148} >
                         Nauru
                       </option>
-                      <option value={149} className="ng-star-inserted">
+                      <option value={149} >
                         Nepal
                       </option>
-                      <option value={150} className="ng-star-inserted">
+                      <option value={150} >
                         Netherlands
                       </option>
-                      <option value={151} className="ng-star-inserted">
+                      <option value={151} >
                         Netherlands Antilles
                       </option>
-                      <option value={152} className="ng-star-inserted">
+                      <option value={152} >
                         New Caledonia
                       </option>
-                      <option value={153} className="ng-star-inserted">
+                      <option value={153} >
                         New Zealand
                       </option>
-                      <option value={154} className="ng-star-inserted">
+                      <option value={154} >
                         Nicaragua
                       </option>
-                      <option value={155} className="ng-star-inserted">
+                      <option value={155} >
                         Niger
                       </option>
-                      <option value={156} className="ng-star-inserted">
+                      <option value={156} >
                         Nigeria
                       </option>
-                      <option value={157} className="ng-star-inserted">
+                      <option value={157} >
                         Niue
                       </option>
-                      <option value={158} className="ng-star-inserted">
+                      <option value={158} >
                         Norfolk Island
                       </option>
-                      <option value={159} className="ng-star-inserted">
+                      <option value={159} >
                         Northern Mariana Islands
                       </option>
-                      <option value={160} className="ng-star-inserted">
+                      <option value={160} >
                         Norway
                       </option>
-                      <option value={161} className="ng-star-inserted">
+                      <option value={161} >
                         Oman
                       </option>
-                      <option value={162} className="ng-star-inserted">
+                      <option value={162} >
                         Pakistan
                       </option>
-                      <option value={163} className="ng-star-inserted">
+                      <option value={163} >
                         Palau
                       </option>
-                      <option value={164} className="ng-star-inserted">
+                      <option value={164} >
                         Panama
                       </option>
-                      <option value={165} className="ng-star-inserted">
+                      <option value={165} >
                         Papua New Guinea
                       </option>
-                      <option value={166} className="ng-star-inserted">
+                      <option value={166} >
                         Paraguay
                       </option>
-                      <option value={167} className="ng-star-inserted">
+                      <option value={167} >
                         Peru
                       </option>
-                      <option value={168} className="ng-star-inserted">
+                      <option value={168} >
                         Philippines
                       </option>
-                      <option value={169} className="ng-star-inserted">
+                      <option value={169} >
                         Pitcairn
                       </option>
-                      <option value={170} className="ng-star-inserted">
+                      <option value={170} >
                         Poland
                       </option>
-                      <option value={171} className="ng-star-inserted">
+                      <option value={171} >
                         Portugal
                       </option>
-                      <option value={172} className="ng-star-inserted">
+                      <option value={172} >
                         Puerto Rico
                       </option>
-                      <option value={173} className="ng-star-inserted">
+                      <option value={173} >
                         Qatar
                       </option>
-                      <option value={174} className="ng-star-inserted">
+                      <option value={174} >
                         Reunion
                       </option>
-                      <option value={175} className="ng-star-inserted">
+                      <option value={175} >
                         Romania
                       </option>
-                      <option value={176} className="ng-star-inserted">
+                      <option value={176} >
                         Russian Federation
                       </option>
-                      <option value={177} className="ng-star-inserted">
+                      <option value={177} >
                         Rwanda
                       </option>
-                      <option value={178} className="ng-star-inserted">
+                      <option value={178} >
                         Saint Kitts and Nevis
                       </option>
-                      <option value={179} className="ng-star-inserted">
+                      <option value={179} >
                         Saint Lucia
                       </option>
-                      <option value={180} className="ng-star-inserted">
+                      <option value={180} >
                         Saint Vincent and the Grenadines
                       </option>
-                      <option value={181} className="ng-star-inserted">
+                      <option value={181} >
                         Samoa
                       </option>
-                      <option value={182} className="ng-star-inserted">
+                      <option value={182} >
                         San Marino
                       </option>
-                      <option value={183} className="ng-star-inserted">
+                      <option value={183} >
                         Sao Tome and Principe
                       </option>
-                      <option value={184} className="ng-star-inserted">
+                      <option value={184} >
                         Saudi Arabia
                       </option>
-                      <option value={185} className="ng-star-inserted">
+                      <option value={185} >
                         Senegal
                       </option>
-                      <option value={186} className="ng-star-inserted">
+                      <option value={186} >
                         Seychelles
                       </option>
-                      <option value={187} className="ng-star-inserted">
+                      <option value={187} >
                         Sierra Leone
                       </option>
-                      <option value={188} className="ng-star-inserted">
+                      <option value={188} >
                         Singapore
                       </option>
-                      <option value={189} className="ng-star-inserted">
+                      <option value={189} >
                         Slovak Republic
                       </option>
-                      <option value={190} className="ng-star-inserted">
+                      <option value={190} >
                         Slovenia
                       </option>
-                      <option value={191} className="ng-star-inserted">
+                      <option value={191} >
                         Solomon Islands
                       </option>
-                      <option value={192} className="ng-star-inserted">
+                      <option value={192} >
                         Somalia
                       </option>
-                      <option value={193} className="ng-star-inserted">
+                      <option value={193} >
                         South Africa
                       </option>
-                      <option value={194} className="ng-star-inserted">
+                      <option value={194} >
                         South Georgia &amp;amp; South Sandwich Islands
                       </option>
-                      <option value={195} className="ng-star-inserted">
+                      <option value={195} >
                         Spain
                       </option>
-                      <option value={196} className="ng-star-inserted">
+                      <option value={196} >
                         Sri Lanka
                       </option>
-                      <option value={197} className="ng-star-inserted">
+                      <option value={197} >
                         St. Helena
                       </option>
-                      <option value={198} className="ng-star-inserted">
+                      <option value={198} >
                         St. Pierre and Miquelon
                       </option>
-                      <option value={199} className="ng-star-inserted">
+                      <option value={199} >
                         Sudan
                       </option>
-                      <option value={200} className="ng-star-inserted">
+                      <option value={200} >
                         Suriname
                       </option>
-                      <option value={201} className="ng-star-inserted">
+                      <option value={201} >
                         Svalbard and Jan Mayen Islands
                       </option>
-                      <option value={202} className="ng-star-inserted">
+                      <option value={202} >
                         Swaziland
                       </option>
-                      <option value={203} className="ng-star-inserted">
+                      <option value={203} >
                         Sweden
                       </option>
-                      <option value={204} className="ng-star-inserted">
+                      <option value={204} >
                         Switzerland
                       </option>
-                      <option value={205} className="ng-star-inserted">
+                      <option value={205} >
                         Syrian Arab Republic
                       </option>
-                      <option value={206} className="ng-star-inserted">
+                      <option value={206} >
                         Taiwan
                       </option>
-                      <option value={207} className="ng-star-inserted">
+                      <option value={207} >
                         Tajikistan
                       </option>
-                      <option value={208} className="ng-star-inserted">
+                      <option value={208} >
                         Tanzania, United Republic of
                       </option>
-                      <option value={209} className="ng-star-inserted">
+                      <option value={209} >
                         Thailand
                       </option>
-                      <option value={210} className="ng-star-inserted">
+                      <option value={210} >
                         Togo
                       </option>
-                      <option value={211} className="ng-star-inserted">
+                      <option value={211} >
                         Tokelau
                       </option>
-                      <option value={212} className="ng-star-inserted">
+                      <option value={212} >
                         Tonga
                       </option>
-                      <option value={213} className="ng-star-inserted">
+                      <option value={213} >
                         Trinidad and Tobago
                       </option>
-                      <option value={214} className="ng-star-inserted">
+                      <option value={214} >
                         Tunisia
                       </option>
-                      <option value={215} className="ng-star-inserted">
+                      <option value={215} >
                         Turkey
                       </option>
-                      <option value={216} className="ng-star-inserted">
+                      <option value={216} >
                         Turkmenistan
                       </option>
-                      <option value={217} className="ng-star-inserted">
+                      <option value={217} >
                         Turks and Caicos Islands
                       </option>
-                      <option value={218} className="ng-star-inserted">
+                      <option value={218} >
                         Tuvalu
                       </option>
-                      <option value={219} className="ng-star-inserted">
+                      <option value={219} >
                         Uganda
                       </option>
-                      <option value={220} className="ng-star-inserted">
+                      <option value={220} >
                         Ukraine
                       </option>
-                      <option value={221} className="ng-star-inserted">
+                      <option value={221} >
                         United Arab Emirates
                       </option>
-                      <option value={222} className="ng-star-inserted">
+                      <option value={222} >
                         United Kingdom
                       </option>
-                      <option value={223} className="ng-star-inserted">
+                      <option value={223} >
                         United States
                       </option>
-                      <option value={224} className="ng-star-inserted">
+                      <option value={224} >
                         United States Minor Outlying Islands
                       </option>
-                      <option value={225} className="ng-star-inserted">
+                      <option value={225} >
                         Uruguay
                       </option>
-                      <option value={226} className="ng-star-inserted">
+                      <option value={226} >
                         Uzbekistan
                       </option>
-                      <option value={227} className="ng-star-inserted">
+                      <option value={227} >
                         Vanuatu
                       </option>
-                      <option value={228} className="ng-star-inserted">
+                      <option value={228} >
                         Vatican City State (Holy See)
                       </option>
-                      <option value={229} className="ng-star-inserted">
+                      <option value={229} >
                         Venezuela
                       </option>
-                      <option value={230} className="ng-star-inserted">
+                      <option value={230} >
                         Viet Nam
                       </option>
-                      <option value={231} className="ng-star-inserted">
+                      <option value={231} >
                         Virgin Islands (British)
                       </option>
-                      <option value={232} className="ng-star-inserted">
+                      <option value={232} >
                         Virgin Islands (U.S.)
                       </option>
-                      <option value={233} className="ng-star-inserted">
+                      <option value={233} >
                         Wallis and Futuna Islands
                       </option>
-                      <option value={234} className="ng-star-inserted">
+                      <option value={234} >
                         Western Sahara
                       </option>
-                      <option value={235} className="ng-star-inserted">
+                      <option value={235} >
                         Yemen
                       </option>
-                      <option value={236} className="ng-star-inserted">
+                      <option value={236} >
                         Yugoslavia
                       </option>
-                      <option value={237} className="ng-star-inserted">
+                      <option value={237} >
                         Democratic Republic of Congo
                       </option>
-                      <option value={238} className="ng-star-inserted">
+                      <option value={238} >
                         Zambia
                       </option>
-                      <option value={239} className="ng-star-inserted">
+                      <option value={239} >
                         Zimbabwe
                       </option>
-                      <option value={240} className="ng-star-inserted">
+                      <option value={240} >
                         Aland Islands
                       </option>
-                      <option value={241} className="ng-star-inserted">
+                      <option value={241} >
                         St Barthelemy
                       </option>
-                      <option value={242} className="ng-star-inserted">
+                      <option value={242} >
                         Guernsey
                       </option>
-                      <option value={243} className="ng-star-inserted">
+                      <option value={243} >
                         Isle of Man
                       </option>
-                      <option value={244} className="ng-star-inserted">
+                      <option value={244} >
                         Jersey
                       </option>
-                      <option value={245} className="ng-star-inserted">
+                      <option value={245} >
                         Montenegro
                       </option>
-                      <option value={246} className="ng-star-inserted">
+                      <option value={246} >
                         St Martin (French part)
                       </option>
-                      <option value={247} className="ng-star-inserted">
+                      <option value={247} >
                         Serbia
                       </option>
-                      <option value={248} className="ng-star-inserted">
+                      <option value={248} >
                         South Sudan
                       </option>
                     </select>
