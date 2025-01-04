@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
+import { useAddSingleOrder } from '../../hooks/AddSIngleOrderContext'
 const PickupDetails = () => {
   const [showRtoSupplier,setShowRtoSupplier] = useState(false);
+  const {order,updateAddSingleOrder} = useAddSingleOrder();
   return (
     <>
       <div className="addletterspacing ng-star-inserted">
@@ -117,6 +119,8 @@ const PickupDetails = () => {
                   onkeypress="if(this.value.length==10) return false;"
                   oninput="this.value=this.value.replace(/[^0-9]/g,'')"
                   className="form-control plcholdercolor ng-untouched ng-pristine ng-invalid"
+                  value={order.pickup_phone}
+                  onChange={(e)=>{updateAddSingleOrder("pickup_phone",e.target.value)}}
                 />
               </div>
               <div className="col-md-3">
@@ -126,6 +130,8 @@ const PickupDetails = () => {
                   placeholder="i.e acd@gmail.com"
                   formcontrolname="email"
                   className="form-control plcholdercolor ng-untouched ng-pristine ng-invalid"
+                  value={order.pickup_email}
+                  onChange={(e)=>{updateAddSingleOrder("pickup_email",e.target.value)}}
                 />
               </div>
               <div className="col-md-3">
@@ -168,6 +174,8 @@ const PickupDetails = () => {
                   placeholder="House/Floor No., Building Name or Street, Locality  "
                   formcontrolname="address"
                   className="form-control plcholdercolor ng-untouched ng-pristine ng-invalid"
+                  value={order.pickup_address}
+                  onChange={(e)=>{updateAddSingleOrder("pickup_address",e.target.value)}}
                 />
               </div>
               <div className="col-md-6 my-2">
@@ -188,6 +196,8 @@ const PickupDetails = () => {
                   onkeypress="if(this.value.length==6) return false;"
                   oninput="this.value=this.value.replace(/[^0-9]/g,'')"
                   className="form-control plcholdercolor ng-untouched ng-pristine ng-invalid"
+                  value={order.pickup_pincode}
+                  onChange={(e)=>{updateAddSingleOrder("pickup_pincode",e.target.value)}}
                 />
               </div>
               <div className="col-md-3  my-2">
@@ -198,6 +208,8 @@ const PickupDetails = () => {
                   formcontrolname="city"
                   className="form-control plcholdercolor custom_input_bg_color ng-untouched ng-pristine ng-invalid"
                   readOnly=""
+                  value={order.pickup_city}
+                  onChange={(e)=>{updateAddSingleOrder("pickup_city",e.target.value)}}
                 />
               </div>
               <div className="col-md-3 my-2">
@@ -208,6 +220,8 @@ const PickupDetails = () => {
                   formcontrolname="state"
                   className="form-control plcholdercolor custom_input_bg_color ng-untouched ng-pristine ng-invalid"
                   readOnly=""
+                  value={order.pickup_state}
+                  onChange={(e)=>{updateAddSingleOrder("pickup_state",e.target.value)}}
                 />
               </div>
               <div className="col-md-3 my-2">
@@ -218,6 +232,8 @@ const PickupDetails = () => {
                   formcontrolname="country"
                   className="form-control plcholdercolor custom_input_bg_color ng-untouched ng-pristine ng-valid"
                   readOnly=""
+                  value={order.pickup_country}
+                  onChange={(e)=>{updateAddSingleOrder("pickup_country",e.target.value)}}
                 />
               </div>
             </div>

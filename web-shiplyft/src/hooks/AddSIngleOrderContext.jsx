@@ -18,7 +18,7 @@ export const AddSingleOrderProvider = ({ children }) => {
     "billing_address": "Billing address",
     "billing_address_2": "Billing address 2",
     "billing_city": "Kangra",
-    "billing_state": "Himachal",
+    "billing_state": "Himachal Pradesh",
     "billing_country": "India",
     "billing_pincode": "177034",
     "billing_email": "rakesh@gmail.com",
